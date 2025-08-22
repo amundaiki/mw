@@ -1,158 +1,385 @@
 {
-  "report_generated": "[dagens dato og klokkeslett, format: '22. august 2025, 14:30']",
-  "total_pages": "[totalt antall sider i rapporten, vanligvis 8-15]",
-  
-  "// SUMMARY METRICS",
-  "immediate_opportunities_count": "[antall critical companies, vanligvis 3-7]",
-  "total_companies": "[totalt antall bedrifter analysert, vanligvis 80-120]",
-  "high_priority_leads": "[antall bedrifter med høy prioritet, vanligvis 5-10]",
-  "total_capital_millions": "[total kapital mobilisert i millioner NOK, vanligvis 200-800]",
+  "report_generated": "20. august 2025, 12:43",
+  "total_pages": 11,
+  "immediate_opportunities_count": 7,
+  "total_companies": 99,
+  "high_priority_leads": 7,
+  "total_capital_millions": 420,
   "capital_suffix": " MNOK",
-  
-  "// KEY FINDINGS - MAKSIMALT 3 INNSIKTER",
   "key_findings": [
     {
       "number": 1,
-      "priority_class": "critical", // eller "high", "medium"
-      "text": "[150-250 ord] Konkret insight om markedstrend eller spesifikk bedrift som representerer stor mulighet for SONAT. Inkluder: selskapsnavn, størrelse (ansatte), finansiell situasjon, tekniske behov og hvorfor dette er perfekt timing for SONAT."
+      "priority_class": "critical",
+      "text": "Odfjell Drilling med 2300+ ansatte viser sterk vekst og økt utbytte - signaliserer behov for digitalisering av boreoperasjoner og AI-drevet optimalisering. Perfekt timing for enterprise DevOps-konsultasjon."
     },
     {
       "number": 2,
       "priority_class": "critical",
-      "text": "[150-250 ord] Annen viktig markedsmulighet med fokus på teknologi-behov som matcher SONATs kompetanse."
+      "text": "Norse Atlantic henter 306M NOK for refinansiering og ekspansjon. Med 500 ansatte og første positive driftsresultat krever de skalerbare cloud-løsninger og dataanalyse."
     },
     {
       "number": 3,
       "priority_class": "high",
-      "text": "[150-250 ord] Tredje viktigste innsikt, kan være bransjetrend eller LinkedIn-aktivitet som indikerer behov."
+      "text": "TV 2's massive valgprosjekt involverer hele teknologistaben - utviklere, designere og AI-team. Kritisk behov for skalerbar streaming-infrastruktur og dataanalyse."
     }
   ],
-  
-  "// CRITICAL COMPANIES - UMIDDELBARE MULIGHETER (3-6 selskaper)",
   "critical_companies": [
     {
-      "name": "[Selskapsnavn]",
-      "sector": "[Bransje i STORE BOKSTAVER, f.eks. OLJE & GASS, TEKNOLOGI, MARITIM, MEDIA]",
-      "employee_count": "[antall ansatte som tall]",
-      "location": "[by]",
-      
-      "event_type": "[FUNDING/EKSPANSJON/HIRING/PRODUKTLANSERING/IPO]",
-      "event_description": "[200-300 ord] Detaljert beskrivelse av hendelsen som gjør bedriften interessant. Inkluder finansielle tall, vekst-indikatorer og signaler om teknologiske behov.",
-      
-      "// KONTAKTINFORMASJON",
-      "ceo_name": "[CEO navn]",
-      "ceo_linkedin_url": "[LinkedIn URL hvis tilgjengelig, ellers null]",
-      "email": "[hovedepost eller 'post@selskap.com']",
-      "phone": "[telefonnummer med +47]",
-      "website": "[domenenavn uten https://]",
-      "website_url": "[full URL med https://]",
-      
-      "// FINANSIELL INFO",
-      "funding_amount_nok": "[beløp] NOK", // eller "N/A" hvis ikke relevant
-      "investors": "[investorer eller 'Ikke tilgjengelig']",
-      "funding_round": "[type runde eller 'Operational']",
-      "source_name": "[kildenavn, f.eks. E24, DN, LinkedIn]",
-      "source_url": "[URL til kilde eller null]",
-      
-      "// SONAT-MATCHING",
-      "technical_needs": "[200-250 ord] Spesifikke tekniske behov som matcher SONATs tjenester: cloud-migrering, AI/ML, systemutvikling, digitalisering, automatisering, dataanalyse, osv.",
-      
-      "growth_indicators": "[150-200 ord] Konkrete vekstsignaler: ansettelser, nye kontorer, produktlanseringer, markedsekspansjon, teknisk team utvidelse.",
-      
-      "sonat_relevance": "[250-300 ord] Strategisk analyse av hvorfor dette er perfekt match for SONAT. Inkluder: 1) Teknisk matching (AI/ML, stack overlap), 2) Bransjerelevans, 3) Geografisk nærhet, 4) Prosjektstørrelse som matcher SONATs kapasitet.",
-      
-      "relevance_tags": ["[5-8 korte tags som 'Cloud Migration', 'AI/ML', 'DevOps', 'IoT', 'Big Data']"]
+      "name": "Odfjell Drilling AS",
+      "sector": "OLJE & GASS",
+      "employee_count": 2300,
+      "location": "Bergen",
+      "event_type": "FUNDING",
+      "event_description": "Kraftig kursoppgang etter sterke kvartalsresultater. Øker utbytte for tredje kvartal på rad til 18 cent per aksje. Totalt 43,2 millioner dollar i utbytte signaliserer robust finansiell posisjon og investeringskapasitet for digital transformasjon.",
+      "ceo_name": "Diane Stephen",
+      "email": "post@odfjell.com",
+      "phone": "+47 55 27 47 36",
+      "website": "www.odfjell.com",
+      "website_url": "https://www.odfjell.com",
+      "funding_amount_nok": "440M NOK",
+      "investors": "Oslo Børs notert",
+      "funding_round": "Utbytte",
+      "source_name": "DN/E24",
+      "source_url": "https://e24.no/",
+      "technical_needs": "Digital transformasjon av boreoperasjoner, AI-basert prediktivt vedlikehold, cloud-migrering, IoT-sensorer, real-time dataanalyse",
+      "growth_indicators": "Tredje kvartals utbytteøkning på rad, 15% aksjekursoppgang, sterke kvartalsresultater, ekspansjon internasjonalt",
+      "sonat_relevance": "Perfekt match for SONATs enterprise DevOps og cloud-ekspertise. Odfjells størrelse og kapitalkraft gjør dem til ideell kunde for omfattende digitaliseringsprosjekter.",
+      "relevance_tags": ["Cloud Migration", "AI/ML", "DevOps", "IoT", "Big Data"]
+    },
+    {
+      "name": "Norse Atlantic Airways ASA",
+      "sector": "LUFTFART",
+      "employee_count": 500,
+      "location": "Arendal",
+      "event_type": "FUNDING",
+      "event_description": "Første positive driftsresultat på 45M NOK. Refinansierer gjeld med 306M NOK obligasjon. 97% kabinfaktor og 36% passasjervekst indikerer sterk operasjonell forbedring.",
+      "ceo_name": "Bjørn Tore Larsen",
+      "email": "post@flynorse.com",
+      "phone": "+47 21 94 00 00",
+      "website": "www.flynorse.com",
+      "website_url": "https://www.flynorse.com",
+      "funding_amount_nok": "306M NOK",
+      "investors": "Obligasjonsmarkedet",
+      "funding_round": "Debt Refinancing",
+      "source_name": "E24",
+      "source_url": "https://e24.no/",
+      "technical_needs": "Ruteoptimalisering med AI, prediktiv analyse for prising, cloud-basert booking-system, automatisert drift, dataanalyse-plattform",
+      "growth_indicators": "Første positive driftsresultat, 36% passasjervekst, 27% inntektsøkning, ekspansjon til Asia",
+      "sonat_relevance": "Norse's overgang til lønnsomhet krever skalerbare tech-løsninger. SONAT kan levere kritisk infrastruktur for videre vekst.",
+      "relevance_tags": ["Cloud", "AI Pricing", "Data Analytics", "Automation", "Scalability"]
+    },
+    {
+      "name": "TV 2 AS",
+      "sector": "MEDIA & TEKNOLOGI",
+      "employee_count": 1100,
+      "location": "Bergen",
+      "event_type": "EKSPANSJON",
+      "event_description": "Massiv mobilisering for valgdekning involverer hele teknologistaben. Lanserer TikTok-rettet innhold og gratis streaming. Kritisk behov for skalerbar infrastruktur.",
+      "ceo_name": "Olav T. Sandnes",
+      "email": "kundeservice@tv2.no",
+      "phone": "+47 55 90 80 80",
+      "website": "www.tv2.no",
+      "website_url": "https://www.tv2.no",
+      "funding_amount_nok": "N/A",
+      "investors": "Egmont Group",
+      "funding_round": "Operational",
+      "source_name": "LinkedIn",
+      "source_url": "https://linkedin.com/company/tv-2",
+      "technical_needs": "Streaming-infrastruktur, content delivery networks, real-time analytics, AI-drevet personalisering, cloud skalering",
+      "growth_indicators": "Gratis streaming-lansering, ny TikTok-plattform, massive investeringer i digital infrastruktur",
+      "sonat_relevance": "TV 2's digitale transformasjon og streaming-satsing matcher perfekt SONATs kompetanse innen skalerbar cloud-arkitektur.",
+      "relevance_tags": ["Streaming", "CDN", "Cloud Scale", "Real-time", "Media Tech"]
+    },
+    {
+      "name": "Tidal (X Development)",
+      "sector": "HAVBRUKSTEKNOLOGI",
+      "employee_count": 85,
+      "location": "Bergen",
+      "event_type": "PRODUKTLANSERING",
+      "event_description": "Lanserer AI-drevet lusekontroll og autonom fôringsteknologi. 550 millioner fiskobservasjoner fra 100 lokaliteter gir unik dataposisjon i markedet.",
+      "ceo_name": "Anders Fossøy",
+      "email": "contact@tidal.com",
+      "phone": "+47 400 00 000",
+      "website": "www.tidal.com",
+      "website_url": "https://www.tidal.com",
+      "funding_amount_nok": "N/A",
+      "investors": "Alphabet (Google)",
+      "funding_round": "Corporate",
+      "source_name": "LinkedIn",
+      "source_url": "https://linkedin.com/company/tidal",
+      "technical_needs": "Machine learning pipelines, computer vision, edge computing, IoT-integrasjon, big data processing",
+      "growth_indicators": "550M observasjoner, 100 sites, ny AI-produkt lansering, Aqua Nor deltakelse",
+      "sonat_relevance": "Tidals AI-fokus og massive datamengder krever avansert ML-ekspertise som SONAT kan levere.",
+      "relevance_tags": ["AI/ML", "Computer Vision", "IoT", "Edge Computing", "Big Data"]
     }
   ],
-  
-  "// QUALIFIED PROSPECTS - ORGANISERT I CHUNKS PÅ 2-3 PER SIDE",
   "qualified_chunks": [
     [
       {
-        "name": "[Selskapsnavn]",
-        "employee_count": "[antall ansatte]",
-        "location": "[by]",
-        "sector": "[BRANSJE]",
-        "website_url": "[URL eller null]",
-        
-        "opportunity_description": "[200-250 ord] Konkret business case for SONAT. Beskriv tekniske utfordringer, timing, potensial prosjektverdi og hvorfor SONAT er riktig leverandør.",
-        
-        "event_type": "[hendelsestype]",
-        "event_description": "[100-150 ord kort beskrivelse]",
-        "source_name": "[kilde]",
-        "source_url": "[URL eller null]",
-        
-        "sonat_opportunity": "[150-200 ord] Spesifikk salgsmulighet for SONAT med foreslått approach og timeline."
+        "name": "Scatec ASA",
+        "employee_count": 430,
+        "location": "Oslo",
+        "sector": "FORNYBAR ENERGI",
+        "website_url": "https://www.scatec.com",
+        "opportunity_description": "Brutto driftsresultat på 1,13 mrd NOK i Q2. Ekspansjon globalt krever optimalisering av energiproduksjon med AI og dataanalyse. 940 GWh kraftproduksjon fra sol, vann og vind.",
+        "event_type": "VEKST",
+        "event_description": "Sterke kvartalsresultater med økt EBITDA",
+        "source_name": "E24",
+        "source_url": "https://e24.no/",
+        "sonat_opportunity": "Scatecs globale portefølje krever avansert dataanalyse og AI for produksjonsoptimalisering. SONAT kan levere prediktive modeller og cloud-løsninger."
+      },
+      {
+        "name": "Mintra AS",
+        "employee_count": 340,
+        "location": "Bergen",
+        "sector": "EDTECH/MARITIME",
+        "website_url": "https://www.mintra.com",
+        "opportunity_description": "252 maritime eLearning-kurs og digital HR-plattform. Deltar på SPE Offshore Europe. Ekspanderer internasjonalt med fokus på compliance og sikkerhetstrening.",
+        "sonat_opportunity": "Mintras e-learning plattform kan forbedres med AI-personalisering og predictive analytics for kompetanseutvikling."
+      }
+    ],
+    [
+      {
+        "name": "Norwegian Electric Systems",
+        "employee_count": 280,
+        "location": "Bergen",
+        "sector": "MARITIM TEKNOLOGI",
+        "website_url": "https://www.norwegian-electric.com",
+        "opportunity_description": "Leverer Raven INS navigasjonssystem til tre nye ferger. Første standalone bridge-system viser teknologisk modning og markedspotensial.",
+        "sonat_opportunity": "NES' integrerte systemer krever omfattende software-utvikling og cloud-integrasjon som SONAT kan støtte."
+      },
+      {
+        "name": "Kongsberg Maritime",
+        "employee_count": 7500,
+        "location": "Kongsberg",
+        "sector": "MARITIM TEKNOLOGI",
+        "website_url": "https://www.kongsberg.com",
+        "opportunity_description": "Sommerpraktikanter jobber med energieffektivisering av Flakk-Rørvik ferge og Olympics-løsninger. Fokus på innovasjon og bærekraft.",
+        "sonat_opportunity": "Kongsbergs størrelse og teknologifokus gjør dem til ideell partner for enterprise DevOps og AI-implementering."
       }
     ]
   ],
-  
-  "// LINKEDIN OVERSIKT METRICS",
-  "monitored_accounts_count": "[antall overvåkede LinkedIn-kontoer, vanligvis 10-20]",
-  "high_engagement_count": "[antall poster med høyt engasjement, vanligvis 5-15]",
-  "hiring_signals_count": "[antall bedrifter som ansetter, vanligvis 3-8]",
-  "networking_events_count": "[antall events/konferanser nevnt, vanligvis 2-5]",
-  
-  "// LINKEDIN PAGES - ORGANISERT FOR VISNING",
+  "monitored_accounts_count": "12",
+  "high_engagement_count": "8",
+  "hiring_signals_count": "5",
+  "networking_events_count": "3",
   "linkedin_pages": [
     [
       {
-        "company_name": "[Selskapsnavn]",
-        "post_count": "[antall poster]",
+        "company_name": "TV 2",
+        "post_count": 4,
         "posts": [
           {
-            "post_date": "[YYYY-MM-DD]",
-            "engagement_level": "[Høy/Middels/Lav]",
-            "priority_class": "[hot/warm/medium]",
-            "relevance_score": "[1-10 score]",
-            "post_text": "[LinkedIn post innhold, maks 300 tegn]",
-            "post_url": "[LinkedIn URL eller null]",
-            "sonat_opportunity": "[200-250 ord] Analyse av forretningsmulighet basert på posten.",
-            "opportunity_tags": ["[3-5 relevante tags]"]
+            "post_date": "2025-08-19",
+            "engagement_level": "Høy",
+            "priority_class": "hot",
+            "relevance_score": 9,
+            "post_text": "Høstens viktigste valg. 8. september duket for stortingsvalg. Valgprosjektet involverer hele huset fra produksjon og reportere til utviklere, designere og markedsførere.",
+            "post_url": "https://linkedin.com/posts/tv-2",
+            "sonat_opportunity": "Massiv teknisk mobilisering for valgdekning indikerer behov for skalerbar infrastruktur og real-time dataanalyse. Perfekt timing for SONAT.",
+            "opportunity_tags": ["Streaming", "Real-time", "Cloud Scale"]
+          }
+        ]
+      },
+      {
+        "company_name": "Tidal",
+        "post_count": 3,
+        "posts": [
+          {
+            "post_date": "2025-08-19",
+            "engagement_level": "Høy",
+            "priority_class": "hot",
+            "relevance_score": 10,
+            "post_text": "Tidal lice control – vår nyeste autonome teknologi! AI-drevet løsning som detekterer og nøytraliserer lus direkte i merden.",
+            "sonat_opportunity": "Ny AI-produkt lansering krever omfattende ML-ekspertise og datainfrastruktur. SONAT kan bidra med implementering og skalering.",
+            "opportunity_tags": ["AI/ML", "Computer Vision", "IoT"]
           }
         ]
       }
     ]
   ],
-  
-  "// INDIVIDUAL LINKEDIN ACCOUNTS - DETALJERT OVERSIKT",
   "linkedin_accounts": [
     {
-      "company_name": "[Selskapsnavn]",
-      "post_count": "[antall poster]",
+      "company_name": "TV 2",
+      "post_count": 4,
       "posts": [
         {
-          "post_date": "[YYYY-MM-DD]",
-          "engagement_level": "[Høy/Middels/Lav]",
-          "priority_class": "[hot/warm/medium]",
-          "relevance_score": "[1-10]",
-          "post_text": "[Fullstendig LinkedIn post tekst]",
-          "post_url": "[LinkedIn URL]",
-          "sonat_opportunity": "[250-300 ord] Detaljert analyse av hvordan SONAT kan hjelpe basert på nevnte utfordringer.",
-          "opportunity_tags": ["[relevante tags]"]
+          "post_date": "2025-08-19",
+          "engagement_level": "Høy",
+          "priority_class": "hot",
+          "relevance_score": 9,
+          "post_text": "Høstens viktigste valg. 8. september duket for stortingsvalg. Valgprosjektet involverer hele huset fra produksjon og reportere til utviklere, designere og markedsførere.",
+          "post_url": "https://linkedin.com/posts/tv-2",
+          "sonat_opportunity": "Massiv teknisk mobilisering for valgdekning indikerer behov for skalerbar infrastruktur og real-time dataanalyse. Perfekt timing for SONAT.",
+          "opportunity_tags": ["Streaming", "Real-time", "Cloud Scale"]
+        }
+      ]
+    },
+    {
+      "company_name": "Tidal",
+      "post_count": 3,
+      "posts": [
+        {
+          "post_date": "2025-08-19",
+          "engagement_level": "Høy",
+          "priority_class": "hot",
+          "relevance_score": 10,
+          "post_text": "Tidal lice control – vår nyeste autonome teknologi! AI-drevet løsning som detekterer og nøytraliserer lus direkte i merden.",
+          "sonat_opportunity": "Ny AI-produkt lansering krever omfattende ML-ekspertise og datainfrastruktur. SONAT kan bidra med implementering og skalering.",
+          "opportunity_tags": ["AI/ML", "Computer Vision", "IoT"]
+        }
+      ]
+    },
+    {
+      "company_name": "Kravia",
+      "post_count": 1,
+      "posts": [
+        {
+          "post_date": "2025-08-12",
+          "engagement_level": "Middels",
+          "priority_class": "warm",
+          "relevance_score": 7,
+          "post_text": "To-be.tech 28. august! Skal snakkes om AI, fremtiden, strategi og alt som er viktig før 2026.",
+          "sonat_opportunity": "Tech-konferanse fokus indikerer voksende behov for AI og strategisk teknologirådgivning.",
+          "opportunity_tags": ["AI", "Strategy", "Tech Conference"]
+        }
+      ]
+    },
+    {
+      "company_name": "Norwegian Electric Systems",
+      "post_count": 2,
+      "posts": [
+        {
+          "post_date": "2025-08-19",
+          "engagement_level": "Middels",
+          "priority_class": "warm",
+          "relevance_score": 8,
+          "post_text": "Breaking new ground med Raven INS! Leverer til tre nye ferger under bygging hos Tersan Shipyard.",
+          "sonat_opportunity": "Ekspansjon av digitale navigasjonssystemer krever software-utvikling og systemintegrasjon.",
+          "opportunity_tags": ["Maritime Tech", "System Integration", "Software"]
         }
       ]
     }
   ],
-  
-  "// STRATEGIC RECOMMENDATIONS",
   "section_strategic_title": "Strategiske anbefalinger",
   "section_strategic_subtitle": "Konkrete tiltak for å kapitalisere på markedsmulighetene",
   "section_action_items_title": "Umiddelbare tiltak",
-  
   "strategic_recommendations": [
     {
-      "title": "[Kort tittel på anbefaling]",
-      "content": "[200-250 ord] Konkret anbefaling med reasoning, implementering og forventet resultat."
+      "title": "Umiddelbar Odfjell-oppfølging",
+      "content": "Kontakt Odfjell Drilling denne uken angående digitalisering av boreoperasjoner. Deres finansielle styrke og vekst gjør dem til ideell enterprise-kunde."
+    },
+    {
+      "title": "AI-milliard mulighet",
+      "content": "Posisjonér SONAT som implementeringspartner for selskaper som mottar støtte fra AI-milliarden. Fokuser på praktisk AI/ML-implementering."
+    },
+    {
+      "title": "Havbruk-momentum",
+      "content": "Utnytt Aqua Nor-momentum til å etablere kontakt med Tidal, Eide og andre havbruksaktører som satser på AI og automatisering."
+    },
+    {
+      "title": "Media-streaming ekspertise",
+      "content": "Tilby TV 2 spesialisert streaming-infrastruktur og real-time analytics for valgdekningen. Deres tekniske behov matcher SONATs kjernekompetanse."
     }
   ],
-  
   "action_items": [
     {
       "number": 1,
-      "priority": "[critical/high/medium]",
-      "timeline": "[Denne uken/Neste uke/Denne måneden]",
-      "action": "[Konkret handling SONAT skal ta, inkluder kontaktperson og telefonnummer hvis mulig]"
+      "priority": "critical",
+      "timeline": "Denne uken",
+      "action": "Ring Diane Stephen (Odfjell) om digital transformasjon og AI-implementering for boreoperasjoner"
+    },
+    {
+      "number": 2,
+      "priority": "critical",
+      "timeline": "Denne uken",
+      "action": "Kontakt Bjørn Tore Larsen (Norse) angående cloud-migrering og dataanalyse-plattform"
+    },
+    {
+      "number": 3,
+      "priority": "high",
+      "timeline": "Denne uken",
+      "action": "Send forslag til TV 2 om streaming-infrastruktur for valgdekningen"
+    },
+    {
+      "number": 4,
+      "priority": "high",
+      "timeline": "Neste uke",
+      "action": "Møt Tidal på Aqua Nor - diskuter ML-pipelines og computer vision ekspertise"
+    },
+    {
+      "number": 5,
+      "priority": "medium",
+      "timeline": "Neste uke",
+      "action": "Arranger workshop med Scatec om AI for produksjonsoptimalisering"
     }
-  ]
+  ],
+  "banner_title": "Ukesrapport - Bedrifter i bevegelse",
+  "banner_text": "Denne uken identifiserte vi 99 aktive bedrifter i det norske markedet, hvorav 7 representerer umiddelbare salgsmuligheter. Sterk aktivitet innen teknologi, finans og energi. Aktive bedrifter er selskaper med offentlige hendelser som finansiering, ansettelser eller ekspansjon som indikerer teknologi-investeringsbehov.",
+  "critical_section_title": "Kritiske leads - Umiddelbar kontakt",
+  "critical_section_badge": "Høy prioritet",
+  "critical_lead_label": "Kritisk lead",
+  "qualified_section_title": "Kvalifiserte prospekter",
+  "qualified_section_badge": "Varm oppfølging",
+  "qualified_lead_label": "Kvalifisert lead",
+  "opportunity_title": "Salgsmulighet",
+  "strategic_match_title": "Strategisk match for SONAT",
+  "linkedin_section_title": "LinkedIn-oversikt",
+  "linkedin_section_subtitle": "Strategisk aktivitet fra nøkkelbedrifter og potensielle kunder",
+  "action_hero_title": "TID FOR HANDLING",
+  "action_hero_subtitle": "Disse mulighetene venter ikke. Strike while the iron is hot.",
+  "critical_count": 3,
+  "qualified_count": 7,
+  "critical_action_text": "Kontakt hot leads før konkurrentene. Disse bedriftene har akutt teknologibehov.",
+  "qualified_action_text": "Book discovery-calls med kvalifiserte prospekter. Perfect timing for approach.",
+  "top_opportunities_title": "TOPP 3 MULIGHETER DENNE UKEN",
+  "top_opportunities": [
+    {
+      "number": 1,
+      "company_name": "Odfjell Drilling AS",
+      "potential_value": "Enterprise DevOps transformasjon - 5-15M NOK potensial",
+      "recommended_action": "Ring CEO Diane Stephen i dag - pitch AI-drevet boreoptimalisering",
+      "priority_level": "critical",
+      "urgency_indicator": "RING NÅ"
+    },
+    {
+      "number": 2,
+      "company_name": "Norse Atlantic Airways",
+      "potential_value": "Cloud-migrering og dataanalyse - 3-8M NOK potensial",
+      "recommended_action": "Kontakt Bjørn Tore Larsen om skalerbar infrastruktur",
+      "priority_level": "critical",
+      "urgency_indicator": "48 TIMER"
+    },
+    {
+      "number": 3,
+      "company_name": "TV 2 AS",
+      "potential_value": "Streaming-infrastruktur for valgdekning - 2-5M NOK",
+      "recommended_action": "Send forslag om real-time analytics denne uken",
+      "priority_level": "high",
+      "urgency_indicator": "DENNE UKE"
+    }
+  ],
+  "next_steps_title": "NESTE STEG - 7 DAGER",
+  "weekly_actions": [
+    {
+      "day_number": 1,
+      "day_label": "MANDAG",
+      "action_description": "Ring Odfjell & Norse",
+      "target_companies": "2 kritiske leads"
+    },
+    {
+      "day_number": 2,
+      "day_label": "TIRSDAG",
+      "action_description": "TV 2 forslag + Tidal møte",
+      "target_companies": "2 varme prospekter"
+    },
+    {
+      "day_number": 3,
+      "day_label": "FREDAG",
+      "action_description": "Oppfølging & nye leads",
+      "target_companies": "Status + 3 nye"
+    }
+  ],
+  "next_report_title": "NESTE RAPPORT",
+  "next_report_text": "Ny Market Watch leveres hver fredag kl. 08:00. Oppfølging av status på disse leadene inkluderes."
 }
