@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Watch: Bedrifter i bevegelse</title>
+    <style>
+        /* ADVANCED A4 PAPER SPECIFICATIONS */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        :root {
+            /* SONAT Brand Colors */
+            --primary-dark: #1A3B5C;
+            --primary: #2B5D87;
+            --primary-light: #4A90C2;
+            --primary-lighter: #6BA5D0;
+            --accent: #E8F4FD;
+            --accent-dark: #C7E5F8;
+            
+            /* Status Colors */
+            --critical: #DC2626;
+            --critical-bg: #FEE2E2;
+            --high: #EA580C;
+            --high-bg: #FED7AA;
+            --medium: #0891B2;
+            --medium-bg: #CFFAFE;
+            --success: #16A34A;
+            --success-bg: #D1FAE5;
+            
+            /* Neutrals */
+            --text-primary: #1E293B;
+            --text-secondary: #475569;
+            --text-tertiary: #64748B;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
+            --bg-light: #F8FAFC;
+            --bg-lighter: #FFFFFF;
+            
+            /* Typography */
+            --font-primary: -apple-system, 'SF Pro Display', 'Segoe UI', 'Arial', sans-serif;
+            --font-mono: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: 10pt;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background: white;
+            font-feature-settings: 'kern' 1, 'liga' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ADVANCED PAGE STRUCTURE */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: white;
+        }
+        
+        .page:last-child {
+            page-break-after: avoid;
+        }
+        
+        .page-content {
+            padding: 20mm 15mm 35mm 15mm;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+/* DATE STAMP IN CORNER */
+        .date-stamp {
+            position: absolute;
+            top: 10mm;
+            right: 15mm;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2mm 4mm;
+            border-radius: 2mm;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            font-size: 8pt;
+            color: var(--text-tertiary);
+            border: 0.5pt solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .date-stamp .label {
+            font-size: 7pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            opacity: 0.8;
+        }
+        
+        .date-stamp .value {
+            font-weight: 600;
+            color: #1E293B;
+        }
+
+        /* AI BADGE */
+        .ai-badge {
+            position: absolute;
+            top: 10mm;
+            left: 15mm;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(52, 52, 52, 0.9) 100%);
+            color: white;
+            padding: 2mm 4mm;
+            border-radius: 2mm;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            font-size: 7pt;
+            border: 0.5pt solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+        }
+        
+        .ai-badge .badge-icon {
+            width: 6mm;
+            height: 6mm;
+            background: white;
+            border-radius: 1mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .ai-badge .badge-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5mm;
+        }
+        
+        .ai-badge .badge-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5mm;
+        }
+        
+        .ai-badge .badge-label {
+            font-size: 6pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+        
+        .ai-badge .badge-value {
+            font-size: 7pt;
+            font-weight: 500;
+        }
+        
+        /* LEGG TIL DENNE CSS-EN FOR POWERED BY AIKI FOOTER: */
+
+        .powered-by-aiki {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7pt;
+            color: var(--text-tertiary);
+        }
+
+        /* Sikre at footer har 3 kolonner: venstre, midten, høyre */
+        .page-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 15mm;
+            right: 15mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3mm;
+            border-top: 0.5pt solid var(--border);
+            font-size: 8pt;
+            color: var(--text-tertiary);
+        }
+
+        .page-footer > * {
+            flex: 1;
+        }
+
+        .page-logo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .powered-by-aiki {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-number {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-weight: 500;
+        }
+  /* SIMPLIFIED HERO HEADER */
+        .hero-header {
+            margin: -20mm -15mm 0 -15mm;
+            padding: 30mm 20mm 20mm 20mm;
+            background: 
+                linear-gradient(135deg, rgba(26,59,92,0.95) 0%, rgba(43,93,135,0.95) 50%, rgba(74,144,194,0.95) 100%),
+                radial-gradient(circle at 20% 50%, rgba(232,244,253,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(107,165,208,0.15) 0%, transparent 50%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+        
+        /* ADVANCED LOGO BADGE */
+        .brand-container {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 4mm;
+            text-align: center;
+        }
+        
+        .sonat-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon {
+            width: 50mm;
+            height: 35mm;
+            border-radius: 8mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2mm;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5mm;
+        }
+        
+        .logo-text {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 0.5pt;
+        }
+        
+        /* ADVANCED TYPOGRAPHY */
+        .hero-title {
+            font-size: 24pt;
+            font-weight: 300;
+            letter-spacing: -0.5pt;
+            margin-bottom: 3mm;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-title strong {
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFFFFF 0%, #E8F4FD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 11pt;
+            opacity: 0.95;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* ADVANCED SECTION HEADERS */
+        .section-header {
+            margin: 8mm 0 5mm 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: -0.3pt;
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+        }
+        
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 0.5pt;
+            background: linear-gradient(90deg, var(--accent-dark) 0%, transparent 100%);
+        }
+        
+        .section-subtitle {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            margin-top: 2mm;
+        }
+        
+/* SLANK, HORISONTALE UKESOPPSUMMERING */
+.summary-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 8mm;
+    background: var(--bg-light);
+    border: 0.5pt solid var(--border);
+    border-radius: 4mm;
+    padding: 4mm 6mm;
+    margin-bottom: 4mm;
+}
+
+.banner-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.banner-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 1mm;
+}
+
+.banner-text {
+    font-size: 9pt;
+    color: var(--text-secondary);
+    line-height: 1.35;
+    /* Fjernet line-clamp og overflow hidden for å unngå tekststopp */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.banner-metrics {
+    display: flex;
+    gap: 3mm;
+    flex-wrap: wrap; /* Endret fra nowrap til wrap for bedre responsivitet */
+    align-items: center;
+}
+
+.metric-chip {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    background: #fff;
+    border: 0.5pt solid var(--border);
+    border-radius: 12mm;
+    padding: 2mm 4mm;
+    white-space: nowrap;
+    flex-shrink: 0; /* Forhindrer at chips krymper for mye */
+}
+
+.chip-label {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+    color: var(--text-tertiary);
+}
+
+.chip-value {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* (Valgfritt) Litt strammere vertikal rytme på side 1 */
+.section-header{ margin:6mm 0 3mm 0; }         /* tidligere 8mm 0 5mm 0 */
+.hero-header{ padding-bottom:16mm; }            /* litt mindre padding nederst */
+
+        
+        .summary-card {
+            background: var(--bg-light);
+            border: 0.5pt solid var(--border);
+            border-radius: 4mm;
+            padding: 5mm;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2mm;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
+        }
+        
+        .summary-card-header {
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+            margin-bottom: 3mm;
+            padding-left: 4mm;
+        }
+        
+        .card-icon {
+            width: 8mm;
+            height: 8mm;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10pt;
+            font-weight: 700;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+        }
+        
+        .card-content {
+            font-size: 9pt;
+            line-height: 1.4;
+            color: var(--text-secondary);
+            padding-left: 4mm;
+        }
+        
+        .card-metric {
+            font-size: 16pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2mm 0;
+            padding-left: 4mm;
+        }
+        
+        /* ADVANCED METRICS DASHBOARD */
+        .metrics-container {
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            border-radius: 4mm;
+            padding: 6mm;
+            margin-bottom: 6mm;
+            border: 0.5pt solid var(--border);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4mm;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 3mm;
+            padding: 5mm;
+            text-align: center;
+            position: relative;
+            border: 0.5pt solid var(--border);
+            overflow: hidden;
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1mm;
+            background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-light) 100%);
+        }
+        
+        .metric-value {
+            font-size: 18pt;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2mm;
+        }
+        
+        .metric-label {
+            font-size: 7pt;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            font-weight: 500;
+        }
+        
+        /* ADVANCED COMPANY CARDS */
+        .company-section {
+            margin-bottom: 6mm;
+            border-radius: 4mm;
+            overflow: visible;
+            border: 0.5pt solid var(--border);
+            background: white;
+        }
+        
+        .company-section-header {
+            padding: 4mm 6mm;
+            font-weight: 600;
+            font-size: 10pt;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .priority-critical .company-section-header {
+            background: linear-gradient(135deg, var(--critical) 0%, #B91C1C 100%);
+        }
+        
+        .priority-high .company-section-header {
+            background: linear-gradient(135deg, var(--high) 0%, #C2410C 100%);
+        }
+        
+        .priority-medium .company-section-header {
+            background: linear-gradient(135deg, var(--medium) 0%, #0E7490 100%);
+        }
+        
+.priority-badge{padding:1mm 3mm;border-radius:10mm;font-size:8pt;font-weight:700}
+.priority-critical .priority-badge{background:rgba(185,28,28,0.95);color:#fff}
+.priority-high .priority-badge{background:rgba(194,65,12,0.95);color:#fff}
+.priority-medium .priority-badge{background:rgba(14,116,144,0.95);color:#fff}
+
+        
+        .company-card {
+            padding: 6mm;
+            border-bottom: 0.5pt solid var(--border);
+            background: white;
+            position: relative;
+        }
+        
+        .company-card:last-child {
+            border-bottom: none;
+        }
+        
+        .company-card:hover {
+            background: var(--bg-light);
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4mm;
+        }
+        
+        .company-info {
+            flex: 1;
+        }
+        
+        .company-name {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1mm;
+        }
+        
+        .company-name a {
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .company-name a:hover {
+            text-decoration: underline;
+        }
+        
+        .company-meta {
+            display: flex;
+            gap: 3mm;
+            font-size: 8pt;
+            color: var(--text-tertiary);
+        }
+        
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 1mm;
+            padding: 1mm 3mm;
+            background: var(--bg-light);
+            border-radius: 10mm;
+            font-weight: 500;
+        }
+        
+        .status-badge {
+            padding: 2mm 4mm;
+            border-radius: 3mm;
+            font-size: 8pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        
+        .badge-hot {
+            background: linear-gradient(135deg, var(--critical) 0%, #EF4444 100%);
+            color: white;
+            box-shadow: 0 2px 4px rgba(220,38,38,0.3);
+        }
+        
+        .badge-warm {
+            background: linear-gradient(135deg, var(--high) 0%, #F97316 100%);
+            color: white;
+            box-shadow: 0 2px 4px rgba(234,88,12,0.3);
+        }
+        
+        /* ADVANCED EVENT BOX */
+        .event-container {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 0.5pt solid #F59E0B;
+            border-radius: 3mm;
+            padding: 4mm;
+            margin: 4mm 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+            margin-bottom: 2mm;
+        }
+        
+        .event-type {
+            font-weight: 700;
+            color: #92400E;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+        }
+        
+        .event-date {
+            font-size: 7pt;
+            color: #B45309;
+            font-weight: 500;
+        }
+        
+        .event-description {
+            font-size: 9pt;
+            color: #78350F;
+            line-height: 1.4;
+        }
+        
+        .event-source {
+            margin-top: 2mm;
+            font-size: 7pt;
+            color: #B45309;
+        }
+        
+        .event-source a {
+            color: #B45309;
+            text-decoration: none;
+        }
+        
+        .event-source a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ADVANCED DETAILS GRID */
+        .details-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3mm;
+            margin: 4mm 0;
+        }
+        
+        .detail-card {
+            background: var(--bg-light);
+            border-radius: 3mm;
+            padding: 4mm;
+            border-left: 2mm solid var(--primary-light);
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            margin-bottom: 2mm;
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+        }
+        
+        .detail-content {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        
+        .detail-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .detail-content a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .detail-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ADVANCED RELEVANCE BOX */
+        .relevance-container {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border: 0.5pt solid var(--primary-light);
+            border-radius: 3mm;
+            padding: 4mm;
+            margin-top: 4mm;
+            position: relative;
+        }
+        
+        .relevance-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 9pt;
+            margin-bottom: 2mm;
+        }
+        
+        .relevance-content {
+            font-size: 9pt;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        
+        .relevance-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2mm;
+            margin-top: 3mm;
+        }
+        
+        .relevance-tag {
+            background: white;
+            color: var(--primary);
+            padding: 1mm 3mm;
+            border-radius: 10mm;
+            font-size: 7pt;
+            font-weight: 600;
+            border: 0.5pt solid var(--primary-light);
+        }
+        
+        /* ADVANCED KEY INSIGHTS */
+        .insights-container {
+            margin: 5mm 0;
+        }
+        
+        .insight-item {
+            background: white;
+            border-left: 3mm solid;
+            margin-bottom: 3mm;
+            padding: 3mm 4mm;
+            border-radius: 0 2mm 2mm 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: relative;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        
+        .insight-critical {
+            border-left-color: var(--critical);
+            background: linear-gradient(90deg, var(--critical-bg) 0%, white 100%);
+        }
+        
+        .insight-high {
+            border-left-color: var(--high);
+            background: linear-gradient(90deg, var(--high-bg) 0%, white 100%);
+        }
+        
+        .insight-medium {
+            border-left-color: var(--medium);
+            background: linear-gradient(90deg, var(--medium-bg) 0%, white 100%);
+        }
+        
+        .insight-number {
+            position: absolute;
+            left: -2.5mm;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5mm;
+            height: 5mm;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 8pt;
+            color: var(--primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        /* ADVANCED CHARTS */
+        .chart-container {
+            background: white;
+            border: 0.5pt solid var(--border);
+            border-radius: 3mm;
+            padding: 5mm;
+            margin: 5mm 0;
+        }
+        
+        .mini-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 26mm;
+            padding: 2mm;
+            gap: 2mm;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 1mm 1mm 0 0;
+            position: relative;
+            min-height: 3mm;
+        }
+        
+        .chart-label {
+            position: absolute;
+            bottom: 1mm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 6pt;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+        
+        .chart-value {
+            position: absolute;
+            top: -3mm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 7pt;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        /* DATA SOURCES FOOTER */
+        .data-footer {
+            background: var(--bg-light);
+            border: 0.5pt solid var(--border);
+            border-radius: 3mm;
+            padding: 4mm;
+            margin-top: auto;
+            margin-bottom: 5mm;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4mm;
+        }
+        
+        .footer-item {
+            font-size: 7pt;
+            color: var(--text-tertiary);
+        }
+        
+        .footer-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            margin-bottom: 1mm;
+        }
+        
+        /* PAGE NUMBERING */
+        .page-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 15mm;
+            right: 15mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3mm;
+            border-top: 0.5pt solid var(--border);
+            font-size: 8pt;
+            color: var(--text-tertiary);
+        }
+        
+        .page-number {
+            font-weight: 500;
+        }
+        
+        .page-logo {
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5pt;
+            display: flex;
+            align-items: center;
+        }
+        
+        .page-logo img {
+            width: 8mm;
+            height: 8mm;
+            object-fit: contain;
+            border-radius: 1.5mm;
+        }
+        
+        /* LINKEDIN POST STYLING */
+        .linkedin-post {
+            background: white;
+            border: 0.5pt solid var(--border);
+            border-radius: 3mm;
+            padding: 4mm;
+            margin: 3mm 0;
+        }
+        
+.linkedin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2mm;padding-bottom:2mm;border-bottom:0.5pt solid var(--border)}
+.linkedin-meta{display:flex;gap:2mm;font-size:8pt;color:var(--text-tertiary)}
+.linkedin-content{font-size:9pt;color:var(--text-primary);margin:3mm 0}
+
+        
+        .linkedin-meta {
+            display: flex;
+            gap: 2mm;
+            font-size: 7pt;
+            color: var(--text-tertiary);
+        }
+        
+        .linkedin-content {
+            font-size: 9pt;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 3mm 0;
+        }
+        
+        .linkedin-engagement {
+            font-size: 7pt;
+            color: var(--text-tertiary);
+            margin-top: 2mm;
+            padding-top: 2mm;
+            border-top: 0.5pt solid var(--border);
+        }
+        
+        .linkedin-link {
+            display: inline-block;
+            margin-top: 2mm;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 8pt;
+        }
+        
+        .linkedin-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* SUMMARY GRID */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4mm;
+            margin-bottom: 6mm;
+        }
+        
+        /* RESPONSIVE BREAKPOINTS FOR PDF */
+        @media print {
+            .page {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+            }
+            
+            .company-card:hover {
+                background: white;
+            }
+            
+            .hero-title strong {
+                -webkit-text-fill-color: #fff;
+                background: none;
+                color: #fff;
+            }
+            
+            .logo-icon, .priority-badge {
+                backdrop-filter: none;
+                background: rgba(255,255,255,0.85);
+            }
+        }
+        
+        /* PERFORMANCE OPTIMIZATIONS */
+        .no-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+        
+        .company-card,
+        .summary-card,
+        .metric-card,
+        .detail-card {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+        
+        /* Additional badge variant */
+        .badge-medium {
+            background: linear-gradient(135deg, var(--medium) 0%, #0E7490 100%);
+            color: #fff;
+        }
+        body { counter-reset: pdfpage; }
+        .page { counter-increment: pdfpage; }
+        .page-number::after { content: counter(pdfpage); }
+        
+        .spacer {
+            height: 6mm;
+        }
+
+    </style>
+</head>
+<body>
+<!-- PAGE 1: EXECUTIVE DASHBOARD -->
+<div class="page">
+  <!-- DATE STAMP IN TOP RIGHT CORNER -->
+  <div class="date-stamp">
+    <div class="label">Generert</div>
+    <div class="value">{{report_generated}}</div>
+  </div>
+
+  <div class="page-content">
+    <div class="hero-header">
+      <div class="brand-container">
+        <div class="sonat-logo">
+          <div class="logo-icon">
+            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT Logo" />
+          </div>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        Market Watch: <strong>Bedrifter i bevegelse</strong>
+      </h1>
+      <p class="hero-subtitle">AI-drevet markedsintelligens for strategiske salgsmuligheter</p>
+    </div>
+
+<div class="spacer"></div>
+
+<!-- UTVIDET UKESOPPSUMMERING MED MER INFO -->
+<div class="summary-banner">
+  <div class="banner-left">
+    <div class="banner-title">Rapport oppsummering</div>
+    <div class="banner-text">
+      Denne uken identifiserte vi {{total_companies}} aktive bedrifter i det norske markedet, hvorav {{high_priority_leads}} representerer umiddelbare salgsmuligheter. Sterk aktivitet i olje & gass (32%) og teknologi (28%). Aktive bedrifter er selskaper med offentlige hendelser (finansiering, ansettelser, ekspansjon) som indikerer teknologi-investeringsbehov. Total kapitalmobilisering på {{total_capital_millions}} MNOK viser sterke investeringsmuligheter.
+    </div>
+  </div>
+  <div class="banner-metrics">
+    <div class="metric-chip">
+      <span class="chip-label">Hot leads</span>
+      <span class="chip-value">{{immediate_opportunities_count}}</span>
+    </div>
+    <div class="metric-chip">
+      <span class="chip-label">Totalt antall analysert</span>
+      <span class="chip-value">{{total_companies}}</span>
+    </div>
+  </div>
+</div>
+
+    <!-- MAKSIMALT 3 KEY FINDINGS -->
+    <div class="insights-container">
+      {{#each key_findings}}
+      <div class="insight-item insight-{{priority_class}}">
+        <span class="insight-number">{{number}}</span>
+        {{text}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+<!-- FOOTER PÅ SIDE 1 -->
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: #64748B; text-align: center;">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+
+<!-- PAGE 2+: CRITICAL COMPANIES -->
+    {{#each critical_companies}}
+    <div class="page">
+        <div class="page-content">
+            <div class="company-section priority-critical">
+                <div class="company-section-header">
+                    <span>Umiddelbar kontakt</span>
+                    <span class="priority-badge">48 timer</span>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-info">
+                            <h3 class="company-name">
+                                <a href="{{website_url}}" target="_blank">{{name}}</a>
+                            </h3>
+                            <div class="company-meta">
+                                <span class="meta-tag">{{sector}}</span>
+                                <span class="meta-tag">{{employee_count}} ansatte</span>
+                                <span class="meta-tag">{{location}}</span>
+                            </div>
+                        </div>
+                        <div class="status-badge badge-hot">Hot lead</div>
+                    </div>
+                    
+{{#if event_description}}
+  <div class="event-container">
+    <div class="event-header">
+      <span class="event-type">{{event_type}}</span>
+    </div>
+
+    <div class="event-description">{{event_description}}</div>
+
+    <div class="event-source">
+      <strong>Kilde:</strong>
+      {{#if source_url}}
+        <a href="{{source_url}}" target="_blank" rel="noopener">{{source_name}}</a>
+      {{else}}
+        {{#if source_name}}
+          {{source_name}}
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+{{/if}}
+
+                    <div class="details-container">
+                        <div class="detail-card">
+                            <div class="detail-label">Kontaktinformasjon</div>
+                            <div class="detail-content">
+                                <strong>CEO:</strong> 
+                                {{#if ceo_linkedin_url}}
+                                <a href="{{ceo_linkedin_url}}" target="_blank">{{ceo_name}}</a>
+                                {{else}}
+                                {{ceo_name}}
+                                {{/if}}<br>
+                                <strong>E-post:</strong> 
+                                {{#if email}}
+                                <a href="mailto:{{email}}">{{email}}</a>
+                                {{else}}
+                                Ikke tilgjengelig
+                                {{/if}}<br>
+                                <strong>Telefon:</strong> {{phone}}<br>
+                                <strong>URL:</strong> 
+                                {{#if website_url}}
+                                <a href="{{website_url}}" target="_blank">{{website}}</a>
+                                {{else}}
+                                {{website}}
+                                {{/if}}
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-label">Finansiell Status</div>
+<div class="detail-content">
+  <strong>Finansiering:</strong> {{funding_amount_nok}}<br>
+  <strong>Investorer:</strong> {{investors}}<br>
+  <strong>Runde:</strong> {{funding_round}}<br>
+  <strong>Kilde:</strong>
+  {{#if source_url}}
+    <a href="{{source_url}}" target="_blank" rel="noopener">{{source_name}}</a>
+  {{else}}
+    {{source_name}}
+  {{/if}}
+</div>
+
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-label">Tekniske Behov</div>
+                            <div class="detail-content">
+                                {{technical_needs}}
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-label">Vekstindikatorer</div>
+                            <div class="detail-content">
+                                {{growth_indicators}}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relevance-container">
+<div class="relevance-title">
+  {{#if ../label_strategic_match}}
+    {{../label_strategic_match}}
+  {{else}}
+    Strategisk match
+  {{/if}}
+</div>
+
+                        <div class="relevance-content">
+                            {{sonat_relevance}}
+                        </div>
+                        <div class="relevance-tags">
+                            {{#each relevance_tags}}
+                            <span class="relevance-tag">{{this}}</span>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: 
+#64748B; text-align: center;">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+    </div>
+    {{/each}}
+    
+<!-- QUALIFIED PROSPECTS: 3 per side -->
+{{#each qualified_chunks}}
+<div class="page">
+  <div class="page-content">
+    <div class="company-section priority-high">
+      <div class="company-section-header">
+        <span>Kvalifiserte prospekter</span>
+        <span class="priority-badge">1 uke</span>
+      </div>
+
+      {{#each this}}
+      <!-- Enkel prospektkort -->
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-info">
+            <h3 class="company-name">
+              {{#if website_url}}
+              <a href="{{website_url}}" target="_blank">{{name}}</a>
+              {{else}}
+              {{name}}
+              {{/if}}
+            </h3>
+            <div class="company-meta">
+              <span class="meta-tag">{{sector}}</span>
+              <span class="meta-tag">{{employee_count}} ansatte</span>
+              {{#if location}}
+              <span class="meta-tag">{{location}}</span>
+              {{/if}}
+            </div>
+          </div>
+          <div class="status-badge badge-warm">Varmt lead</div>
+        </div>
+
+        {{#if event_description}}
+        <div class="event-container">
+          <div class="event-header">
+            <span class="event-type">{{event_type}}</span>
+          </div>
+          <div class="event-description">{{event_description}}</div>
+          <div class="event-source">
+            <strong>Kilde:</strong>
+            {{#if source_url}}
+              <a href="{{source_url}}" target="_blank" rel="noopener">{{source_name}}</a>
+            {{else}}
+              {{#if source_name}}
+                {{source_name}}
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+        {{/if}}
+
+        <div class="relevance-container">
+          <div class="relevance-title">Salgsmulighet</div>
+          <div class="relevance-content">{{opportunity_description}}</div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: #64748B; text-align: center;">
+    Powered by AIKI
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+{{/each}}
+    
+<!-- LINKEDIN INTELLIGENCE OVERVIEW PAGE - HELT NY -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-header">
+      <h2 class="section-title">LinkedIn-oversikt</h2>
+      <p class="section-subtitle">Strategisk aktivitet fra nøkkelbedrifter</p>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">👥</div>
+          <div class="card-title">Overvåkede kontoer</div>
+        </div>
+        <div class="card-metric">{{monitored_accounts_count}}</div>
+        <div class="card-content">Strategiske bedrifter som viser tekniske behov og vekstpotensial</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">🔥</div>
+          <div class="card-title">Høyt engasjement</div>
+        </div>
+        <div class="card-metric">{{high_engagement_count}}</div>
+        <div class="card-content">Poster som indikerer konkrete teknologi-behov og prosjekter</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Hiring-signaler</div>
+        </div>
+        <div class="card-metric">{{hiring_signals_count}}</div>
+        <div class="card-content">Bedrifter som ansetter innen relevante tekniske roller</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">📈</div>
+          <div class="card-title">Vekstindikatorer</div>
+        </div>
+        <div class="card-metric">{{networking_events_count}}</div>
+        <div class="card-content">Konferanser og events som indikerer markedsaktivitet</div>
+      </div>
+    </div>
+
+    <div class="insights-container">
+      <div class="insight-item insight-high">
+        <span class="insight-number">1</span>
+        TV 2 mobiliserer hele teknologistaben for valgdekning - kritisk behov for skalerbar streaming-infrastruktur
+      </div>
+      <div class="insight-item insight-medium">
+        <span class="insight-number">2</span>
+        Tidal lanserer nye AI-produkter og trenger ML-ekspertise for computer vision og dataanalyse
+      </div>
+      <div class="insight-item insight-medium">
+        <span class="insight-number">3</span>
+        Økt aktivitet rundt tech-konferanser indikerer voksende behov for strategisk teknologirådgivning
+      </div>
+    </div>
+  </div>
+
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: #64748B; text-align: center;">
+    Powered by AIKI
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+
+<!-- LINKEDIN KONTOER: 2-3 per side (uten helpers) -->
+{{#each linkedin_pages}}
+  <div class="page">
+    <div class="page-content">
+      <div class="company-section priority-medium">
+        <div class="company-section-header">
+          <span>LinkedIn Aktivitet</span>
+          <span class="priority-badge">Oversikt</span>
+        </div>
+
+        {{#each this}}
+          <div class="company-card no-break">
+            <div class="company-header">
+              <div class="company-info">
+                <h3 class="company-name">{{company_name}}</h3>
+                <div class="company-meta">
+                  <span class="meta-tag">{{post_count}} poster</span>
+                  <span class="meta-tag">LinkedIn</span>
+                </div>
+              </div>
+              {{#each posts}}
+                {{#if @first}}
+                  {{#if relevance_score}}
+                    <div class="status-badge badge-{{priority_class}}">{{relevance_score}}/10</div>
+                  {{/if}}
+                {{/if}}
+              {{/each}}
+            </div>
+
+            {{#each posts}}
+              <div class="linkedin-post">
+<div class="linkedin-header">
+  <div class="linkedin-meta">
+    <strong>{{../company_name}}</strong>
+    <span>· {{post_date}}</span>
+    <span>· {{engagement_level}} engasjement</span>
+  </div>
+  {{#if relevance_score}}
+    <div class="status-badge badge-{{priority_class}}">{{relevance_score}}/10</div>
+  {{/if}}
+</div>
+
+                <div class="linkedin-content">
+                  {{post_text}}
+                </div>
+                {{#if post_url}}
+                  <a href="{{post_url}}" target="_blank" class="linkedin-link">Se originalinnlegg →</a>
+                {{/if}}
+
+                {{#if sonat_opportunity}}
+                  <div class="relevance-container">
+                    <div class="relevance-title">Forretningsmulighet</div>
+                    <div class="relevance-content">
+                      {{sonat_opportunity}}
+                    </div>
+                    {{#if opportunity_tags}}
+                      <div class="relevance-tags">
+                        {{#each opportunity_tags}}
+                          <span class="relevance-tag">{{this}}</span>
+                        {{/each}}
+                      </div>
+                    {{/if}}
+                  </div>
+                {{/if}}
+              </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: 
+#64748B; text-align: center;">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+  </div>
+{{/each}}
+    
+    <!-- INDIVIDUAL LINKEDIN ACCOUNT PAGES -->
+    {{#each linkedin_accounts}}
+    <div class="page">
+        <div class="page-content">
+            <div class="company-section priority-medium">
+                <div class="company-section-header">
+                    <span>{{company_name}}</span>
+                    <span class="priority-badge">{{post_count}} poster</span>
+                </div>
+                
+                {{#each posts}}
+                <div class="company-card no-break">
+                    <div class="company-header">
+                        <div class="company-info">
+                            <h3 class="company-name">{{../company_name}} ({{post_date}})</h3>
+                            <div class="company-meta">
+                                <span class="meta-tag">{{engagement_level}} engasjement</span>
+                                <span class="meta-tag">LinkedIn Post</span>
+                            </div>
+                        </div>
+                        <div class="status-badge badge-{{priority_class}}">{{relevance_score}}/10</div>
+                    </div>
+                    
+                    <div class="linkedin-post">
+                        <div class="linkedin-header">
+                            <div class="linkedin-meta">
+                                <span>LinkedIn</span>
+                                <span>{{post_date}}</span>
+                                <span>{{engagement_level}} engasjement</span>
+                            </div>
+                        </div>
+                        <div class="linkedin-content">
+                            {{post_text}}
+                        </div>
+                        {{#if post_url}}
+                        <a href="{{post_url}}" target="_blank" class="linkedin-link">Se originalinnlegg →</a>
+                        {{/if}}
+                    </div>
+                    
+                    {{#if sonat_opportunity}}
+                    <div class="relevance-container">
+                        <div class="relevance-title">Forretningsmulighet</div>
+                        <div class="relevance-content">
+                            {{sonat_opportunity}}
+                        </div>
+                        <div class="relevance-tags">
+                            {{#each opportunity_tags}}
+                            <span class="relevance-tag">{{this}}</span>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: 
+#64748B; text-align: center;">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+    </div>
+    {{/each}}
+    
+    <!-- FINAL PAGE: STRATEGIC RECOMMENDATIONS -->
+    <div class="page">
+        <div class="page-content">
+            <div class="section-header">
+                <h2 class="section-title">{{section_strategic_title}}</h2>
+                <p class="section-subtitle">{{section_strategic_subtitle}}</p>
+            </div>
+            
+            <div class="summary-grid">
+                {{#each strategic_recommendations}}
+                <div class="summary-card">
+                    <div class="summary-card-header">
+                        <div class="card-icon">📋</div>
+                        <div class="card-title">{{title}}</div>
+                    </div>
+                    <div class="card-content">
+                        {{content}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-title">{{section_action_items_title}}</h2>
+            </div>
+            
+            <div class="insights-container">
+                {{#each action_items}}
+                <div class="insight-item insight-{{priority}}">
+                    <span class="insight-number">{{number}}</span>
+                    <strong>{{timeline}}:</strong> {{action}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: 
+#64748B; text-align: center;">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+    </div>
+</body>
+</html>
