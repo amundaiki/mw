@@ -1,0 +1,1389 @@
+{
+    "name": "Market watch 2/2",
+    "flow": [
+        {
+            "id": 2,
+            "module": "google-sheets:getSheetContent",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 5394937
+            },
+            "mapper": {
+                "range": "a2:k50",
+                "select": "map",
+                "sheetId": "Innlegg {{formatDate(now; \"DD.MM.YYYY\")}}",
+                "spreadsheetId": "1p5lLUysE1TWqctWvVtvSkccC4znpAvojsuoogVGj_rk",
+                "tableFirstRow": "a1:k1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0,
+                    "name": "NYHETER"
+                },
+                "restore": {
+                    "expect": {
+                        "select": {
+                            "label": "Enter manually"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "AMUND AIKI (amund@aiki.as)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "list",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "range",
+                        "type": "text",
+                        "label": "Range",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "boolean",
+                        "label": "Table contains headers",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "text",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "text",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 3,
+            "module": "util:TextAggregator",
+            "version": 1,
+            "parameters": {
+                "feeder": 2,
+                "rowSeparator": "\n"
+            },
+            "mapper": {
+                "value": "Kilde: {{2.`0`}}\n\nDato skrevet: {{2.`1`}}\n\nTittel: {{2.`2`}}\n\nSammendrag: {{2.`3`}} \n\nURL: {{2.`4`}}\n\nForfatter: {{2.`5`}}\n\nkategori: {{2.`6`}}\n\nRelevans for sonat score: {{2.`7`}}/10\n\nai tags: {{2.`8`}}\n\nPRoff.no info: \n{{2.`9`}}\n\nfull artikkel tekst:\n{{2.`10`}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "NYHETER"
+                },
+                "restore": {
+                    "extra": {
+                        "feeder": {
+                            "label": "Google Sheets - Get Range Values [2]"
+                        }
+                    },
+                    "parameters": {
+                        "rowSeparator": {
+                            "label": "New row"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "rowSeparator",
+                        "type": "select",
+                        "label": "Row separator",
+                        "validate": {
+                            "enum": [
+                                "\n",
+                                "\t",
+                                "other"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 9,
+            "module": "google-sheets:getSheetContent",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 5394937
+            },
+            "mapper": {
+                "range": "a2:D500",
+                "select": "map",
+                "sheetId": "LinkedIn {{formatDate(now; \"DD.MM.YYYY\")}}",
+                "spreadsheetId": "1p5lLUysE1TWqctWvVtvSkccC4znpAvojsuoogVGj_rk",
+                "tableFirstRow": "a1:D1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "LINKEDIN"
+                },
+                "restore": {
+                    "expect": {
+                        "select": {
+                            "label": "Enter manually"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "AMUND AIKI (amund@aiki.as)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "list",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "range",
+                        "type": "text",
+                        "label": "Range",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "boolean",
+                        "label": "Table contains headers",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "text",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "text",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "type": "number",
+                        "label": "Row number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "type": "text",
+                        "label": "Spreadsheet ID"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "type": "text",
+                        "label": "Sheet"
+                    },
+                    {
+                        "name": "0",
+                        "type": "text",
+                        "label": "KONTO (A)"
+                    },
+                    {
+                        "name": "1",
+                        "type": "text",
+                        "label": "URL (B)"
+                    },
+                    {
+                        "name": "2",
+                        "type": "text",
+                        "label": "INNLEGG (C)"
+                    },
+                    {
+                        "name": "3",
+                        "type": "text",
+                        "label": "URL (D)"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 10,
+            "module": "util:TextAggregator",
+            "version": 1,
+            "parameters": {
+                "feeder": 9,
+                "rowSeparator": "\n"
+            },
+            "mapper": {
+                "value": "KONTO: {{9.`0`}}\n\nKONTO_URL: {{9.`1`}}\n\nINNLEGG_TEKST: {{9.`2`}}\n\nINNLEGG_URL: {{9.`3`}}\n\n"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0,
+                    "name": "LINKEDIN"
+                },
+                "restore": {
+                    "extra": {
+                        "feeder": {
+                            "label": "Google Sheets - Get Range Values [9]"
+                        }
+                    },
+                    "parameters": {
+                        "rowSeparator": {
+                            "label": "New row"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "rowSeparator",
+                        "type": "select",
+                        "label": "Row separator",
+                        "validate": {
+                            "enum": [
+                                "\n",
+                                "\t",
+                                "other"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 4,
+            "module": "anthropic-claude:createAMessage",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 7073506
+            },
+            "mapper": {
+                "model": "claude-opus-4-1-20250805",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "text": "VIKTIG: Første tegn i svaret ditt SKAL være '{'. Ingen forklarende tekst, ingen kodeblokker, ingen markdown, ingen intro. Kun ren JSON.  \r\n\n\n# MAKE.COM AI-MODUL: MARKET WATCH JSON GENERATOR\n\n## SYSTEM ROLLE OG KONTEKST\nDu er en ekspert markedsanalytiker som transformerer rådata om norske teknologiselskaper til strukturerte JSON-rapporter for AIKI-SONAT forretningsforholdet. Din output skal være direkte JSON uten markdown-formatering eller kodeblokker.\n\n## KRITISKE OPERASJONELLE INSTRUKSJONER\n1. Output skal starte direkte med åpnende curly brace { \n2. Avslutt direkte med lukkende curly brace }\n3. Ingen markdown kodeblokker (```json) tillatt\n4. Alle tekstfelt på norsk\n5. Datoer i format \"DD. måned YYYY\"\n6. Bruk {{now}} for genereringsdato\n\n## INPUT DATATYPER FORVENTET\n- Selskapsinformasjon fra Brønnøysund/Proff.no\n- Crunchbase funding-data  \n- LinkedIn aktivitetsdata\n- E24/Finansavisen nyhetshendelser\n- Analyseperiode-spesifikasjon\n\n## KOMPLETT JSON STRUKTUR TEMPLATE\n\n### METADATA SEKSJONER\nreport_period: Fyll med analyseperiode i format \"DD. måned - DD. måned 2025\"\nreport_generated: Bruk {{now}} og format som \"DD. måned 2025, HH:MM\"\ntotal_pages: Beregn basert på innhold\n\n### KVANTITATIVE METRIKKER\ntotal_companies: Totalt antall analyserte selskaper\nhigh_priority_leads: Antall høyprioritet prospects\ntotal_capital_millions: Sum kapital hentet i millioner NOK\ngrowth_companies: Selskaper med >20% vekst\nnew_partnerships: Nye strategiske partnerskap\noslo_companies_percentage: Prosent Oslo-baserte selskaper\n\n### EXECUTIVE SUMMARY KOMPONENTER\nimmediate_opportunities_count: Antall umiddelbare muligheter\nimmediate_opportunities_text: Beskrivelse av topp muligheter med selskapsnavn\nmarket_dynamics_text: Markedstrend-analyse med sektorfokus\nregional_activity_text: Geografisk aktivitetsanalyse\ncritical_actions_text: Sammendrag av kritiske oppfølgingspunkter\n\n### KEY FINDINGS ARRAY\n5 prioriterte funn med structure:\n- number: 1-5\n- priority_class: \"critical\", \"high\", eller \"medium\"  \n- text: Spesifikt funn med SONAT-relevans\n\nPrioriteringskriterier:\n- critical: >100M NOK kapital + umiddelbar salgsmulighet\n- high: Kvalifiserte prospects med tekniske DevOps/Cloud behov\n- medium: Markedstrender og regionale mønstre\n\n### CRITICAL COMPANIES PROFILER\nKomplett profil for hver høyprioritet bedrift:\n- name: Eksakt selskapsnavn\n- sector: Sektor i VERSALER\n- employee_count: Numerisk verdi\n- location: By-navn\n- event_type: \"FUNDING\", \"EKSPANSJON\", \"PARTNERSHIP\"\n- event_date: Spesifikk dato\n- event_description: Detaljert hendelse med summer og detaljer\n- ceo_name: Fullt navn\n- email: Verifisert kontakt-epost\n- phone: Norsk telefonnummer format\n- website: URL uten https://\n- funding_amount_nok: \"XXX NOK\" format\n- investors: Kommaseparert liste\n- funding_round: \"Serie A/B/C/Growth\"\n- source_name: \"E24\", \"Finansavisen\", etc.\n- technical_needs: Kommaseparert liste tekniske behov\n- growth_indicators: Vekst-signaler\n- sonat_relevance: Hvorfor relevant for SONAT DevOps/Cloud\n- relevance_tags: Array med 3-5 tekniske tags\n- page_number: Streng med sidenummer\n\n### LINKEDIN INTELLIGENCE STRUKTUR\nlinkedin_accounts array med:\n- company_name: Selskapsnavn\n- post_count: Antall relevante poster\n- page_number: Side i rapport\n- posts array med:\n  - post_date: \"2025-MM-DD\"\n  - engagement_level: \"Høy\", \"Middels\", \"Lav\"\n  - priority_class: \"hot\", \"warm\", \"cold\"\n  - relevance_score: 1-10 numerisk\n  - post_text: Faktisk LinkedIn innlegg\n  - sonat_opportunity: Business analyse\n  - opportunity_tags: Array med relevante tags\n\n### SEKTOR DISTRIBUSJON DATA\nsector_chart_data array med:\n- height: \"XX%\" for visuell høyde\n- value: \"XX%\" for prosentverdi\n- label: Sektornavn\n\n### STRATEGISKE ANBEFALINGER\n4 strategiske punkter:\n- icon: Relevant emoji\n- title: Kort beskrivende tittel\n- content: Spesifikk handlingsanbefaling\n\n### ACTION ITEMS\naction_items array:\n- number: \"1\", \"2\", etc. som streng\n- priority: \"critical\", \"high\", \"medium\"\n- timeline: \"Denne uken\", \"Neste uke\", \"Månedslutt\"\n- action: Spesifikk handling med kontaktperson\n\n## KVALITETSKRAV OG VALIDERING\n\n### Teknisk Relevans Filter\n- Alle tekniske behov MÅ matche: DevOps, Cloud, Multi-cloud, Kubernetes, CI/CD, Infrastructure-as-Code, Compliance automation\n- Prioriter Enterprise-grade løsninger\n- Fokuser på skalering og modernisering\n\n### Forretningsmessig Validering\n- Minimum 15 ansatte for inkluderte selskaper\n- Verifiser funding-beløp mot offentlige kilder\n- Validere email og telefon format\n- AI matching minimum 80% for critical companies\n\n### Output Validering Krav\n- Alle tall som integer uten anførselstegn\n- Alle tekster som strings med anførselstegn\n- Konsistent bruk av priority_class verdier\n- Relevance_score mellom 1-10\n- Gyldige norske telefonnummer (+47 format)\nALDRI start med noe annet enn selve json koden. ingen markdown heller. ALDRI skriv \"Looking at all the data provided, I'll generate a comprehensive Market Watch report in JSON format for SONAT Consulting:\r\n\r\n```json\"\n- Første tegn du skal svare med skal være \"{\". Ingen forklarende tekst før.\n\n# OUTPUT FORMAT\r\n- Første tegn = '{'\r\n- Svar utelukkende i gyldig JSON\r\n- Ikke inkluder ```json eller annen markdown\r\n- Ingen forklarende tekst eller kommentar før eller etter JSON\r\n- Dersom data mangler, sett feltet til \"IKKE_TILGJENGELIG\"\r\n",
+                                "type": "text"
+                            },
+                            {
+                                "text": "​\n## KOMPLETT EKSEMPEL OUTPUT\n\n{\n  \"label_period\": \"Periode\",\n  \"label_generated\": \"Generert\",\n  \"report_period\": \"15. august - 21. august 2025\",\n  \"report_generated\": \"22. august 2025, 08:15\",\n  \"total_pages\": 9,\n  \"immediate_opportunities_count\": 4,\n  \"immediate_opportunities_text\": \"4 høyprioritet teknologiselskaper med aktive ekspansjonsbehov. TechFlow og DataStream leder an med betydelige investeringsrunder.\",\n  \"market_activity_metric\": \"52 bedrifter\",\n  \"market_dynamics_text\": \"Markant økning i SaaS-investeringer og cloud-migrasjonsprosjekter. Fintech og healthtech dominerer funding-landskapet.\",\n  \"oslo_percentage\": 72,\n  \"regional_activity_text\": \"Oslo-regionen forsterker sin posisjon, mens Stavanger viser overraskende vekst innen energy-tech. Tromsø emergerer som AI-hub.\",\n  \"critical_actions_text\": \"4 leads krever umiddelbar oppfølging. 6 varme prospects modnes for kontakt innen to uker.\",\n  \"total_companies\": 52,\n  \"high_priority_leads\": 4,\n  \"total_capital_millions\": 580,\n  \"growth_companies\": 22,\n  \"new_partnerships\": 12,\n  \"oslo_companies_percentage\": 72,\n  \"key_findings\": [\n    {\n      \"number\": 1,\n      \"priority_class\": \"critical\",\n      \"text\": \"TechFlow Norge har hentet 200M NOK Serie C og søker VP of Engineering - optimal timing for enterprise DevOps-konsultasjon\"\n    },\n    {\n      \"number\": 2,\n      \"priority_class\": \"critical\", \n      \"text\": \"DataStream planlegger global ekspansjon til 12 nye markeder og trenger skalerbar cloud-infrastruktur\"\n    }\n  ],\n  \"critical_companies\": [\n    {\n      \"name\": \"TechFlow Norge AS\",\n      \"sector\": \"ENTERPRISE SAAS\",\n      \"employee_count\": 320,\n      \"location\": \"Oslo\",\n      \"event_type\": \"FUNDING\",\n      \"event_date\": \"18. august 2025\",\n      \"event_description\": \"Sikret 200M NOK i Serie C-runde ledet av Northzone. Planlegger ekspansjon til Tyskland, Nederland og UK. Søker VP Engineering og Senior Cloud Architects.\",\n      \"ceo_name\": \"Maria Andreassen\",\n      \"email\": \"contact@techflow.no\",\n      \"phone\": \"+47 21 45 67 89\", \n      \"website\": \"techflow.no\",\n      \"funding_amount_nok\": \"200M NOK\",\n      \"investors\": \"Northzone, AWS Ventures\",\n      \"funding_round\": \"Serie C\",\n      \"source_name\": \"E24\",\n      \"technical_needs\": \"Multi-cloud arkitektur, enterprise DevOps pipelines, compliance automation, infrastructure-as-code\",\n      \"growth_indicators\": \"350% ARR vekst, 3 nye markeder, tredobling av engineering-team\",\n      \"sonat_relevance\": \"Omfattende cloud-transformasjon krever enterprise-grade DevOps og multi-cloud ekspertise. AWS-partnership matcher Sonats kompetanse.\",\n      \"relevance_tags\": [\"AWS\", \"Multi-cloud\", \"Enterprise DevOps\", \"Compliance\"],\n      \"page_number\": \"3\"\n    }\n  ],\n  \"linkedin_accounts\": [\n    {\n      \"company_name\": \"DigitalFlow AS\",\n      \"post_count\": 3,\n      \"page_number\": 7,\n      \"posts\": [\n        {\n          \"post_date\": \"2025-08-20\",\n          \"engagement_level\": \"Høy\",\n          \"priority_class\": \"hot\",\n          \"relevance_score\": 9,\n          \"post_text\": \"Spennende nyhet! Vi bygger om hele vår cloud-infrastruktur og søker Senior DevOps Engineer til vårt Oslo-kontor.\",\n          \"sonat_opportunity\": \"Stor cloud-transformasjon pågår med behov for DevOps ekspertise. Perfekt timing for SONAT å tilby enterprise-grade løsninger.\",\n          \"opportunity_tags\": [\"DevOps Hiring\", \"Cloud Migration\", \"Oslo\"]\n        }\n      ]\n    }\n  ],\n  \"sector_chart_data\": [\n    {\n      \"height\": \"85%\",\n      \"value\": \"38%\", \n      \"label\": \"SaaS\"\n    },\n    {\n      \"height\": \"70%\",\n      \"value\": \"31%\",\n      \"label\": \"FinTech\"\n    }\n  ],\n  \"strategic_recommendations\": [\n    {\n      \"icon\": \"🎯\",\n      \"title\": \"Umiddelbar Oppfølging\",\n      \"content\": \"Prioriter TechFlow og DataStream denne uken. Begge har annonsert omfattende tekniske utvidelser som matcher Sonats core competencies.\"\n    }\n  ],\n  \"action_items\": [\n    {\n      \"number\": \"1\",\n      \"priority\": \"critical\",\n      \"timeline\": \"Denne uken\", \n      \"action\": \"Ring Maria Andreassen (TechFlow) angående VP Engineering-søk og AWS-optimalisering\"\n    }\n  ]\n}\n\n## ERROR HANDLING PROTOKOLL\n- Ukomplett selskapsinformasjon: Marker som \"IKKE_TILGJENGELIG\"\n- Manglende LinkedIn data: Sett post_count til 0\n- Ugyldige kontaktdetaljer: Ekskluder selskap\n- Beløp ikke i NOK: Konverter og marker kilde\n\n## SUKSESS VALIDERING\nOutput er godkjent når:\n- JSON parses uten feil\n- Alle required felter populated\n- Minimum 2 critical_companies inkludert  \n- Relevance_score innenfor 1-10 range\n- Konsistent priority_class bruk\n- Norsk språk gjennomgående\n\n{\n  \"// GUIDE FOR MARKET WATCH JSON DATA - SONAT SPESIFIKK\": \"\",\n  \"// Dette dokumentet beskriver hvordan hver variabel skal fylles ut med fokus på SONATs kompetanseområder og konkrete sales approaches\": \"\",\n  \n  \"// CRITICAL COMPANIES SECTION\": \"\",\n  \"critical_companies\": [\n    {\n      \"name\": \"[Bedriftsnavn] - KRAV: Norske tech-selskaper med >100 ansatte og aktive teknologibehov\",\n      \n      \"sector\": \"[Sektor] - FOKUS: Prioriter bank/finans, maritime, media, helse, telecom - SONATs kjernesektorer\",\n      \n      \"event_description\": \"[200-300 ord detaljert beskrivelse] - INKLUDER: Spesifikke teknologiutfordringer, vekstplaner, teknisk ledelse, digitale transformasjonsprosjekter. Nevn konkrete tech stack, cloud-migrering, AI/ML-satsninger, prosessautomatisering behov.\",\n      \n      \"technical_needs\": \"[150-200 ord] - KOBLE TIL SONAT: Spesifiser hvordan bedriftens behov matcher SONATs kjernekompetanse: maskinlæring, AI, JavaScript, Java, .NET. Nevn konkrete teknologier som React, Azure, AWS, microservices, API-utvikling, data pipelines.\",\n      \n      \"sonat_relevance\": \"[200-250 ord strategisk analyse] - SKRIV: Detaljert vurdering av hvorfor dette er en perfekt match for SONAT. Inkluder: 1) Teknisk matching (AI/ML, stack overlap), 2) Bransjerelevans (bank/maritime/media), 3) Geografisk nærhet (Bergen/Oslo/Trondheim), 4) Prosjektstørrelse og kompleksitet som matcher SONATs kapasitet\",\n      \n      \"growth_indicators\": \"[100-150 ord] - LIST: Konkrete vekstsignaler som ansettelser, nye kontorer, markedsekspansjon, produktlanseringer, tech team scaling, digitale initiativer\",\n      \n      \"approach_strategy\": \"[200-300 ord NYTT FELT] - KONKRET HANDLINGSPLAN: 1) Første kontakt strategi (LinkedIn, email, telefon), 2) Value proposition tilpasset deres utfordringer, 3) Relevante SONAT case studies å nevne, 4) Foreslåtte møtetemaer (tech workshop, architecture review, AI/ML proof-of-concept), 5) Timeline for oppfølging, 6) Interne SONAT ressurser å involvere\",\n      \n      \"sonat_services_match\": \"[150-200 ord NYTT FELT] - TJENESTEMATCHING: Spesifiser hvilke SONAT-tjenester som er mest relevante: digitalisering, tjenestedesign, UX, maskinlæring, VR, teknologirådgiving, systemutvikling. Koble til konkrete pain points hos prospektet\",\n      \n      \"competitive_advantage\": \"[100-150 ord NYTT FELT] - SKRIV: Hvorfor SONAT er bedre enn konkurrenter for denne kunden. Fokus på: lokal tilstedeværelse, bransjekunnskap, tech stack match, tidligere suksesshistorier i lignende selskaper\"\n    }\n  ],\n  \n  \"// QUALIFIED COMPANIES SECTION\": \"\",\n  \"qualified_companies\": [\n    {\n      \"opportunity_description\": \"[150-200 ord] - UTDYP: Ikke bare generell beskrivelse, men konkret business case for SONAT. Inkluder estimated project value, timeline, decision makers, tech stack involvement\",\n      \n      \"approach_timeline\": \"[NYTT FELT - 100 ord] - PLAN: Konkret oppfølgingsplan: Uke 1: LinkedIn research og første kontakt, Uke 2: Initial meeting/call, Uke 3: Teknisk workshop/demo, Uke 4: Proposal/next steps\",\n      \n      \"sonat_contact_recommendation\": \"[NYTT FELT - 50 ord] - ANBEFALL: Hvilken SONAT-ekspert som bør lede kontakten basert på teknisk match og geografisk nærhet\"\n    }\n  ],\n  \n  \"// LINKEDIN INTELLIGENCE SECTION\": \"\",\n  \"linkedin_accounts\": [\n    {\n      \"posts\": [\n        {\n          \"sonat_opportunity\": \"[200-250 ord UTVIDET] - INKLUDER: 1) Teknisk analyse av nevnte utfordringer, 2) Konkrete SONAT-løsninger som kan hjelpe, 3) Timing for kontakt, 4) Foreslått conversation starter, 5) Relevante SONAT case studies å nevne\",\n          \n          \"engagement_strategy\": \"[NYTT FELT - 150 ord] - PLAN: Hvordan SONAT skal engasjere: Like/kommentere på posten, dele relevant content, invitere til LinkedIn, foreslå teknisk diskusjon, arrangementer å nevne\",\n          \n          \"tech_pain_points\": \"[NYTT FELT - 100 ord] - IDENTIFISER: Spesifikke tekniske utfordringer nevnt i posten som SONAT kan løse\",\n          \n          \"follow_up_actions\": \"[NYTT FELT - 100 ord] - LISTE: Konkrete neste steg for SONAT: research selskapet, finne riktig kontaktperson, forberede value proposition, sette møte\"\n        }\n      ]\n    }\n  ],\n  \n  \"// KEY FINDINGS SECTION\": \"\",\n  \"key_findings\": [\n    {\n      \"text\": \"[150-200 ord per insight] - UTVIDET FORMAT: Ikke bare identifisere trends, men inkludere: 1) Hva dette betyr for SONAT business, 2) Konkrete handlinger å ta, 3) Tidsramme for opportunities, 4) Estimert market size/revenue potential, 5) Konkrete selskaper å prioritere\",\n      \n      \"sonat_action_plan\": \"[NYTT FELT - 100 ord] - PLAN: Spesifikke tiltak SONAT bør gjøre basert på denne insighten\"\n    }\n  ],\n  \n  \"// STRATEGIC RECOMMENDATIONS SECTION\": \"\",\n  \"strategic_recommendations\": [\n    {\n      \"content\": \"[200-300 ord UTVIDET] - INKLUDER: 1) Detaljert reasoning bak anbefalingen, 2) Konkrete metrics å måle suksess, 3) Ressurser/investeringer SONAT må gjøre, 4) Timeline for implementering, 5) Forventet ROI/impact\",\n      \n      \"implementation_steps\": \"[NYTT FELT - 150 ord] - STEG: Konkret plan for hvordan SONAT skal implementere anbefalingen\",\n      \n      \"success_metrics\": \"[NYTT FELT - 100 ord] - KPIs: Hvordan måle om strategien fungerer\"\n    }\n  ],\n  \n  \"// ACTION ITEMS SECTION\": \"\",\n  \"action_items\": [\n    {\n      \"action\": \"[100-150 ord UTVIDET] - DETALJER: Ikke bare 'ring X', men inkluder: 1) Specific talking points å bruke, 2) Value proposition å fremheve, 3) Møtetype å foreslå, 4) Materials å sende i forveien, 5) Follow-up plan etter første kontakt\",\n      \n      \"preparation_needed\": \"[NYTT FELT - 100 ord] - PREP: Hva SONAT-teamet må forberede før kontakt: research, case studies, tech demos, team members å involvere\",\n      \n      \"success_criteria\": \"[NYTT FELT - 50 ord] - MÅL: Hva som definerer suksess for denne action item\"\n    }\n  ],\n  \n  \"// MARKET INTELLIGENCE CONTEXT\": \"\",\n  \"sonat_competitive_landscape\": \"[NYTT FELT - 200 ord] - ANALYSE: Hvordan SONAT posisjoneres mot konkurrenter i identifiserte opportunities. Inkluder styrker å utnytte og gaps å adressere\",\n  \n  \"technology_trend_impact\": \"[NYTT FELT - 200 ord] - VURDER: Hvordan identifiserte teknologitrends (AI, cloud, microservices) påvirker SONATs markedsposisjon og service portfolio\",\n  \n  \"geographic_opportunities\": \"[NYTT FELT - 150 ord] - ANALYSER: Hvordan geografisk distribusjon av opportunities matcher SONATs kontorlokasjoner i Bergen, Oslo, Trondheim\",\n  \n  \"revenue_potential\": \"[NYTT FELT - 100 ord] - ESTIMER: Samlet revenue potential for identifiserte opportunities og prioritering basert på størrelse/sannsynlighet\",\n  \n  \"// SECTOR-SPECIFIC INSIGHTS\": \"\",\n  \"banking_fintech_opportunities\": \"[NYTT FELT - 200 ord] - FOKUS: Spesifikke insights for bank/finans-sektoren med kobling til SONATs erfaring med digitale banker og prosessautomatisering\",\n  \n  \"maritime_tech_trends\": \"[NYTT FELT - 200 ord] - MARITIM: Opportunities innen autonome skip og oljeinstallasjoner som matcher SONATs maritime kompetanse\",\n  \n  \"media_streaming_insights\": \"[NYTT FELT - 150 ord] - MEDIA: Streaming og media-tech opportunities som kobler til SONATs teknologikompetanse\",\n  \n  \"healthcare_digitalization\": \"[NYTT FELT - 150 ord] - HELSE: Helseteknologi og digitalisering opportunities som SONAT kan adressere\"\n}\n\n​",
+                                "type": "text"
+                            },
+                            {
+                                "text": "​\nDu skal bruke denne malen for å lage rapporten:\n{\r\n  \"report_generated\": \"[dato og klokkeslett rapporten ble generert, f.eks. '20. august 2025, 09:30']\",\r\n  \"total_pages\": \"[totalt antall sider i rapporten (heltall), f.eks. 12]\",\r\n\r\n  \"weekly_summary_text\": \"[kompakt ukesoppsummering i 1–3 linjer]\",\r\n  \"immediate_opportunities_count\": \"[antall umiddelbare muligheter (heltall), f.eks. 5]\",\r\n  \"market_activity_metric\": \"[kort nøkkeltall for aktive bedrifter, f.eks. '52 bedrifter']\", \r\n\r\n  \"key_findings\": [\r\n    {\r\n      \"number\": \"[løpenummer (heltall), f.eks. 1]\",\r\n      \"priority_class\": \"[critical | high | medium]\",\r\n      \"text\": \"[beskrivelse av funn]\"\r\n    }\r\n  ],\r\n\r\n  \"section_metrics_title\": \"[tittel for nøkkeltallsseksjon, f.eks. 'Nøkkeltall og innsikt']\",\r\n  \"section_metrics_subtitle\": \"[undertittel for nøkkeltallsseksjon, f.eks. 'Oppsummert aktivitet siste periode']\",\r\n\r\n  \"total_companies\": \"[totalt antall selskaper identifisert (heltall)]\",\r\n  \"high_priority_leads\": \"[antall høyprioritetsleads (heltall)]\",\r\n  \"total_capital_millions\": \"[kapital hentet i MNOK (heltall/desimal), f.eks. 342]\",\r\n  \"capital_suffix\": \"[valuta-suffiks, f.eks. ' MNOK']\",\r\n  \"growth_companies\": \"[antall selskaper i sterk vekst (heltall)]\",\r\n  \"new_partnerships\": \"[antall nye partnerskap (heltall)]\",\r\n  \"oslo_companies_percentage\": \"[andel i Oslo (heltall/desimal), f.eks. 68]\",\r\n  \"percentage_suffix\": \"[prosent-suffiks, f.eks. '%']\",\r\n\r\n  \"label_companies_identified\": \"[VALGFRI overstyring av label; default i HTML: 'Identifiserte selskaper']\",\r\n  \"label_high_priority\": \"[VALGFRI; default: 'Høy prioritet']\",\r\n  \"label_capital_raised\": \"[VALGFRI; default: 'Kapital hentet']\",\r\n  \"label_hypergrowth\": \"[VALGFRI; default: 'Hypervekst selskaper']\",\r\n  \"label_partnerships\": \"[VALGFRI; default: 'Nye partnerskap']\",\r\n  \"label_oslo_dominance\": \"[VALGFRI; default: 'Andel i Oslo']\",\r\n\r\n  \"section_sector_distribution\": \"[tittel for sektordiagram, f.eks. 'Sektordistribusjon']\",\r\n  \"sector_chart_data\": [\r\n    { \"height\": \"[CSS-høyde (prosent), f.eks. '85%']\", \"value\": \"[verdi som tekst, f.eks. '31%']\", \"label\": \"[sektornavn, f.eks. 'Maritim & Offshore']\" }\r\n  ],\r\n\r\n  \"label_data_sources\": \"[VALGFRI; default: 'Datakilder']\",\r\n  \"data_sources\": \"[datakilder brukt i rapporten, f.eks. 'Presse, børsmeldinger, LinkedIn, selskapsnettsider']\",\r\n  \"label_analysis_period\": \"[VALGFRI; default: 'Analyseperiode']\",\r\n  \"analysis_period\": \"[periode for analysen, f.eks. 'Siste 7 dager']\",\r\n  \"label_filter_criteria\": \"[VALGFRI; default: 'Filterkriterier']\",\r\n  \"filtering_criteria\": \"[filter brukt, f.eks. 'Norge, >10 ansatte, offentlig hendelse']\",\r\n  \"label_ai_matching\": \"[VALGFRI; default: 'AI-matching terskel']\",\r\n  \"ai_matching_threshold\": \"[terskel, f.eks. '≥ 0,72']\",  \r\n\r\n  \"label_strategic_match\": \"[VALGFRI; default: 'Strategisk match']\",\r\n\r\n  \"critical_companies\": [\r\n    {\r\n      \"name\": \"[selskapets navn]\",\r\n      \"sector\": \"[bransje/sektor]\",\r\n      \"employee_count\": \"[antall ansatte (heltall)]\",\r\n      \"location\": \"[lokasjon/by]\",\r\n      \"event_type\": \"[type hendelse, f.eks. 'Funding', 'Vekst', 'Ekspansjon']\",\r\n      \"event_description\": \"[kort beskrivelse av hendelsen (vises i gul event-boks)]\",\r\n\r\n      \"source_name\": \"[kildenavn, f.eks. DN, E24, LinkedIn]\",\r\n      \"source_url\": \"[URL til kilde (lenkes i event-boksen, og i finans-detaljer)]\",\r\n\r\n      \"ceo_name\": \"[navn på CEO]\",\r\n      \"ceo_linkedin_url\": \"[VALGFRI LinkedIn-URL til CEO]\",\r\n      \"email\": \"[kontakt-e-post]\",\r\n      \"phone\": \"[telefonnummer]\",\r\n      \"website\": \"[visningsnavn for lenke, f.eks. 'odfjelldrilling.com']\",\r\n      \"website_url\": \"[full URL til nettsted, f.eks. 'https://www.odfjelldrilling.com']\",\r\n\r\n      \"funding_amount_nok\": \"[beløp i NOK eller 'Ikke oppgitt']\",\r\n      \"investors\": \"[investorer eller 'Børsnotert']\",\r\n      \"funding_round\": \"[runde, f.eks. 'Serie A', 'IPO', 'Utbytte']\",\r\n\r\n      \"technical_needs\": \"[liste/beskrivelse av tekniske behov]\",\r\n      \"growth_indicators\": \"[kort liste av vekstindikatorer]\",\r\n      \"sonat_relevance\": \"[hvorfor dette matcher SONATs leveranser]\",\r\n      \"relevance_tags\": [\"[tag 1]\", \"[tag 2]\", \"[tag 3]\"]\r\n    }\r\n  ],\r\n\r\n  \"qualified_chunks\": [\r\n    [\r\n      {\r\n        \"name\": \"[selskapets navn]\",\r\n        \"employee_count\": \"[antall ansatte (heltall)]\",\r\n        \"location\": \"[lokasjon/by]\",\r\n        \"sector\": \"[bransje/sektor]\",\r\n        \"website_url\": \"[VALGFRI – hvis du vil lenke navnet til nettsiden]\",\r\n        \"opportunity_description\": \"[beskrivelse av salgsmulighet (vises i blå boks)]\",\r\n\r\n        \"event_type\": \"[VALGFRI type hendelse for gul boks]\",\r\n        \"event_description\": \"[VALGFRI – kort beskrivelse til gul boks]\",\r\n        \"source_name\": \"[VALGFRI kildenavn til event]\",\r\n        \"source_url\": \"[VALGFRI kilde-URL til event]\",\r\n\r\n        \"sonat_opportunity\": \"[hvordan SONAT kan bidra]\"\r\n      }\r\n    ]\r\n  ],\r\n\r\n  \"section_linkedin_title\": \"[tittel for LinkedIn-seksjon, f.eks. 'LinkedIn-oversikt']\",\r\n  \"section_linkedin_subtitle\": \"[undertittel for LinkedIn-seksjon]\",\r\n  \"title_monitored_accounts\": \"[kort label, f.eks. 'Overvåkede kontoer']\",\r\n  \"monitored_accounts_count\": \"[antall overvåkede kontoer (heltall)]\",\r\n  \"monitored_accounts_text\": \"[kort beskrivelse av overvåkede kontoer]\",\r\n  \"title_high_engagement\": \"[kort label, f.eks. 'Høyt engasjement']\",\r\n  \"high_engagement_count\": \"[antall poster med høyt engasjement (heltall)]\",\r\n  \"high_engagement_text\": \"[kort beskrivelse av engasjement]\",\r\n  \"title_networking_events\": \"[kort label, f.eks. 'Nettverksarenaer']\",\r\n  \"networking_events_count\": \"[antall events (heltall)]\",\r\n  \"networking_events_text\": \"[kort beskrivelse av events]\",\r\n  \"title_hiring_signals\": \"[kort label, f.eks. 'Ansettelsessignaler']\",\r\n  \"hiring_signals_count\": \"[antall ansettelsessignaler (heltall)]\",\r\n  \"hiring_signals_text\": \"[kort beskrivelse]\",\r\n\r\n  \"label_posts\": \"[VALGFRI; default i HTML: 'poster']\",\r\n  \"label_business_opportunity\": \"[VALGFRI; brukes kun på detaljsider; default i HTML: 'Forretningsmulighet']\",  \r\n\r\n  \"linkedin_pages\": [\r\n    [\r\n      {\r\n        \"company_name\": \"[kontonavn/selskap]\",\r\n        \"post_count\": \"[antall poster på denne kontoen (heltall)]\",\r\n        \"posts\": [\r\n          {\r\n            \"post_date\": \"[YYYY-MM-DD eller lokal dato]\",\r\n            \"engagement_level\": \"[Lav | Middels | Høy]\",\r\n            \"priority_class\": \"[hot | warm | medium]\",\r\n            \"relevance_score\": \"[1–10 (heltall)]\",\r\n            \"post_text\": \"[innhold fra LinkedIn-post]\",\r\n            \"post_url\": \"[lenke til posten]\",\r\n            \"sonat_opportunity\": \"[VALGFRI – kort mulighetsbeskrivelse]\",\r\n            \"opportunity_tags\": [\"[tag 1]\", \"[tag 2]\"]\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  ],\r\n\r\n  \"linkedin_accounts\": [\r\n    {\r\n      \"company_name\": \"[kontonavn/selskap]\",\r\n      \"post_count\": \"[antall poster (heltall)]\",\r\n      \"posts\": [\r\n        {\r\n          \"post_date\": \"[YYYY-MM-DD eller lokal dato]\",\r\n          \"engagement_level\": \"[Lav | Middels | Høy]\",\r\n          \"priority_class\": \"[hot | warm | medium]\",\r\n          \"relevance_score\": \"[1–10 (heltall)]\",\r\n          \"post_text\": \"[innhold fra LinkedIn-post]\",\r\n          \"post_url\": \"[lenke til posten]\",\r\n          \"sonat_opportunity\": \"[VALGFRI – kort mulighetsbeskrivelse]\",\r\n          \"opportunity_tags\": [\"[tag 1]\", \"[tag 2]\"]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n\r\n  \"section_strategic_title\": \"[tittel for strategiske anbefalinger]\",\r\n  \"section_strategic_subtitle\": \"[undertittel for strategiske anbefalinger]\",\r\n  \"section_action_items_title\": \"[tittel for tiltaksliste]\",\r\n\r\n  \"strategic_recommendations\": [\r\n    { \"title\": \"[tittel på anbefaling]\", \"content\": \"[kort beskrivelse]\" }\r\n  ],\r\n\r\n  \"action_items\": [\r\n    {\r\n      \"number\": \"[løpenummer (heltall)]\",\r\n      \"priority\": \"[critical | high | medium]\",\r\n      \"timeline\": \"[tidslinje, f.eks. 'Denne uken']\",\r\n      \"action\": \"[konkret handling]\"\r\n    }\r\n  ]\r\n}\r\n​",
+                                "type": "text"
+                            },
+                            {
+                                "text": "INPUT DATA FRA NYHETER:\n{{3.text}}\n\nINPUT FRA LINKEDIN:\n{{10.text}}",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                ],
+                "metadata": {},
+                "max_tokens": "32000",
+                "temperature": "1"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0,
+                    "name": "LAGER INPUT JSON"
+                },
+                "restore": {
+                    "expect": {
+                        "model": {
+                            "mode": "chose",
+                            "label": "Claude Opus 4.1"
+                        },
+                        "messages": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "content": {
+                                        "mode": "chose",
+                                        "items": [
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            },
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            },
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            },
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "stop_sequences": {
+                            "mode": "chose"
+                        },
+                        "additionalParameters": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "anthropic-claude"
+                            },
+                            "label": "AIKI"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:anthropic-claude",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true
+                    },
+                    {
+                        "name": "max_tokens",
+                        "type": "uinteger",
+                        "label": "Max Tokens",
+                        "required": true
+                    },
+                    {
+                        "name": "messages",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "role",
+                                    "type": "select",
+                                    "label": "Role",
+                                    "options": [
+                                        {
+                                            "label": "User",
+                                            "value": "user",
+                                            "nested": [
+                                                {
+                                                    "name": "content",
+                                                    "spec": {
+                                                        "spec": [
+                                                            {
+                                                                "help": "For models that support image content blocks (vision), see the [Anthropic model comparison table](https://docs.anthropic.com/en/docs/about-claude/models#model-comparison-table).",
+                                                                "name": "type",
+                                                                "type": "select",
+                                                                "label": "Type",
+                                                                "options": [
+                                                                    {
+                                                                        "label": "Text",
+                                                                        "value": "text",
+                                                                        "nested": [
+                                                                            {
+                                                                                "help": "Content of the message on behalf of the selected **Role** .",
+                                                                                "name": "text",
+                                                                                "type": "text",
+                                                                                "label": "Text",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "Image",
+                                                                        "value": "image",
+                                                                        "nested": [
+                                                                            {
+                                                                                "name": "source",
+                                                                                "spec": [
+                                                                                    {
+                                                                                        "help": "File name, including the extension, for example, `image.jpg`.",
+                                                                                        "name": "filename",
+                                                                                        "type": "filename",
+                                                                                        "label": "Filename",
+                                                                                        "required": true,
+                                                                                        "semantic": "file:name",
+                                                                                        "extension": [
+                                                                                            "jpeg",
+                                                                                            "jpg",
+                                                                                            "png",
+                                                                                            "gif",
+                                                                                            "webp"
+                                                                                        ]
+                                                                                    },
+                                                                                    {
+                                                                                        "help": "Binary data of the image. For example, you can retrieve the binary data of your image using the **HTTP: Get a file** module.",
+                                                                                        "name": "data",
+                                                                                        "type": "buffer",
+                                                                                        "label": "Data",
+                                                                                        "required": true,
+                                                                                        "semantic": "file:data"
+                                                                                    }
+                                                                                ],
+                                                                                "type": "collection",
+                                                                                "label": "Source",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "PDF document",
+                                                                        "value": "document",
+                                                                        "nested": [
+                                                                            "rpc://anthropic-claude/1/notePdfDocument",
+                                                                            {
+                                                                                "name": "pdfFileName",
+                                                                                "type": "filename",
+                                                                                "label": "Filename",
+                                                                                "required": true,
+                                                                                "semantic": "file:name",
+                                                                                "extension": [
+                                                                                    "pdf"
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "name": "pdfFileData",
+                                                                                "type": "buffer",
+                                                                                "label": "Data",
+                                                                                "required": true,
+                                                                                "semantic": "file:data"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "Tool result",
+                                                                        "value": "tool_result",
+                                                                        "nested": [
+                                                                            {
+                                                                                "name": "tool_use_id",
+                                                                                "type": "text",
+                                                                                "label": "Tool Use ID",
+                                                                                "required": true
+                                                                            },
+                                                                            {
+                                                                                "name": "content",
+                                                                                "type": "text",
+                                                                                "label": "Content",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "required": true
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Content"
+                                                    },
+                                                    "type": "array",
+                                                    "label": "Content",
+                                                    "labels": {
+                                                        "add": "Add content"
+                                                    },
+                                                    "required": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Assistant",
+                                            "value": "assistant",
+                                            "nested": [
+                                                {
+                                                    "help": "If the request ends with an assistant turn, then the response content will continue directly from that last turn.",
+                                                    "name": "content",
+                                                    "type": "text",
+                                                    "label": "Content",
+                                                    "required": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Tool Assistant",
+                                            "value": "tool_assistant",
+                                            "nested": [
+                                                {
+                                                    "name": "content",
+                                                    "spec": {
+                                                        "spec": [
+                                                            {
+                                                                "help": "You can send image content blocks starting with Claude 3 models.",
+                                                                "name": "type",
+                                                                "type": "select",
+                                                                "label": "Type",
+                                                                "options": [
+                                                                    {
+                                                                        "label": "Text",
+                                                                        "value": "text",
+                                                                        "nested": [
+                                                                            {
+                                                                                "help": "Content of the message on behalf of the selected **Role** .",
+                                                                                "name": "text",
+                                                                                "type": "text",
+                                                                                "label": "Text",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "Tool Use",
+                                                                        "value": "tool_use",
+                                                                        "nested": [
+                                                                            {
+                                                                                "name": "id",
+                                                                                "type": "text",
+                                                                                "label": "Tool Use ID",
+                                                                                "required": true
+                                                                            },
+                                                                            {
+                                                                                "name": "name",
+                                                                                "type": "text",
+                                                                                "label": "Tool Name",
+                                                                                "required": true
+                                                                            },
+                                                                            {
+                                                                                "name": "input",
+                                                                                "type": "any",
+                                                                                "label": "Input",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "required": true
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Content"
+                                                    },
+                                                    "type": "array",
+                                                    "label": "Content",
+                                                    "labels": {
+                                                        "add": "Add content"
+                                                    },
+                                                    "required": true
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Message"
+                        },
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true
+                    },
+                    {
+                        "name": "system",
+                        "type": "text",
+                        "label": "System Prompt"
+                    },
+                    {
+                        "name": "metadata",
+                        "spec": [
+                            {
+                                "name": "user_id",
+                                "type": "text",
+                                "label": "User ID"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Metadata"
+                    },
+                    {
+                        "name": "stop_sequences",
+                        "spec": {
+                            "name": "value",
+                            "type": "text",
+                            "label": "Stop Sequence"
+                        },
+                        "type": "array",
+                        "label": "Stop Sequences"
+                    },
+                    {
+                        "name": "temperature",
+                        "type": "number",
+                        "label": "Temperature",
+                        "validate": {
+                            "max": 1,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "top_p",
+                        "type": "number",
+                        "label": "Top P",
+                        "validate": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "name": "top_k",
+                        "type": "uinteger",
+                        "label": "Top K"
+                    },
+                    {
+                        "name": "additionalParameters",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Parameter Name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "select",
+                                    "label": "Input Type",
+                                    "options": [
+                                        {
+                                            "label": "Text",
+                                            "value": "text",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ],
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Number",
+                                            "value": "number",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "number",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Boolean",
+                                            "value": "boolean",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "boolean",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Date",
+                                            "value": "date",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "date",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Tools",
+                                            "value": "tools",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "spec": {
+                                                        "type": "text",
+                                                        "label": "Parameter Value"
+                                                    },
+                                                    "type": "array",
+                                                    "label": "Parameter Values",
+                                                    "labels": {
+                                                        "add": "Add parameter value"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Any",
+                                            "value": "any",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "any",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Input Parameter"
+                        },
+                        "type": "array",
+                        "label": "Other Input Parameters"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 15,
+            "module": "pdf-co:HTMLtoPDF",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 3197717
+            },
+            "mapper": {
+                "name": "Market watch {{now}}",
+                "async": 15000,
+                "export": {
+                    "exportType": "downloadFile"
+                },
+                "convert": {
+                    "templateId": "10429",
+                    "convertType": "fromHtmlTemplate",
+                    "templateData": "{{4.textResponse}}"
+                },
+                "paperSize": "a4",
+                "expiration": "60",
+                "orientation": "portrait",
+                "printBackground": true,
+                "doNotWaitFullLoad": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0,
+                    "name": "Template"
+                },
+                "restore": {
+                    "expect": {
+                        "async": {
+                            "mode": "chose",
+                            "label": "Async"
+                        },
+                        "export": {
+                            "nested": {
+                                "exportType": {
+                                    "label": "Download a File"
+                                }
+                            }
+                        },
+                        "convert": {
+                            "nested": {
+                                "convertType": {
+                                    "label": "HTML Template to PDF"
+                                }
+                            }
+                        },
+                        "paperSize": {
+                            "label": "A4"
+                        },
+                        "orientation": {
+                            "label": "Portrait"
+                        },
+                        "printBackground": {
+                            "mode": "chose"
+                        },
+                        "doNotWaitFullLoad": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "pdf-co"
+                            },
+                            "label": "Amund PDF.co"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:pdf-co",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "convert",
+                        "spec": [
+                            {
+                                "name": "convertType",
+                                "type": "select",
+                                "label": "Convert Type",
+                                "required": true,
+                                "validate": {
+                                    "enum": [
+                                        "fromHtml",
+                                        "fromHtmlTemplate",
+                                        "fromWebsite"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "templateId",
+                                "type": "text",
+                                "label": "HTML Template ID"
+                            },
+                            {
+                                "name": "templateData",
+                                "type": "text",
+                                "label": "Input data in CSV or JSON format",
+                                "required": true
+                            },
+                            {
+                                "name": "templateHtmlOverride",
+                                "type": "text",
+                                "label": "Raw HTML Template (for on-prem only)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Convert Options",
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Output File Name"
+                    },
+                    {
+                        "name": "orientation",
+                        "type": "select",
+                        "label": "Orientation",
+                        "validate": {
+                            "enum": [
+                                "portrait",
+                                "landscape"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "paperSize",
+                        "type": "select",
+                        "label": "Paper Size ",
+                        "validate": {
+                            "enum": [
+                                "a0",
+                                "a1",
+                                "a2",
+                                "a3",
+                                "a4",
+                                "a5",
+                                "a6",
+                                "legal",
+                                "letter",
+                                "tabloid",
+                                "custom"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "printBackground",
+                        "type": "boolean",
+                        "label": "Render Page Background"
+                    },
+                    {
+                        "name": "doNotWaitFullLoad",
+                        "type": "boolean",
+                        "label": "Do not wait for full load"
+                    },
+                    {
+                        "name": "margins",
+                        "type": "text",
+                        "label": "Margins"
+                    },
+                    {
+                        "name": "async",
+                        "type": "select",
+                        "label": "Execution Mode",
+                        "validate": {
+                            "enum": [
+                                false,
+                                15000,
+                                "asyncCheckLater"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "profiles",
+                        "type": "text",
+                        "label": "Profiles"
+                    },
+                    {
+                        "name": "expiration",
+                        "type": "number",
+                        "label": "Output Links Expiration"
+                    },
+                    {
+                        "name": "export",
+                        "spec": [
+                            {
+                                "name": "exportType",
+                                "type": "select",
+                                "label": "Export Type",
+                                "required": true,
+                                "validate": {
+                                    "enum": [
+                                        "downloadFile",
+                                        "inline"
+                                    ]
+                                }
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Export Options",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "module": "email:ActionSendEmail",
+            "version": 7,
+            "parameters": {
+                "account": 10296506,
+                "saveAfterSent": false
+            },
+            "mapper": {
+                "cc": [],
+                "to": [
+                    "amund@aiki.as"
+                ],
+                "bcc": [],
+                "from": "",
+                "html": "denne ukens market watch",
+                "sender": "",
+                "headers": [],
+                "replyTo": "",
+                "subject": "Market watch",
+                "priority": "normal",
+                "inReplyTo": "",
+                "references": [],
+                "attachments": [
+                    {
+                        "cid": "",
+                        "data": "{{15.data}}",
+                        "fileName": "{{15.name}}"
+                    }
+                ],
+                "contentType": "html"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1800,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "priority": {
+                            "label": "Normal"
+                        },
+                        "references": {
+                            "mode": "chose"
+                        },
+                        "attachments": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "contentType": {
+                            "label": "HTML"
+                        }
+                    },
+                    "parameters": {
+                        "account": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "smtp"
+                            },
+                            "label": "noreply@aiki.as (SMTP noreply@aiki.as)"
+                        },
+                        "saveAfterSent": {
+                            "label": "No"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "account",
+                        "type": "account:smtp,google-restricted,microsoft-smtp-imap",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "saveAfterSent",
+                        "type": "select",
+                        "label": "Save message after sending",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "type": "hidden"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address",
+                            "required": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "contentType",
+                        "type": "select",
+                        "label": "Content Type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "html",
+                                "text"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": [
+                            {
+                                "name": "fileName",
+                                "type": "filename",
+                                "label": "File name",
+                                "required": true,
+                                "semantic": "file:name"
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Data",
+                                "required": true,
+                                "semantic": "file:data"
+                            },
+                            {
+                                "name": "cid",
+                                "type": "text",
+                                "label": "Content-ID"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address"
+                        },
+                        "type": "array",
+                        "label": "Copy recipient"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address"
+                        },
+                        "type": "array",
+                        "label": "Blind copy recipient"
+                    },
+                    {
+                        "name": "from",
+                        "type": "text",
+                        "label": "From"
+                    },
+                    {
+                        "name": "sender",
+                        "type": "text",
+                        "label": "Sender"
+                    },
+                    {
+                        "name": "replyTo",
+                        "type": "text",
+                        "label": "Reply-To"
+                    },
+                    {
+                        "name": "inReplyTo",
+                        "type": "text",
+                        "label": "In-Reply-To"
+                    },
+                    {
+                        "name": "references",
+                        "spec": {
+                            "name": "value",
+                            "type": "text",
+                            "label": "Reference",
+                            "required": true
+                        },
+                        "type": "array",
+                        "label": "References"
+                    },
+                    {
+                        "name": "priority",
+                        "type": "select",
+                        "label": "Priority",
+                        "validate": {
+                            "enum": [
+                                "high",
+                                "normal",
+                                "low"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value",
+                                "required": true
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "html",
+                        "type": "text",
+                        "label": "Content"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
