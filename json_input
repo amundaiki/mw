@@ -1,0 +1,158 @@
+{
+  "report_generated": "[dagens dato og klokkeslett, format: '22. august 2025, 14:30']",
+  "total_pages": "[totalt antall sider i rapporten, vanligvis 8-15]",
+  
+  "// SUMMARY METRICS",
+  "immediate_opportunities_count": "[antall critical companies, vanligvis 3-7]",
+  "total_companies": "[totalt antall bedrifter analysert, vanligvis 80-120]",
+  "high_priority_leads": "[antall bedrifter med høy prioritet, vanligvis 5-10]",
+  "total_capital_millions": "[total kapital mobilisert i millioner NOK, vanligvis 200-800]",
+  "capital_suffix": " MNOK",
+  
+  "// KEY FINDINGS - MAKSIMALT 3 INNSIKTER",
+  "key_findings": [
+    {
+      "number": 1,
+      "priority_class": "critical", // eller "high", "medium"
+      "text": "[150-250 ord] Konkret insight om markedstrend eller spesifikk bedrift som representerer stor mulighet for SONAT. Inkluder: selskapsnavn, størrelse (ansatte), finansiell situasjon, tekniske behov og hvorfor dette er perfekt timing for SONAT."
+    },
+    {
+      "number": 2,
+      "priority_class": "critical",
+      "text": "[150-250 ord] Annen viktig markedsmulighet med fokus på teknologi-behov som matcher SONATs kompetanse."
+    },
+    {
+      "number": 3,
+      "priority_class": "high",
+      "text": "[150-250 ord] Tredje viktigste innsikt, kan være bransjetrend eller LinkedIn-aktivitet som indikerer behov."
+    }
+  ],
+  
+  "// CRITICAL COMPANIES - UMIDDELBARE MULIGHETER (3-6 selskaper)",
+  "critical_companies": [
+    {
+      "name": "[Selskapsnavn]",
+      "sector": "[Bransje i STORE BOKSTAVER, f.eks. OLJE & GASS, TEKNOLOGI, MARITIM, MEDIA]",
+      "employee_count": "[antall ansatte som tall]",
+      "location": "[by]",
+      
+      "event_type": "[FUNDING/EKSPANSJON/HIRING/PRODUKTLANSERING/IPO]",
+      "event_description": "[200-300 ord] Detaljert beskrivelse av hendelsen som gjør bedriften interessant. Inkluder finansielle tall, vekst-indikatorer og signaler om teknologiske behov.",
+      
+      "// KONTAKTINFORMASJON",
+      "ceo_name": "[CEO navn]",
+      "ceo_linkedin_url": "[LinkedIn URL hvis tilgjengelig, ellers null]",
+      "email": "[hovedepost eller 'post@selskap.com']",
+      "phone": "[telefonnummer med +47]",
+      "website": "[domenenavn uten https://]",
+      "website_url": "[full URL med https://]",
+      
+      "// FINANSIELL INFO",
+      "funding_amount_nok": "[beløp] NOK", // eller "N/A" hvis ikke relevant
+      "investors": "[investorer eller 'Ikke tilgjengelig']",
+      "funding_round": "[type runde eller 'Operational']",
+      "source_name": "[kildenavn, f.eks. E24, DN, LinkedIn]",
+      "source_url": "[URL til kilde eller null]",
+      
+      "// SONAT-MATCHING",
+      "technical_needs": "[200-250 ord] Spesifikke tekniske behov som matcher SONATs tjenester: cloud-migrering, AI/ML, systemutvikling, digitalisering, automatisering, dataanalyse, osv.",
+      
+      "growth_indicators": "[150-200 ord] Konkrete vekstsignaler: ansettelser, nye kontorer, produktlanseringer, markedsekspansjon, teknisk team utvidelse.",
+      
+      "sonat_relevance": "[250-300 ord] Strategisk analyse av hvorfor dette er perfekt match for SONAT. Inkluder: 1) Teknisk matching (AI/ML, stack overlap), 2) Bransjerelevans, 3) Geografisk nærhet, 4) Prosjektstørrelse som matcher SONATs kapasitet.",
+      
+      "relevance_tags": ["[5-8 korte tags som 'Cloud Migration', 'AI/ML', 'DevOps', 'IoT', 'Big Data']"]
+    }
+  ],
+  
+  "// QUALIFIED PROSPECTS - ORGANISERT I CHUNKS PÅ 2-3 PER SIDE",
+  "qualified_chunks": [
+    [
+      {
+        "name": "[Selskapsnavn]",
+        "employee_count": "[antall ansatte]",
+        "location": "[by]",
+        "sector": "[BRANSJE]",
+        "website_url": "[URL eller null]",
+        
+        "opportunity_description": "[200-250 ord] Konkret business case for SONAT. Beskriv tekniske utfordringer, timing, potensial prosjektverdi og hvorfor SONAT er riktig leverandør.",
+        
+        "event_type": "[hendelsestype]",
+        "event_description": "[100-150 ord kort beskrivelse]",
+        "source_name": "[kilde]",
+        "source_url": "[URL eller null]",
+        
+        "sonat_opportunity": "[150-200 ord] Spesifikk salgsmulighet for SONAT med foreslått approach og timeline."
+      }
+    ]
+  ],
+  
+  "// LINKEDIN OVERSIKT METRICS",
+  "monitored_accounts_count": "[antall overvåkede LinkedIn-kontoer, vanligvis 10-20]",
+  "high_engagement_count": "[antall poster med høyt engasjement, vanligvis 5-15]",
+  "hiring_signals_count": "[antall bedrifter som ansetter, vanligvis 3-8]",
+  "networking_events_count": "[antall events/konferanser nevnt, vanligvis 2-5]",
+  
+  "// LINKEDIN PAGES - ORGANISERT FOR VISNING",
+  "linkedin_pages": [
+    [
+      {
+        "company_name": "[Selskapsnavn]",
+        "post_count": "[antall poster]",
+        "posts": [
+          {
+            "post_date": "[YYYY-MM-DD]",
+            "engagement_level": "[Høy/Middels/Lav]",
+            "priority_class": "[hot/warm/medium]",
+            "relevance_score": "[1-10 score]",
+            "post_text": "[LinkedIn post innhold, maks 300 tegn]",
+            "post_url": "[LinkedIn URL eller null]",
+            "sonat_opportunity": "[200-250 ord] Analyse av forretningsmulighet basert på posten.",
+            "opportunity_tags": ["[3-5 relevante tags]"]
+          }
+        ]
+      }
+    ]
+  ],
+  
+  "// INDIVIDUAL LINKEDIN ACCOUNTS - DETALJERT OVERSIKT",
+  "linkedin_accounts": [
+    {
+      "company_name": "[Selskapsnavn]",
+      "post_count": "[antall poster]",
+      "posts": [
+        {
+          "post_date": "[YYYY-MM-DD]",
+          "engagement_level": "[Høy/Middels/Lav]",
+          "priority_class": "[hot/warm/medium]",
+          "relevance_score": "[1-10]",
+          "post_text": "[Fullstendig LinkedIn post tekst]",
+          "post_url": "[LinkedIn URL]",
+          "sonat_opportunity": "[250-300 ord] Detaljert analyse av hvordan SONAT kan hjelpe basert på nevnte utfordringer.",
+          "opportunity_tags": ["[relevante tags]"]
+        }
+      ]
+    }
+  ],
+  
+  "// STRATEGIC RECOMMENDATIONS",
+  "section_strategic_title": "Strategiske anbefalinger",
+  "section_strategic_subtitle": "Konkrete tiltak for å kapitalisere på markedsmulighetene",
+  "section_action_items_title": "Umiddelbare tiltak",
+  
+  "strategic_recommendations": [
+    {
+      "title": "[Kort tittel på anbefaling]",
+      "content": "[200-250 ord] Konkret anbefaling med reasoning, implementering og forventet resultat."
+    }
+  ],
+  
+  "action_items": [
+    {
+      "number": 1,
+      "priority": "[critical/high/medium]",
+      "timeline": "[Denne uken/Neste uke/Denne måneden]",
+      "action": "[Konkret handling SONAT skal ta, inkluder kontaktperson og telefonnummer hvis mulig]"
+    }
+  ]
+}
