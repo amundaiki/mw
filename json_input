@@ -42,7 +42,20 @@
       "source_name": "DN/E24",
       "source_url": "https://e24.no/",
       "technical_needs": "Digital transformasjon av boreoperasjoner, AI-basert prediktivt vedlikehold, cloud-migrering, IoT-sensorer, real-time dataanalyse",
+      "technical_needs_list": [
+        "Digital transformasjon av boreoperasjoner",
+        "AI-basert prediktivt vedlikehold",
+        "Cloud-migrering og data lake",
+        "IoT-sensorer i rigg",
+        "Real-time dataanalyse"
+      ],
       "growth_indicators": "Tredje kvartals utbytteøkning på rad, 15% aksjekursoppgang, sterke kvartalsresultater, ekspansjon internasjonalt",
+      "growth_indicators_list": [
+        "Tredje kvartals utbytteøkning på rad",
+        "15% aksjekursoppgang",
+        "Sterke kvartalsresultater",
+        "Internasjonal ekspansjon"
+      ],
       "sonat_relevance": "Perfekt match for SONATs enterprise DevOps og cloud-ekspertise. Odfjells størrelse og kapitalkraft gjør dem til ideell kunde for omfattende digitaliseringsprosjekter.",
       "relevance_tags": ["Cloud Migration", "AI/ML", "DevOps", "IoT", "Big Data"]
     },
@@ -64,9 +77,23 @@
       "source_name": "E24",
       "source_url": "https://e24.no/",
       "technical_needs": "Ruteoptimalisering med AI, prediktiv analyse for prising, cloud-basert booking-system, automatisert drift, dataanalyse-plattform",
+      "technical_needs_list": [
+        "Ruteoptimalisering med AI",
+        "Prediktiv prising og yield",
+        "Cloud-basert booking og CRM",
+        "Automatisert operasjonell rapportering",
+        "Dataanalyse-plattform"
+      ],
       "growth_indicators": "Første positive driftsresultat, 36% passasjervekst, 27% inntektsøkning, ekspansjon til Asia",
+      "growth_indicators_list": [
+        "Første positive driftsresultat",
+        "36% passasjervekst",
+        "27% inntektsøkning",
+        "Ekspansjon til Asia"
+      ],
       "sonat_relevance": "Norse's overgang til lønnsomhet krever skalerbare tech-løsninger. SONAT kan levere kritisk infrastruktur for videre vekst.",
-      "relevance_tags": ["Cloud", "AI Pricing", "Data Analytics", "Automation", "Scalability"]
+      "relevance_tags": ["Cloud", "AI Pricing", "Data Analytics", "Automation", "Scalability"],
+      "priority_score": 10
     },
     {
       "name": "TV 2 AS",
@@ -86,7 +113,20 @@
       "source_name": "LinkedIn",
       "source_url": "https://linkedin.com/company/tv-2",
       "technical_needs": "Streaming-infrastruktur, content delivery networks, real-time analytics, AI-drevet personalisering, cloud skalering",
+      "technical_needs_list": [
+        "Skalerbar streaming-infrastruktur",
+        "CDN-optimalisering",
+        "Real-time analytics",
+        "AI-drevet personalisering",
+        "Cloud autoskalering"
+      ],
       "growth_indicators": "Gratis streaming-lansering, ny TikTok-plattform, massive investeringer i digital infrastruktur",
+      "growth_indicators_list": [
+        "Gratis streaming-lansering",
+        "Nytt TikTok-innhold",
+        "Økt teknisk mobilisering",
+        "Investeringer i digital infrastruktur"
+      ],
       "sonat_relevance": "TV 2's digitale transformasjon og streaming-satsing matcher perfekt SONATs kompetanse innen skalerbar cloud-arkitektur.",
       "relevance_tags": ["Streaming", "CDN", "Cloud Scale", "Real-time", "Media Tech"]
     },
@@ -108,7 +148,20 @@
       "source_name": "LinkedIn",
       "source_url": "https://linkedin.com/company/tidal",
       "technical_needs": "Machine learning pipelines, computer vision, edge computing, IoT-integrasjon, big data processing",
+      "technical_needs_list": [
+        "ML-pipelines for computer vision",
+        "Edge computing i merd",
+        "IoT-integrasjon",
+        "Big data behandling",
+        "Modellmonitorering og MLOps"
+      ],
       "growth_indicators": "550M observasjoner, 100 sites, ny AI-produkt lansering, Aqua Nor deltakelse",
+      "growth_indicators_list": [
+        "550M observasjoner",
+        "100 lokaliteter",
+        "Ny AI-produktlansering",
+        "Aqua Nor deltakelse"
+      ],
       "sonat_relevance": "Tidals AI-fokus og massive datamengder krever avansert ML-ekspertise som SONAT kan levere.",
       "relevance_tags": ["AI/ML", "Computer Vision", "IoT", "Edge Computing", "Big Data"]
     }

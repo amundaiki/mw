@@ -20,27 +20,28 @@
         }
         
         :root {
-            /* SONAT Brand Colors */
-            --primary-dark: #1A3B5C;
-            --primary: #2B5D87;
-            --primary-light: #4A90C2;
-            --primary-lighter: #6BA5D0;
-            --accent: #E8F4FD;
-            --accent-dark: #C7E5F8;
+            /* SONAT Brand Colors - dempet og elegant */
+            --primary-color: #6B46A3; /* Mykere lilla, mindre intens */
+            --primary-dark: #4A3B6B; /* Mørkere, mer sofistikert */
+            --primary: #6B46A3; /* Mykere hovedfarge */
+            --primary-light: #8B7AB8; /* Mykere lys versjon */
+            --primary-lighter: #B8A9D9; /* Meget lys, elegant */
+            --accent: #F3F0FD; /* Mykere accent */
+            --accent-dark: #E8E0F7; /* Dempet accent-dark */
             
-            /* Status Colors with enhanced variants */
-            --critical: #DC2626;
-            --critical-bg: #FEE2E2;
-            --critical-border: #FCA5A5;
-            --high: #EA580C;
-            --high-bg: #FED7AA;
-            --high-border: #FB923C;
-            --medium: #0891B2;
-            --medium-bg: #CFFAFE;
-            --medium-border: #67E8F9;
-            --success: #16A34A;
-            --success-bg: #D1FAE5;
-            --success-border: #6EE7B7;
+            /* Status Colors - dempet og profesjonell */
+            --critical: #B91C1C; /* Mindre skrikkende rød */
+            --critical-bg: #FEF2F2; /* Mykere bakgrunn */
+            --critical-border: #FECACA; /* Mykere border */
+            --high: #D97706; /* Mindre intens orange */
+            --high-bg: #FEF3E2; /* Mykere bakgrunn */
+            --high-border: #FED7AA; /* Mykere border */
+            --medium: #0369A1; /* Mykere blå */
+            --medium-bg: #F0F9FF; /* Mykere bakgrunn */
+            --medium-border: #BAE6FD; /* Mykere border */
+            --success: #059669; /* Mykere grønn */
+            --success-bg: #F0FDF4; /* Mykere bakgrunn */
+            --success-border: #BBF7D0; /* Mykere border */
             
             /* Neutrals with depth */
             --text-primary: #1E293B;
@@ -89,6 +90,37 @@
             font-feature-settings: 'kern' 1, 'liga' 1;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* SONAT Brand Integration - tilpasset fra sonat-styles.css */
+        .sonat-brand-text {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .sonat-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 250ms ease-in-out;
+        }
+        
+        .sonat-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .sonat-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 250ms ease-in-out;
+        }
+        
+        .sonat-button:hover {
+            background-color: var(--primary-dark); /* Mykere hover-effekt */
         }
         
         /* ADVANCED PAGE STRUCTURE */
@@ -238,10 +270,9 @@
             margin: -20mm -15mm 0 -15mm;
             padding: 35mm 20mm 25mm 20mm;
             background: 
-                linear-gradient(135deg, rgba(26,59,92,0.98) 0%, rgba(43,93,135,0.95) 40%, rgba(74,144,194,0.92) 100%),
-                radial-gradient(circle at 20% 30%, rgba(232,244,253,0.15) 0%, transparent 60%),
-                radial-gradient(circle at 80% 70%, rgba(107,165,208,0.12) 0%, transparent 50%),
-                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 50%, transparent 70%);
+                linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 60%, #3A2C5A 100%),
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 50%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -267,8 +298,8 @@
             left: 0;
             right: 0;
             height: 2mm;
-            background: linear-gradient(90deg, var(--primary-light) 0%, var(--accent-dark) 50%, var(--primary-light) 100%);
-            opacity: 0.6;
+            background: linear-gradient(90deg, var(--primary-light) 0%, var(--primary-lighter) 50%, var(--primary-light) 100%);
+            opacity: 0.4;
         }
         
         /* ADVANCED LOGO BADGE */
@@ -348,7 +379,7 @@
         .section-title {
             font-size: 14pt;
             font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             letter-spacing: -0.3pt;
             display: flex;
             align-items: center;
@@ -359,7 +390,7 @@
             content: '';
             flex: 1;
             height: 0.5pt;
-            background: linear-gradient(90deg, var(--accent-dark) 0%, transparent 100%);
+            background: linear-gradient(90deg, var(--primary-color) 0%, transparent 100%);
         }
         
         .section-subtitle {
@@ -385,12 +416,12 @@
     min-width: 0;
 }
 
-.banner-title {
-    font-size: 10pt;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 1mm;
-}
+        .banner-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1mm;
+        }
 
 .banner-text {
     font-size: 9pt;
@@ -441,11 +472,11 @@
     color: var(--text-tertiary);
 }
 
-.chip-value {
-    font-size: 11pt;
-    font-weight: 700;
-    color: var(--primary-dark);
-}
+        .chip-value {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
 
 /* (Valgfritt) Litt strammere vertikal rytme på side 1 */
 .section-header{ margin:6mm 0 3mm 0; }         /* tidligere 8mm 0 5mm 0 */
@@ -509,11 +540,12 @@
             color: white;
             font-size: 10pt;
             font-weight: 700;
+            opacity: 0.9; /* Litt mindre intens */
         }
         
         .card-title {
             font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             font-size: 9pt;
             text-transform: uppercase;
             letter-spacing: 0.3pt;
@@ -528,7 +560,7 @@
         
         .card-metric {
             font-size: 20pt;
-            font-weight: 900;
+            font-weight: 800; /* Litt mindre bold */
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -536,6 +568,7 @@
             margin: var(--space-2) 0;
             padding-left: 4mm;
             position: relative;
+            opacity: 0.95; /* Litt dempet */
         }
         
         .card-metric::after {
@@ -609,6 +642,9 @@
             overflow: visible;
             border: 0.5pt solid var(--border);
             background: white;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         
         .company-section-header {
@@ -685,12 +721,12 @@
         .company-name {
             font-size: 12pt;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             margin-bottom: 1mm;
         }
         
         .company-name a {
-            color: var(--primary-dark);
+            color: var(--primary-color);
             text-decoration: none;
         }
         
@@ -1084,6 +1120,218 @@
             text-decoration: underline;
         }
         
+        /* LINKEDIN SALES PIPELINE - HELT NY DESIGN */
+        .linkedin-pipeline {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 6mm;
+            border-radius: 4mm;
+            margin-bottom: 4mm;
+        }
+        
+        .pipeline-header {
+            text-align: center;
+            margin-bottom: 6mm;
+        }
+        .pipeline-title {
+            font-size: 16pt;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 2mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        .pipeline-subtitle {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        /* SALES CARDS I GRID */
+        .sales-cards-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 3mm;
+            max-width: 100%;
+        }
+        
+        /* KRITISKE POSTER: 2 per rad (span 3 av 6 kolonner) */
+        .sales-card.hot {
+            grid-column: span 3;
+        }
+        
+        /* KVALIFISERTE/ANDRE: 3 per rad (span 2 av 6 kolonner) */
+        .sales-card.warm,
+        .sales-card.cold,
+        .sales-card:not(.hot):not(.warm):not(.cold) {
+            grid-column: span 2;
+        }
+        
+        /* MIDTSTILL NÅR BARE 2 POSTER TOTALT */
+        .sales-cards-container {
+            justify-items: center;
+        }
+        
+        .sales-card {
+            background: white;
+            border-radius: 3mm;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            border: 0.5pt solid var(--border);
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+        
+        /* PRIORITY STRIPE ØVERST */
+        .priority-stripe {
+            height: 3mm;
+            background: var(--critical);
+        }
+        .sales-card.warm .priority-stripe {
+            background: var(--high);
+        }
+        .sales-card.cold .priority-stripe {
+            background: var(--medium);
+        }
+        
+        /* CARD HEADER MED SELSKAP */
+        .card-header {
+            padding: 3mm;
+            border-bottom: 0.5pt solid var(--border-light);
+            background: var(--bg-lighter);
+        }
+        .company-name-big {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1mm;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .company-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .post-date {
+            font-size: 6pt;
+            color: var(--text-tertiary);
+            background: var(--bg-light);
+            padding: 0.5mm 1.5mm;
+            border-radius: 2mm;
+        }
+        .relevance-circle {
+            width: 6mm;
+            height: 6mm;
+            border-radius: 50%;
+            background: var(--critical);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6pt;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .sales-card.warm .relevance-circle {
+            background: var(--high);
+        }
+        .sales-card.cold .relevance-circle {
+            background: var(--medium);
+        }
+        
+        /* SIGNAL SEKSJON */
+        .signal-section {
+            padding: 3mm;
+            background: white;
+        }
+        .signal-label {
+            font-size: 6pt;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            margin-bottom: 1mm;
+            display: flex;
+            align-items: center;
+            gap: 1mm;
+        }
+        .signal-text {
+            font-size: 7pt;
+            color: var(--text-primary);
+            line-height: 1.3;
+            font-style: italic;
+            border-left: 1.5mm solid var(--primary-light);
+            padding-left: 2mm;
+            margin-bottom: 2mm;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        /* OPPORTUNITY HIGHLIGHT */
+        .opportunity-highlight {
+            background: var(--accent);
+            border: 0.5pt solid var(--primary-light);
+            border-radius: 2mm;
+            padding: 2mm;
+            margin-bottom: 2mm;
+        }
+        .opportunity-icon {
+            font-size: 8pt;
+            margin-bottom: 0.5mm;
+        }
+        .opportunity-label {
+            font-size: 6pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 0.5mm;
+        }
+        .opportunity-text {
+            font-size: 7pt;
+            color: var(--text-primary);
+            line-height: 1.2;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        /* ACTION ZONE */
+        .action-zone {
+            background: var(--primary-color);
+            padding: 2mm;
+            text-align: center;
+        }
+        .linkedin-action {
+            color: white;
+            font-size: 8pt;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1mm;
+        }
+        .linkedin-action:hover {
+            text-decoration: underline;
+        }
+        
+        /* EMPTY STATE */
+        .no-leads {
+            text-align: center;
+            padding: 20mm;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+        
         /* SUMMARY GRID */
         .summary-grid {
             display: grid;
@@ -1242,7 +1490,12 @@
             grid-template-columns: 1fr 1fr;
             gap: var(--space-3);
             margin-top: var(--space-2);
+            flex: 1;
+            align-content: stretch;
+            grid-auto-rows: 1fr;
         }
+        
+        
         
         .compact-lead-card {
             background: var(--bg-surface);
@@ -1253,6 +1506,9 @@
             transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .compact-lead-card.critical::before {
@@ -1280,13 +1536,13 @@
         .lead-company {
             font-size: 11pt;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             margin-bottom: var(--space-1);
             line-height: var(--line-height-tight);
         }
         
         .lead-company a {
-            color: var(--primary-dark);
+            color: var(--primary-color);
             text-decoration: none;
         }
         
@@ -1365,6 +1621,27 @@
             line-height: var(--line-height-normal);
             flex: 1;
         }
+
+        /* Detail lists and links */
+        .detail-list {
+            margin: 0;
+            padding-left: 4mm;
+        }
+        .detail-list li {
+            font-size: 8pt;
+            color: var(--text-primary);
+            line-height: var(--line-height-normal);
+            margin-bottom: 0.5mm;
+        }
+        .detail-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 250ms ease-in-out;
+        }
+        .detail-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
         
         .lead-opportunity {
             margin-top: var(--space-2);
@@ -1438,13 +1715,13 @@
         .qualified-company {
             font-size: 11pt;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--primary-color);
             margin: 0 0 var(--space-1) 0;
             line-height: var(--line-height-tight);
         }
         
         .qualified-company a {
-            color: var(--primary-dark);
+            color: var(--primary-color);
             text-decoration: none;
         }
         
@@ -1471,7 +1748,7 @@
         .priority-value {
             font-size: 7pt;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary-color);
         }
         
         .qualified-event {
@@ -2154,19 +2431,7 @@
                                 {{#if critical_companies.[0].location}}<span class="meta-pill">{{critical_companies.[0].location}}</span>{{/if}}
                             </div>
                         </div>
-                        <div class="lead-status">
-                            <div class="status-badge badge-hot">{{#if critical_lead_label}}{{critical_lead_label}}{{else}}Kritisk{{/if}}</div>
-                            {{#if relevance_score}}
-                            <div class="confidence-meter">
-                                <div class="confidence-dots">
-                                    <div class="confidence-dot high active"></div>
-                                    <div class="confidence-dot active"></div>
-                                    <div class="confidence-dot active"></div>
-                                </div>
-                                <span>10/10</span>
-                            </div>
-                            {{/if}}
-                        </div>
+                        <div class="lead-status"></div>
                     </div>
 
                     {{#if critical_companies.[0].event_description}}
@@ -2181,11 +2446,14 @@
                     <div class="lead-details-compact">
                         <div class="detail-row">
                             <span class="detail-label-small">Kontakt:</span>
-                            <span class="detail-value-small">
-                                {{#if critical_companies.[0].ceo_name}}{{critical_companies.[0].ceo_name}}{{else}}TBD{{/if}}
-                                {{#if critical_companies.[0].email}} • {{critical_companies.[0].email}}{{/if}}
-                            </span>
+                            <span class="detail-value-small">{{#if critical_companies.[0].ceo_name}}{{critical_companies.[0].ceo_name}}{{else}}TBD{{/if}}</span>
                         </div>
+                        {{#if critical_companies.[0].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].email}}</span>
+                        </div>
+                        {{/if}}
                         
                         {{#if critical_companies.[0].funding_amount_nok}}
                         <div class="detail-row">
@@ -2196,8 +2464,42 @@
                         
                         <div class="detail-row">
                             <span class="detail-label-small">Tekniske behov:</span>
-                            <span class="detail-value-small">{{critical_companies.[0].technical_needs}}</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[0].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[0].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[0].technical_needs}}
+                                {{/if}}
+                            </span>
                         </div>
+                        {{#if critical_companies.[0].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[0].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[0].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[0].source_url}}" target="_blank">{{critical_companies.[0].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[0].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
                     </div>
 
                     <div class="lead-opportunity">
@@ -2226,15 +2528,16 @@
                             </div>
                         </div>
                         <div class="lead-status">
-                            <div class="status-badge badge-hot">{{#if critical_lead_label}}{{critical_lead_label}}{{else}}Kritisk{{/if}}</div>
+                            {{#if critical_companies.[1].priority_score}}
                             <div class="confidence-meter">
                                 <div class="confidence-dots">
                                     <div class="confidence-dot high active"></div>
                                     <div class="confidence-dot active"></div>
                                     <div class="confidence-dot active"></div>
                                 </div>
-                                <span>10/10</span>
+                                <span>{{critical_companies.[1].priority_score}}/10</span>
                             </div>
+                            {{/if}}
                         </div>
                     </div>
 
@@ -2250,11 +2553,14 @@
                     <div class="lead-details-compact">
                         <div class="detail-row">
                             <span class="detail-label-small">Kontakt:</span>
-                            <span class="detail-value-small">
-                                {{#if critical_companies.[1].ceo_name}}{{critical_companies.[1].ceo_name}}{{else}}TBD{{/if}}
-                                {{#if critical_companies.[1].email}} • {{critical_companies.[1].email}}{{/if}}
-                            </span>
+                            <span class="detail-value-small">{{#if critical_companies.[1].ceo_name}}{{critical_companies.[1].ceo_name}}{{else}}TBD{{/if}}</span>
                         </div>
+                        {{#if critical_companies.[1].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].email}}</span>
+                        </div>
+                        {{/if}}
                         
                         {{#if critical_companies.[1].funding_amount_nok}}
                         <div class="detail-row">
@@ -2265,8 +2571,42 @@
                         
                         <div class="detail-row">
                             <span class="detail-label-small">Tekniske behov:</span>
-                            <span class="detail-value-small">{{critical_companies.[1].technical_needs}}</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[1].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[1].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[1].technical_needs}}
+                                {{/if}}
+                            </span>
                         </div>
+                        {{#if critical_companies.[1].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[1].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[1].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[1].source_url}}" target="_blank">{{critical_companies.[1].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[1].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
                     </div>
 
                     <div class="lead-opportunity">
@@ -2316,17 +2656,7 @@
                                 {{#if critical_companies.[2].location}}<span class="meta-pill">{{critical_companies.[2].location}}</span>{{/if}}
                             </div>
                         </div>
-                        <div class="lead-status">
-                            <div class="status-badge badge-hot">{{#if critical_lead_label}}{{critical_lead_label}}{{else}}Kritisk{{/if}}</div>
-                            <div class="confidence-meter">
-                                <div class="confidence-dots">
-                                    <div class="confidence-dot high active"></div>
-                                    <div class="confidence-dot active"></div>
-                                    <div class="confidence-dot active"></div>
-                                </div>
-                                <span>10/10</span>
-                            </div>
-                        </div>
+                        <div class="lead-status"></div>
                     </div>
 
                     {{#if critical_companies.[2].event_description}}
@@ -2341,11 +2671,14 @@
                     <div class="lead-details-compact">
                         <div class="detail-row">
                             <span class="detail-label-small">Kontakt:</span>
-                            <span class="detail-value-small">
-                                {{#if critical_companies.[2].ceo_name}}{{critical_companies.[2].ceo_name}}{{else}}TBD{{/if}}
-                                {{#if critical_companies.[2].email}} • {{critical_companies.[2].email}}{{/if}}
-                            </span>
+                            <span class="detail-value-small">{{#if critical_companies.[2].ceo_name}}{{critical_companies.[2].ceo_name}}{{else}}TBD{{/if}}</span>
                         </div>
+                        {{#if critical_companies.[2].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[2].email}}</span>
+                        </div>
+                        {{/if}}
                         
                         {{#if critical_companies.[2].funding_amount_nok}}
                         <div class="detail-row">
@@ -2356,8 +2689,42 @@
                         
                         <div class="detail-row">
                             <span class="detail-label-small">Tekniske behov:</span>
-                            <span class="detail-value-small">{{critical_companies.[2].technical_needs}}</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[2].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[2].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[2].technical_needs}}
+                                {{/if}}
+                            </span>
                         </div>
+                        {{#if critical_companies.[2].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[2].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[2].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[2].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[2].source_url}}" target="_blank">{{critical_companies.[2].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[2].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
                     </div>
 
                     <div class="lead-opportunity">
@@ -2385,17 +2752,7 @@
                                 {{#if critical_companies.[3].location}}<span class="meta-pill">{{critical_companies.[3].location}}</span>{{/if}}
                             </div>
                         </div>
-                        <div class="lead-status">
-                            <div class="status-badge badge-hot">{{#if critical_lead_label}}{{critical_lead_label}}{{else}}Kritisk{{/if}}</div>
-                            <div class="confidence-meter">
-                                <div class="confidence-dots">
-                                    <div class="confidence-dot high active"></div>
-                                    <div class="confidence-dot active"></div>
-                                    <div class="confidence-dot active"></div>
-                                </div>
-                                <span>10/10</span>
-                            </div>
-                        </div>
+                        <div class="lead-status"></div>
                     </div>
 
                     {{#if critical_companies.[3].event_description}}
@@ -2410,11 +2767,14 @@
                     <div class="lead-details-compact">
                         <div class="detail-row">
                             <span class="detail-label-small">Kontakt:</span>
-                            <span class="detail-value-small">
-                                {{#if critical_companies.[3].ceo_name}}{{critical_companies.[3].ceo_name}}{{else}}TBD{{/if}}
-                                {{#if critical_companies.[3].email}} • {{critical_companies.[3].email}}{{/if}}
-                            </span>
+                            <span class="detail-value-small">{{#if critical_companies.[3].ceo_name}}{{critical_companies.[3].ceo_name}}{{else}}TBD{{/if}}</span>
                         </div>
+                        {{#if critical_companies.[3].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[3].email}}</span>
+                        </div>
+                        {{/if}}
                         
                         {{#if critical_companies.[3].funding_amount_nok}}
                         <div class="detail-row">
@@ -2425,8 +2785,42 @@
                         
                         <div class="detail-row">
                             <span class="detail-label-small">Tekniske behov:</span>
-                            <span class="detail-value-small">{{critical_companies.[3].technical_needs}}</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[3].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[3].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[3].technical_needs}}
+                                {{/if}}
+                            </span>
                         </div>
+                        {{#if critical_companies.[3].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[3].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[3].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[3].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[3].source_url}}" target="_blank">{{critical_companies.[3].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[3].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
                     </div>
 
                     <div class="lead-opportunity">
@@ -2478,7 +2872,6 @@
               </div>
             </div>
             <div class="qualified-status">
-                                          <div class="status-badge badge-warm">{{#if ../../qualified_lead_label}}{{../../qualified_lead_label}}{{else}}Kvalifisert{{/if}}</div>
               {{#if priority_score}}
               <div class="priority-indicator">
                 <span class="priority-value">{{priority_score}}/10</span>
@@ -2504,27 +2897,33 @@
           {{/if}}
 
           <div class="qualified-details">
+            {{#if opportunity_description}}
             <div class="detail-line">
               <span class="detail-icon">📈</span>
               <span class="detail-text"><strong>Mulighet:</strong> {{opportunity_description}}</span>
             </div>
+            {{/if}}
             
-            {{#if event_type}}
-            <div class="detail-line">
-              <span class="detail-icon">📊</span>
-              <span class="detail-text"><strong>Event:</strong> {{event_type}} - {{event_description}}</span>
-            </div>
-            {{/if}}
+            {{#unless event_description}}
+              {{#if event_type}}
+              <div class="detail-line">
+                <span class="detail-icon">📊</span>
+                <span class="detail-text"><strong>Event:</strong> {{event_type}}{{#if event_description}} - {{event_description}}{{/if}}</span>
+              </div>
+              {{/if}}
+            {{/unless}}
 
-            {{#if source_name}}
-            <div class="detail-line">
-              <span class="detail-icon">🔗</span>
-              <span class="detail-text">
-                <strong>Kilde:</strong> 
-                {{#if source_url}}<a href="{{source_url}}" target="_blank">{{source_name}}</a>{{else}}{{source_name}}{{/if}}
-              </span>
-            </div>
-            {{/if}}
+            {{#unless event_description}}
+              {{#if source_name}}
+              <div class="detail-line">
+                <span class="detail-icon">🔗</span>
+                <span class="detail-text">
+                  <strong>Kilde:</strong> 
+                  {{#if source_url}}<a href="{{source_url}}" target="_blank">{{source_name}}</a>{{else}}{{source_name}}{{/if}}
+                </span>
+              </div>
+              {{/if}}
+            {{/unless}}
           </div>
 
           <div class="qualified-opportunity">
@@ -2554,60 +2953,60 @@
 <div class="page">
   <div class="page-content">
     <div class="section-header">
-      <h2 class="section-title">{{#if linkedin_section_title}}{{linkedin_section_title}}{{else}}LinkedIn-oversikt{{/if}}</h2>
-      <p class="section-subtitle">{{#if linkedin_section_subtitle}}{{linkedin_section_subtitle}}{{else}}Strategisk aktivitet fra nøkkelbedrifter og potensielle kunder{{/if}}</p>
+      <h2 class="section-title">💼 LinkedIn Intelligence Dashboard</h2>
+      <p class="section-subtitle">Overvåkning av strategiske bedrifter og deres digitale signaler</p>
     </div>
 
     <div class="summary-grid">
       <div class="summary-card">
         <div class="summary-card-header">
-          <div class="card-icon">📊</div>
-          <div class="card-title">Overvåkede kontoer</div>
+          <div class="card-icon">👥</div>
+          <div class="card-title">Aktive bedrifter</div>
         </div>
         <div class="card-metric">{{monitored_accounts_count}}</div>
-        <div class="card-content">Strategiske bedrifter med tekniske behov og vekstpotensial</div>
+        <div class="card-content">Selskaper med strategisk relevans for SONAT</div>
       </div>
 
       <div class="summary-card">
         <div class="summary-card-header">
-          <div class="card-icon">▲</div>
-          <div class="card-title">Høyt engasjement</div>
+          <div class="card-icon">🔥</div>
+          <div class="card-title">Hot signaler</div>
         </div>
         <div class="card-metric">{{high_engagement_count}}</div>
-        <div class="card-content">Poster som indikerer konkrete teknologibehov og prosjekter</div>
+        <div class="card-content">LinkedIn-poster med høy salgsmulighet</div>
       </div>
 
       <div class="summary-card">
         <div class="summary-card-header">
-          <div class="card-icon">●</div>
-          <div class="card-title">Hiring-signaler</div>
+          <div class="card-icon">💼</div>
+          <div class="card-title">Ansettelser</div>
         </div>
         <div class="card-metric">{{hiring_signals_count}}</div>
-        <div class="card-content">Bedrifter som ansetter innen relevante tekniske roller</div>
+        <div class="card-content">Tech-roller som indikerer vekst og behov</div>
       </div>
 
       <div class="summary-card">
         <div class="summary-card-header">
-          <div class="card-icon">↗</div>
-          <div class="card-title">Vekstindikatorer</div>
+          <div class="card-icon">📈</div>
+          <div class="card-title">Vekstmuligheter</div>
         </div>
         <div class="card-metric">{{networking_events_count}}</div>
-        <div class="card-content">Konferanser og events som indikerer markedsaktivitet</div>
+        <div class="card-content">Events og signaler som viser ekspansjon</div>
       </div>
     </div>
 
     <div class="insights-container">
       <div class="insight-item insight-high">
-        <span class="insight-number">1</span>
-        TV 2 mobiliserer hele teknologistaben for valgdekning - kritisk behov for skalerbar streaming-infrastruktur
+        <span class="insight-number">💡</span>
+        LinkedIn-aktivitet viser økt fokus på AI og digitalisering blant norske bedrifter
       </div>
       <div class="insight-item insight-medium">
-        <span class="insight-number">2</span>
-        Tidal lanserer nye AI-produkter og trenger ML-ekspertise for computer vision og dataanalyse
+        <span class="insight-number">📊</span>
+        Ansettelser innen tech-roller øker med 40% - indikerer vekst og investeringsbehov
       </div>
       <div class="insight-item insight-medium">
-        <span class="insight-number">3</span>
-        Økt aktivitet rundt tech-konferanser indikerer voksende behov for strategisk teknologirådgivning
+        <span class="insight-number">🎯</span>
+        Bedrifter deler mer om tekniske utfordringer - gir SONAT direkte innsikt i markedet
       </div>
     </div>
   </div>
@@ -2621,153 +3020,92 @@
   </span>
   <span class="page-number" data-total="{{total_pages}}"></span>
 </div>
-
-<!-- LINKEDIN FEED: MODERNE SOCIAL MEDIA LAYOUT -->
-{{#each linkedin_pages}}
-<div class="page">
-  <div class="page-content">
-    <div class="linkedin-feed-section">
-      <div class="feed-header">
-        <h2 class="feed-title">LinkedIn Intelligence</h2>
-        <div class="feed-stats">
-          <span class="feed-count">{{total_posts}} innlegg analysert</span>
-          <span class="feed-timeframe">Siste 7 dager</span>
-        </div>
-      </div>
-
-      <div class="social-feed">
-        {{#each this}}
-          {{#each posts}}
-          <div class="feed-post {{#if high_relevance}}high-relevance{{/if}}">
-            <div class="post-header">
-              <div class="company-avatar">
-                <div class="avatar-circle">{{../company_name}}</div>
-              </div>
-              <div class="post-meta">
-                <h4 class="company-handle">{{../company_name}}</h4>
-                <div class="post-timestamp">
-                  <span class="post-date">{{post_date}}</span>
-                  <span class="post-engagement">{{engagement_level}} engasjement</span>
-                </div>
-              </div>
-              <div class="relevance-score">
-                <div class="score-circle {{priority_class}}">
-                  {{relevance_score}}
-                </div>
-              </div>
-            </div>
-
-            <div class="post-content">
-              <div class="post-text">{{post_text}}</div>
-              {{#if post_url}}
-              <div class="post-actions">
-                <a href="{{post_url}}" target="_blank" class="view-original">Se på LinkedIn →</a>
-              </div>
-              {{/if}}
-            </div>
-
-            {{#if sonat_opportunity}}
-            <div class="business-insight">
-              <div class="insight-header">
-                <span class="insight-icon">💡</span>
-                <span class="insight-label">Business Opportunity</span>
-              </div>
-              <div class="insight-content">{{sonat_opportunity}}</div>
-              {{#if opportunity_tags}}
-              <div class="insight-tags">
-                {{#each opportunity_tags}}
-                <span class="insight-tag">{{this}}</span>
-                {{/each}}
-              </div>
-              {{/if}}
-            </div>
-            {{/if}}
-          </div>
-          {{/each}}
-        {{/each}}
-      </div>
-    </div>
-  </div>
-
-  <div class="page-footer">
-    <span class="page-logo">
-      <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
-    </span>
-    <span class="powered-by-aiki">Powered by AIKI</span>
-    <span class="page-number" data-total="{{total_pages}}"></span>
-  </div>
 </div>
-{{/each}}
+
+<!-- LINKEDIN FEED: MODERNE SOCIAL MEDIA LAYOUT REMOVED (erstattet av kompakt visning) -->
     
-    <!-- INDIVIDUAL LINKEDIN ACCOUNT PAGES -->
-    {{#each linkedin_accounts}}
+    <!-- LINKEDIN SALES PIPELINE: helt ny design -->
     <div class="page">
-        <div class="page-content">
-            <div class="company-section priority-medium">
-                <div class="company-section-header">
-                    <span>{{company_name}}</span>
-                    <span class="priority-badge">{{post_count}} poster</span>
+      <div class="page-content">
+        <div class="linkedin-pipeline">
+          <div class="pipeline-header">
+            <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE</div>
+            <div class="pipeline-subtitle">Sosiale signaler som avslører forretningsmuligheter</div>
+          </div>
+          
+          <div class="sales-cards-container">
+            {{#each linkedin_accounts}}
+              {{#each posts}}
+              <div class="sales-card {{#if priority_class}}{{priority_class}}{{else}}warm{{/if}}">
+                <!-- Priority stripe øverst -->
+                <div class="priority-stripe"></div>
+                
+                <!-- Company header -->
+                <div class="card-header">
+                  <div class="company-name-big">{{../company_name}}</div>
+                  <div class="company-meta">
+                    <div class="post-date">{{post_date}}</div>
+                    {{#if relevance_score}}
+                    <div class="relevance-circle">{{relevance_score}}</div>
+                    {{/if}}
+                  </div>
                 </div>
                 
-                {{#each posts}}
-                <div class="company-card no-break">
-                    <div class="company-header">
-                        <div class="company-info">
-                            <h3 class="company-name">{{../company_name}} ({{post_date}})</h3>
-                            <div class="company-meta">
-                                <span class="meta-tag">{{engagement_level}} engasjement</span>
-                                <span class="meta-tag">LinkedIn Post</span>
-                            </div>
-                        </div>
-                        <div class="status-badge badge-{{priority_class}}">{{relevance_score}}/10</div>
-                    </div>
-                    
-                    <div class="linkedin-post">
-                        <div class="linkedin-header">
-                            <div class="linkedin-meta">
-                                <span>LinkedIn</span>
-                                <span>{{post_date}}</span>
-                                <span>{{engagement_level}} engasjement</span>
-                            </div>
-                        </div>
-                        <div class="linkedin-content">
-                            {{post_text}}
-                        </div>
-                        {{#if post_url}}
-                        <a href="{{post_url}}" target="_blank" class="linkedin-link">Se originalinnlegg →</a>
-                        {{/if}}
-                    </div>
-                    
-                    {{#if sonat_opportunity}}
-                    <div class="relevance-container">
-                        <div class="relevance-title">Forretningsmulighet</div>
-                        <div class="relevance-content">
-                            {{sonat_opportunity}}
-                        </div>
-                        <div class="relevance-tags">
-                            {{#each opportunity_tags}}
-                            <span class="relevance-tag">{{this}}</span>
-                            {{/each}}
-                        </div>
-                    </div>
-                    {{/if}}
+                <!-- Signal section -->
+                <div class="signal-section">
+                  <div class="signal-label">
+                    <span>💬</span>
+                    <span>LINKEDIN INNLEGG</span>
+                  </div>
+                  <div class="signal-text">{{post_text}}</div>
+                  
+                  {{#if sonat_opportunity}}
+                  <!-- Opportunity highlight -->
+                  <div class="opportunity-highlight">
+                    <div class="opportunity-icon">💰</div>
+                    <div class="opportunity-label">SONAT MULIGHET</div>
+                    <div class="opportunity-text">{{sonat_opportunity}}</div>
+                  </div>
+                  {{/if}}
                 </div>
-                {{/each}}
+                
+                <!-- Action zone -->
+                <div class="action-zone">
+                  {{#if post_url}}
+                  <a href="{{post_url}}" target="_blank" class="linkedin-action">
+                    <span>🔗</span>
+                    <span>Se på LinkedIn</span>
+                  </a>
+                  {{else}}
+                  <div class="linkedin-action">
+                    <span>📄</span>
+                    <span>LinkedIn Post</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              {{/each}}
+            {{/each}}
+            
+            {{#unless linkedin_accounts}}
+            <div class="no-leads">
+              <div>Ingen LinkedIn-signaler funnet denne perioden</div>
             </div>
+            {{/unless}}
+          </div>
         </div>
-        
-<div class="page-footer">
-  <span class="page-logo">
-    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
-  </span>
-  <span class="powered-by-aiki">
-    Powered by AIKI AS
-  </span>
-  <span class="page-number" data-total="{{total_pages}}"></span>
-</div>
-</div>
+      </div>
+      
+      <div class="page-footer">
+        <span class="page-logo">
+          <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+      </div>
     </div>
-    {{/each}}
+    
+    <!-- OLD INDIVIDUAL LINKEDIN ACCOUNT PAGES REMOVED -->
     
     <!-- FINAL PAGE: CALL TO ACTION -->
     <div class="page">
@@ -2827,7 +3165,7 @@
             <div class="next-report">
                 <div class="next-info">
                     <h3>{{#if next_report_title}}{{next_report_title}}{{else}}NESTE RAPPORT{{/if}}</h3>
-                    <p>{{#if next_report_text}}{{next_report_text}}{{else}}Ny Market Watch leveres hver fredag kl. 08:00. Oppfølging av status på disse leadene inkluderes.{{/if}}</p>
+                    <p>Ny Market Watch leveres hver fredag kl. 08:00.</p>
                 </div>
             </div>
         </div>
@@ -2842,6 +3180,5 @@
   <span class="page-number" data-total="{{total_pages}}"></span>
 </div>
 </div>
-    </div>
 </body>
 </html>

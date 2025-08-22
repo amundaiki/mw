@@ -1,0 +1,556 @@
+/* Sonat CSS Styles - Ekstrahert fra sonat sin nettside */
+
+/* Global Styles */
+.iNfspb {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: #fff;
+}
+
+/* Layout Containers */
+.bqRfIO {
+    padding-bottom: 32px;
+    padding-top: 32px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.hGWZvO {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+}
+
+.dTnmmf {
+    width: 100%;
+}
+
+.gRvFmy {
+    width: 8.5rem;
+}
+
+/* Contact Section */
+.jGkqHg {
+    padding-bottom: 48px;
+    margin-left: 8px;
+}
+
+.jGkqHg .city {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.jGkqHg .address1 {
+    color: #fff;
+}
+
+.jGkqHg .address2 {
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.jGkqHg .contact-head {
+    color: #fff;
+    font-weight: 700;
+}
+
+.jGkqHg .contact-name {
+    color: #fff;
+}
+
+.jGkqHg .contact-email {
+    color: #fff;
+}
+
+.ebMdVp {
+    color: #fff;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.ebMdVp > * {
+    margin-bottom: 8px;
+}
+
+/* Buttons */
+.gZmkTt {
+    padding: 8px 16px;
+    justify-content: start;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.gZmkTt:active {
+    background-color: rgb(229, 229, 229);
+}
+
+.gZmkTt.MuiButton-contained:active {
+    background-color: rgb(50, 50, 50);
+}
+
+@media (max-width: 959.95px) {
+    .gZmkTt {
+        width: auto;
+        justify-content: start;
+        flex-basis: 45%;
+    }
+}
+
+/* Links */
+.fGuNYb {
+    word-break: break-word;
+    font-size: inherit;
+}
+
+.fGuNYb:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.fGuNYb h5 {
+    font-size: inherit;
+}
+
+.cImLtF {
+    margin-bottom: 1em;
+}
+
+/* Footer */
+.kzLgPg {
+    background: #1B1A1A;
+    transform: translateY(6em);
+    padding-top: 64px;
+}
+
+.cjyKpt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-size: 1rem;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.cjyKpt > a {
+    margin-right: 32px;
+    text-decoration: underline;
+}
+
+.eEnfcW {
+    display: flex;
+    flex-direction: row;
+    padding: 32px;
+    align-items: flex-start;
+    justify-content: space-around;
+    font-size: 1rem;
+}
+
+@media (max-width: 959.95px) {
+    .eEnfcW {
+        padding: 16px;
+    }
+}
+
+/* Grid Layouts */
+.gQOyQa {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.fAIL {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1280px;
+}
+
+@media (max-width: 959.95px) {
+    .fAIL {
+        margin: 2rem;
+    }
+}
+
+@media (max-width: 599.95px) {
+    .fAIL {
+        margin: 1rem;
+    }
+}
+
+/* Card Components */
+.ffBwFg {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+}
+
+@media (min-width: 960px) {
+    .ffBwFg {
+        flex-direction: row-reverse;
+    }
+}
+
+.ffBwFg h6 {
+    padding-bottom: 32px;
+}
+
+.dvMfIt {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+}
+
+.dvMfIt h6 {
+    padding-bottom: 32px;
+}
+
+.eWUziD {
+    flex-basis: 50%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 1279.95px) {
+    .eWUziD {
+        flex-basis: 100%;
+    }
+}
+
+.cuktxs {
+    flex-basis: 50%;
+    display: flex;
+}
+
+@media (max-width: 1279.95px) {
+    .cuktxs {
+        flex-basis: 100%;
+    }
+}
+
+@media (min-width: 960px) {
+    .cuktxs > div {
+        min-height: 100%;
+        display: flex;
+    }
+    
+    .cuktxs > div > img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* Section Backgrounds */
+.bQAtAm {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.eerQRQ {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    background: #24a3e3;
+}
+
+/* Content Sections */
+.cFNBnu .title {
+    margin-bottom: 48px;
+}
+
+.cMlUeo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+@media (max-width: 959.95px) {
+    .cMlUeo {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 0.6em;
+    }
+}
+
+@media (max-width: 599.95px) {
+    .cMlUeo {
+        flex-flow: column;
+    }
+}
+
+.iKxeAL {
+    display: inline;
+}
+
+.cxBdwO {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 2em;
+}
+
+@media (max-width: 959.95px) {
+    .cxBdwO {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Service Sections */
+.kzqzfW .title {
+    margin-bottom: 48px;
+}
+
+.kzqzfW .subtitle {
+    margin-bottom: 24px;
+}
+
+.kzqzfW .link {
+    margin-bottom: 24px;
+}
+
+.ckMfEq {
+    transform: translateY(6em);
+}
+
+@media (max-width: 959.95px) {
+    .ckMfEq {
+        transform: translateY(5em);
+    }
+}
+
+/* Interactive Elements */
+.iUNrWk {
+    background-color: pink;
+}
+
+.iUNrWk a {
+    transition: all 250ms ease-in-out;
+    text-decoration: underline;
+    padding: 8px 8px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.iUNrWk button {
+    transition: all 250ms ease-in-out;
+}
+
+.iUNrWk button:hover {
+    color: #ffffff !important;
+    background-color: var(--primary-color) !important;
+}
+
+/* Navigation */
+.ixwRTn {
+    display: grid;
+    grid-template-columns: repeat(6, auto) minmax(auto, 30vw);
+    gap: 1em;
+    font-size: 18px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dvBviI {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.gSUsgG {
+    text-transform: none;
+    font-weight: 300;
+}
+
+/* Logo and Icon Components */
+.jNRlCj {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.jNRlCj a {
+    transition: all 250ms ease-in-out;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.jNRlCj a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.cVHqdp {
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.lcKiTW {
+    margin: 0 auto;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-color);
+    transform-origin: center;
+}
+
+/* Hover Effects */
+.ijVEJg:hover {
+    opacity: 1;
+    background-color: #f2f2f2;
+}
+
+.ijVEJg:active {
+    background-color: #fafafa;
+}
+
+/* Icon Sections */
+.ckFSoD {
+    display: inline-flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+.hYlA-DB {
+    max-width: 100px;
+    padding: 16px;
+}
+
+@media (max-width: 959.95px) {
+    .hYlA-DB {
+        max-width: 80px;
+    }
+}
+
+/* Header */
+.iJLxlA {
+    z-index: 1201;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #1B1A1A;
+    left: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.iJLxlA > *:first-child {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.iJLxlA > *:last-child {
+    margin-right: 24px;
+    padding: 0;
+}
+
+/* Logo with Hover Effect */
+.dawjOG {
+    width: 8rem;
+}
+
+.dawjOG svg {
+    transition: 150ms all ease-in-out;
+}
+
+.dawjOG:hover svg {
+    fill: var(--primary-color);
+}
+
+/* Grid Systems */
+.dXriSV {
+    display: grid;
+    justify-items: stretch;
+    gap: 1em;
+    align-items: end;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: initial;
+}
+
+@media (max-width: 959.95px) {
+    .dXriSV {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 599.95px) {
+    .dXriSV {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.fxDZXO {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (max-width: 959.95px) {
+    .fxDZXO {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hero Section */
+.huSdOd {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 2em;
+    padding: 6em 0 4em 0;
+    max-width: 1280px;
+    margin-top: 32px;
+    justify-self: center;
+}
+
+@media (max-width: 1919.95px) {
+    .huSdOd {
+        grid-template-columns: 7fr 5fr;
+    }
+}
+
+@media (max-width: 1279.95px) {
+    .huSdOd {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 959.95px) {
+    .huSdOd {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Typography */
+@media (max-width: 599.95px) {
+    .dFrmfW {
+        font-size: 2.8rem;
+    }
+}
+
+/* Content Grid */
+.ddkPAT {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-left: 24px;
+    margin-right: 24px;
+    transform: translateY(-1em);
+}
+
+/* CSS Variables for Primary Color */
+:root {
+    --primary-color: #542380; /* Sonat lilla */
+}
