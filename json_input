@@ -251,6 +251,83 @@
       }
     ]
   ],
+  "linkedin_posts_pages": [
+    [
+      {
+        "company_name": "TV 2",
+        "post_date": "2025-08-19",
+        "engagement_level": "Høy",
+        "priority_class": "hot",
+        "relevance_score": 9,
+        "post_text": "Høstens viktigste valg. 8. september duket for stortingsvalg. Valgprosjektet involverer hele huset fra produksjon og reportere til utviklere, designere og markedsførere.",
+        "post_url": "https://linkedin.com/posts/tv-2",
+        "sonat_opportunity": "Massiv teknisk mobilisering for valgdekning indikerer behov for skalerbar infrastruktur og real-time dataanalyse. Perfekt timing for SONAT.",
+        "opportunity_tags": ["Streaming", "Real-time", "Cloud Scale"]
+      },
+      {
+        "company_name": "Tidal",
+        "post_date": "2025-08-19",
+        "engagement_level": "Høy",
+        "priority_class": "hot",
+        "relevance_score": 10,
+        "post_text": "Tidal lice control – vår nyeste autonome teknologi! AI-drevet løsning som detekterer og nøytraliserer lus direkte i merden.",
+        "sonat_opportunity": "Ny AI-produkt lansering krever omfattende ML-ekspertise og datainfrastruktur. SONAT kan bidra med implementering og skalering.",
+        "opportunity_tags": ["AI/ML", "Computer Vision", "IoT"]
+      },
+      {
+        "company_name": "Kravia",
+        "post_date": "2025-08-12",
+        "engagement_level": "Middels",
+        "priority_class": "warm",
+        "relevance_score": 7,
+        "post_text": "To-be.tech 28. august! Skal snakkes om AI, fremtiden, strategi og alt som er viktig før 2026.",
+        "sonat_opportunity": "Tech-konferanse fokus indikerer voksende behov for AI og strategisk teknologirådgivning.",
+        "opportunity_tags": ["AI", "Strategy", "Tech Conference"]
+      },
+      {
+        "company_name": "Norwegian Electric Systems",
+        "post_date": "2025-08-19",
+        "engagement_level": "Middels",
+        "priority_class": "warm",
+        "relevance_score": 8,
+        "post_text": "Breaking new ground med Raven INS! Leverer til tre nye ferger under bygging hos Tersan Shipyard.",
+        "sonat_opportunity": "Ekspansjon av digitale navigasjonssystemer krever software-utvikling og systemintegrasjon.",
+        "opportunity_tags": ["Maritime Tech", "System Integration", "Software"]
+      }
+    ],
+    [
+      {
+        "company_name": "Scatec ASA",
+        "post_date": "2025-08-18",
+        "engagement_level": "Høy",
+        "priority_class": "hot",
+        "relevance_score": 9,
+        "post_text": "Q2 resultater viser 1,13 mrd NOK i brutto driftsresultat! 940 GWh kraftproduksjon fra våre globale anlegg. Fortsetter ekspansjon i Asia og Afrika.",
+        "sonat_opportunity": "Scatecs globale vekst krever avansert dataanalyse og AI for produksjonsoptimalisering. Perfekt match for SONATs ekspertise.",
+        "opportunity_tags": ["AI", "Data Analytics", "Global Scale", "Renewable Energy"]
+      },
+      {
+        "company_name": "Kongsberg Maritime",
+        "post_date": "2025-08-17",
+        "engagement_level": "Middels",
+        "priority_class": "warm",
+        "relevance_score": 7,
+        "post_text": "Våre sommerpraktikanter jobber med energieffektivisering av Flakk-Rørvik ferge. Innovasjon og bærekraft i fokus!",
+        "sonat_opportunity": "Kongsbergs størrelse og teknologifokus gjør dem til ideell partner for enterprise DevOps og AI-implementering.",
+        "opportunity_tags": ["Enterprise", "DevOps", "Maritime", "Innovation"]
+      },
+      {
+        "company_name": "Mintra AS",
+        "post_date": "2025-08-16",
+        "engagement_level": "Middels",
+        "priority_class": "warm",
+        "relevance_score": 6,
+        "post_text": "Gleder oss til SPE Offshore Europe! 252 maritime eLearning-kurs og digital HR-plattform klar for internasjonal ekspansjon.",
+        "sonat_opportunity": "Mintras e-learning plattform kan forbedres med AI-personalisering og predictive analytics for kompetanseutvikling.",
+        "opportunity_tags": ["EdTech", "AI Personalization", "Maritime", "International"]
+      }
+    ]
+  ],
   "linkedin_accounts": [
     {
       "company_name": "TV 2",
@@ -303,7 +380,7 @@
       "post_count": 2,
       "posts": [
         {
-          "post_date": "2025-08-19",
+          "post_date": "2025-08-12",
           "engagement_level": "Middels",
           "priority_class": "warm",
           "relevance_score": 8,

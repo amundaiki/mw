@@ -171,6 +171,29 @@
             color: #1E293B;
         }
 
+        /* SONAT LOGO IN TOP LEFT CORNER */
+        .top-left-logo {
+            position: absolute;
+            top: 10mm;
+            left: 15mm;
+            z-index: 10;
+        }
+
+        .top-left-logo .logo-icon {
+            width: 20mm;
+            height: 20mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-left-logo .logo-icon img {
+            width: 20mm;
+            height: 20mm;
+            object-fit: contain;
+            border-radius: 2mm;
+        }
+
         /* AI BADGE */
         .ai-badge {
             position: absolute;
@@ -268,12 +291,20 @@
           /* PREMIUM HERO HEADER */
         .hero-header {
             margin: -20mm -15mm 0 -15mm;
-            padding: 35mm 20mm 25mm 20mm;
+            padding: 25mm 20mm 15mm 20mm;
             background: white;
             color: var(--text-primary);
             position: relative;
             overflow: hidden;
             border-bottom: 0.5pt solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 80%;
         }
         
         .hero-header::after {
@@ -287,40 +318,7 @@
             opacity: 0.2; /* Enda mer subtil */
         }
         
-        /* ADVANCED LOGO BADGE */
-        .brand-container {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 4mm;
-            text-align: center;
-        }
-        
-        .sonat-logo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .logo-icon {
-            width: 50mm;
-            height: 35mm;
-            border-radius: 8mm;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: white;
-            padding: 2mm;
-            border: 0.5pt solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5mm;
-        }
+
         
         .logo-text {
             font-size: 11pt;
@@ -383,16 +381,23 @@
             margin-top: 2mm;
         }
         
-/* SLANK, HORISONTALE UKESOPPSUMMERING */
+/* MODERNE UKESOPPSUMMERING */
 .summary-banner {
     display: flex;
     align-items: flex-start;
-    gap: 8mm;
-    background: var(--bg-light);
-    border: 0.5pt solid var(--border);
-    border-radius: 4mm;
-    padding: 4mm 6mm;
-    margin-bottom: 4mm;
+    gap: 12mm;
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    border: 0.5pt solid var(--border-light);
+    border-radius: 6mm;
+    padding: 6mm 8mm;
+    margin-bottom: 5mm;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.2s ease;
+}
+
+.summary-banner:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-0.5mm);
 }
 
 .banner-left {
@@ -418,24 +423,32 @@
 
         .banner-metrics {
             display: flex;
+            flex-direction: column;
             gap: var(--space-2);
-            flex-wrap: wrap;
-            align-items: center;
+            align-items: flex-start;
         }
         
         .metric-chip {
             display: flex;
             align-items: center;
-            gap: var(--space-1);
-            background: var(--bg-surface);
+            gap: var(--space-2);
+            background: linear-gradient(135deg, white 0%, var(--bg-surface) 100%);
             border: 0.5pt solid var(--border-light);
             border-radius: var(--radius-xl);
-            padding: var(--space-1) var(--space-2);
+            padding: var(--space-2) var(--space-3);
             white-space: nowrap;
             flex-shrink: 0;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
+            transition: all 0.2s ease;
+            width: 50mm;
+            justify-content: space-between;
+        }
+        
+        .metric-chip:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-0.5mm);
         }
         
         .metric-chip::before {
@@ -444,7 +457,7 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 2mm;
+            width: 3mm;
             background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
             border-radius: var(--radius-xl) 0 0 var(--radius-xl);
         }
@@ -457,14 +470,15 @@
 }
 
         .chip-value {
-            font-size: 11pt;
-            font-weight: 700;
+            font-size: 14pt;
+            font-weight: 900;
             color: var(--primary-color);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
 
-/* (Valgfritt) Litt strammere vertikal rytme på side 1 */
-.section-header{ margin:6mm 0 3mm 0; }         /* tidligere 8mm 0 5mm 0 */
-.hero-header{ padding-bottom:16mm; }            /* litt mindre padding nederst */
+/* Kompakt vertikal rytme på side 1 */
+.section-header{ margin:4mm 0 2mm 0; }         /* enda mer kompakt */
+.hero-header{ padding-bottom:10mm; }            /* mye mindre padding nederst */
 
         
         .summary-card {
@@ -918,54 +932,75 @@
             border: 0.5pt solid var(--primary-light);
         }
         
-        /* ADVANCED KEY INSIGHTS */
+        /* MODERN KEY INSIGHTS - LIKNER OPPORTUNITY LIST */
         .insights-container {
-            margin: 5mm 0;
+            margin: 3mm 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3mm;
         }
         
         .insight-item {
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+            padding: 5mm;
+            border-radius: 4mm;
+            border-left: 4mm solid;
             background: white;
-            border-left: 3mm solid;
-            margin-bottom: 3mm;
-            padding: 3mm 4mm;
-            border-radius: 0 2mm 2mm 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-lg);
+            font-size: 10pt;
+            line-height: 1.5;
+            transition: all 0.2s ease;
             position: relative;
-            font-size: 9pt;
-            line-height: 1.4;
+        }
+        
+        .insight-item:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-1mm);
         }
         
         .insight-critical {
             border-left-color: var(--critical);
-            background: linear-gradient(90deg, var(--critical-bg) 0%, white 100%);
+            background: linear-gradient(135deg, var(--critical-bg) 0%, white 100%);
         }
         
         .insight-high {
             border-left-color: var(--high);
-            background: linear-gradient(90deg, var(--high-bg) 0%, white 100%);
+            background: linear-gradient(135deg, var(--high-bg) 0%, white 100%);
         }
         
         .insight-medium {
             border-left-color: var(--medium);
-            background: linear-gradient(90deg, var(--medium-bg) 0%, white 100%);
+            background: linear-gradient(135deg, var(--medium-bg) 0%, white 100%);
         }
         
         .insight-number {
-            position: absolute;
-            left: -4mm;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8mm;
-            height: 8mm;
-            background: var(--critical);
-            border-radius: 2mm;
+            width: 12mm;
+            height: 12mm;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 20pt;
             font-weight: 900;
-            font-size: 12pt;
-            color: white;
-            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+        
+        .insight-critical .insight-number {
+            color: var(--critical);
+        }
+        
+        .insight-high .insight-number {
+            color: var(--high);
+        }
+        
+        .insight-medium .insight-number {
+            color: var(--medium);
+        }
+        
+        .insight-content {
+            flex: 1;
+            font-weight: 500;
         }
         
         /* ADVANCED CHARTS */
@@ -1133,25 +1168,18 @@
         /* SALES CARDS I SMART GRID - kun for LinkedIn Intelligence siden */
         .linkedin-pipeline .sales-cards-container {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 4mm;
             max-width: 100%;
             align-items: stretch;
             justify-items: center;
         }
         
-        /* KRITISKE LEADS: 2 per rad (kun på LinkedIn Intelligence siden) */
-        .linkedin-pipeline .sales-card.hot {
-            grid-column: span 3;
+        /* ALLE LINKEDIN INNLEGG: 2x2 grid (4 innlegg per side med lik størrelse) */
+        .linkedin-pipeline .sales-card {
+            grid-column: span 1;
             max-width: 100%;
-        }
-        
-        /* KVALIFISERTE LEADS: 3 per rad (kun på LinkedIn Intelligence siden) */
-        .linkedin-pipeline .sales-card.warm,
-        .linkedin-pipeline .sales-card.cold,
-        .linkedin-pipeline .sales-card:not(.hot):not(.warm):not(.cold) {
-            grid-column: span 2;
-            max-width: 100%;
+            width: 100%;
         }
         
         /* GRUNNLEGGENDE KORT-STYLING */
@@ -1394,7 +1422,7 @@
         .page-number::after { content: counter(pdfpage); }
         
         .spacer {
-            height: 6mm;
+            height: 8mm;
         }
 
         /* PREMIUM PROGRESS INDICATORS */
@@ -2271,15 +2299,12 @@
         .opp-number {
             width: 8mm;
             height: 8mm;
-            background: var(--critical);
-            border-radius: 2mm;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12pt;
+            font-size: 16pt;
             font-weight: 900;
-            color: white;
-            box-shadow: var(--shadow-md);
+            color: var(--critical);
             flex-shrink: 0;
         }
         
@@ -2345,6 +2370,13 @@
 <body>
 <!-- PAGE 1: EXECUTIVE DASHBOARD -->
 <div class="page">
+  <!-- SONAT LOGO IN TOP LEFT CORNER -->
+  <div class="top-left-logo">
+    <div class="logo-icon">
+      <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT Logo" />
+    </div>
+  </div>
+
   <!-- DATE STAMP IN TOP RIGHT CORNER -->
   <div class="date-stamp">
     <div class="label">Generert</div>
@@ -2353,18 +2385,12 @@
 
   <div class="page-content">
     <div class="hero-header">
-      <div class="brand-container">
-        <div class="sonat-logo">
-          <div class="logo-icon">
-            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT Logo" />
-          </div>
-        </div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Market Watch: <strong>Bedrifter i bevegelse</strong>
+        </h1>
+        <p class="hero-subtitle">AI-drevet markedsintelligens for strategiske salgsmuligheter</p>
       </div>
-
-      <h1 class="hero-title">
-        Market Watch: <strong>Bedrifter i bevegelse</strong>
-      </h1>
-      <p class="hero-subtitle">AI-drevet markedsintelligens for strategiske salgsmuligheter</p>
     </div>
 
 <div class="spacer"></div>
@@ -2394,7 +2420,7 @@
       {{#each key_findings}}
       <div class="insight-item insight-{{priority_class}}">
         <span class="insight-number">{{number}}</span>
-        {{text}}
+        <div class="insight-content">{{text}}</div>
       </div>
       {{/each}}
     </div>
@@ -2896,4 +2922,320 @@
               {{#if source_url}}<a href="{{source_url}}" target="_blank">{{source_name}}</a>{{else}}{{source_name}}{{/if}}
             </div>
             {{/if}}
-          </di
+          </div>
+          {{/if}}
+
+          <div class="qualified-details">
+            {{#if opportunity_description}}
+            <div class="detail-line">
+              <span class="detail-icon">📈</span>
+              <span class="detail-text"><strong>Mulighet:</strong> {{opportunity_description}}</span>
+            </div>
+            {{/if}}
+            
+            {{#unless event_description}}
+              {{#if event_type}}
+              <div class="detail-line">
+                <span class="detail-icon">📊</span>
+                <span class="detail-text"><strong>Event:</strong> {{event_type}}{{#if event_description}} - {{event_description}}{{/if}}</span>
+              </div>
+              {{/if}}
+            {{/unless}}
+
+            {{#unless event_description}}
+              {{#if source_name}}
+              <div class="detail-line">
+                <span class="detail-icon">🔗</span>
+                <span class="detail-text">
+                  <strong>Kilde:</strong> 
+                  {{#if source_url}}<a href="{{source_url}}" target="_blank">{{source_name}}</a>{{else}}{{source_name}}{{/if}}
+                </span>
+              </div>
+              {{/if}}
+            {{/unless}}
+          </div>
+
+          <div class="qualified-opportunity">
+            <div class="opportunity-header">
+              <span class="opportunity-icon">🎯</span>
+              <span class="opportunity-label">SONAT Mulighet</span>
+            </div>
+            <div class="opportunity-content">{{sonat_opportunity}}</div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  
+  <div class="page-footer">
+    <span class="page-logo">
+      <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+    </span>
+    <span class="powered-by-aiki">Powered by AIKI</span>
+    <span class="page-number" data-total="{{total_pages}}"></span>
+  </div>
+</div>
+{{/each}}
+    
+<!-- LINKEDIN INTELLIGENCE OVERVIEW PAGE - HELT NY -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-header">
+      <h2 class="section-title">💼 LinkedIn Intelligence Dashboard</h2>
+      <p class="section-subtitle">Overvåkning av strategiske bedrifter og deres digitale signaler</p>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">👥</div>
+          <div class="card-title">Aktive bedrifter</div>
+        </div>
+        <div class="card-metric">{{monitored_accounts_count}}</div>
+        <div class="card-content">Selskaper med strategisk relevans for SONAT</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">🔥</div>
+          <div class="card-title">Hot signaler</div>
+        </div>
+        <div class="card-metric">{{high_engagement_count}}</div>
+        <div class="card-content">LinkedIn-poster med høy salgsmulighet</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">💼</div>
+          <div class="card-title">Ansettelser</div>
+        </div>
+        <div class="card-metric">{{hiring_signals_count}}</div>
+        <div class="card-content">Tech-roller som indikerer vekst og behov</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">📈</div>
+          <div class="card-title">Vekstmuligheter</div>
+        </div>
+        <div class="card-metric">{{networking_events_count}}</div>
+        <div class="card-content">Events og signaler som viser ekspansjon</div>
+      </div>
+    </div>
+
+    <div class="insights-container">
+      <div class="insight-item insight-high">
+        <span class="insight-number">1</span>
+        <div class="insight-content">LinkedIn-aktivitet viser økt fokus på AI og digitalisering blant norske bedrifter</div>
+      </div>
+      <div class="insight-item insight-medium">
+        <span class="insight-number">2</span>
+        <div class="insight-content">Ansettelser innen tech-roller øker med 40% - indikerer vekst og investeringsbehov</div>
+      </div>
+      <div class="insight-item insight-medium">
+        <span class="insight-number">3</span>
+        <div class="insight-content">Bedrifter deler mer om tekniske utfordringer - gir SONAT direkte innsikt i markedet</div>
+      </div>
+    </div>
+  </div>
+
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span class="powered-by-aiki">
+    Powered by AIKI
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+
+<!-- LINKEDIN FEED: MODERNE SOCIAL MEDIA LAYOUT REMOVED (erstattet av kompakt visning) -->
+    
+    <!-- LINKEDIN SALES PIPELINE: paginert visning med maksimalt 4 innlegg per side -->
+    {{#each linkedin_posts_pages}}
+    <div class="page">
+      <div class="page-content">
+        <div class="linkedin-pipeline">
+          <div class="pipeline-header">
+            <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE{{#if @index}} - Side {{add @index 1}}{{/if}}</div>
+            <div class="pipeline-subtitle">Sosiale signaler som avslører forretningsmuligheter</div>
+          </div>
+          
+          <div class="sales-cards-container">
+            {{#each this}}
+              <div class="sales-card {{#if priority_class}}{{priority_class}}{{else}}warm{{/if}}">
+                <!-- Priority stripe øverst -->
+                <div class="priority-stripe"></div>
+                
+                <!-- Company header -->
+                <div class="card-header">
+                  <div class="company-name-big">{{company_name}}</div>
+                  <div class="company-meta">
+                    <div class="post-date">{{post_date}}</div>
+                    {{#if relevance_score}}
+                    <div class="relevance-circle">{{relevance_score}}</div>
+                    {{/if}}
+                  </div>
+                </div>
+                
+                <!-- Signal section -->
+                <div class="signal-section">
+                  <div class="signal-label">
+                    <span>💬</span>
+                    <span>LINKEDIN INNLEGG</span>
+                  </div>
+                  <div class="signal-text">{{post_text}}</div>
+                  
+                  {{#if sonat_opportunity}}
+                  <!-- Opportunity highlight -->
+                  <div class="opportunity-highlight">
+                    <div class="opportunity-icon">💰</div>
+                    <div class="opportunity-label">SONAT MULIGHET</div>
+                    <div class="opportunity-text">{{sonat_opportunity}}</div>
+                  </div>
+                  {{/if}}
+                </div>
+                
+                <!-- Action zone -->
+                <div class="action-zone">
+                  {{#if post_url}}
+                  <a href="{{post_url}}" target="_blank" class="linkedin-action">
+                    <span>🔗</span>
+                    <span>Se på LinkedIn</span>
+                  </a>
+                  {{else}}
+                  <div class="linkedin-action">
+                    <span>📄</span>
+                    <span>LinkedIn Post</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+            {{/each}}
+            
+            {{#unless this}}
+            <div class="no-leads">
+              <div>Ingen LinkedIn-signaler funnet denne perioden</div>
+            </div>
+            {{/unless}}
+          </div>
+        </div>
+      </div>
+      
+      <div class="page-footer">
+        <span class="page-logo">
+          <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+      </div>
+    </div>
+    {{/each}}
+    
+    {{#unless linkedin_posts_pages}}
+    <!-- Fallback hvis ingen LinkedIn-data -->
+    <div class="page">
+      <div class="page-content">
+        <div class="linkedin-pipeline">
+          <div class="pipeline-header">
+            <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE</div>
+            <div class="pipeline-subtitle">Sosiale signaler som avslører forretningsmuligheter</div>
+          </div>
+          
+          <div class="sales-cards-container">
+            <div class="no-leads">
+              <div>Ingen LinkedIn-signaler funnet denne perioden</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="page-footer">
+        <span class="page-logo">
+          <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+      </div>
+    </div>
+    {{/unless}}
+    
+    <!-- OLD INDIVIDUAL LINKEDIN ACCOUNT PAGES REMOVED -->
+    
+    <!-- FINAL PAGE: CALL TO ACTION -->
+    <div class="page">
+        <div class="page-content">
+            <!-- HOVEDTITTEL MED IMPACT -->
+            <div class="action-hero">
+                <h1 class="action-title">{{#if action_hero_title}}{{action_hero_title}}{{else}}TID FOR HANDLING{{/if}}</h1>
+                <p class="action-subtitle">{{#if action_hero_subtitle}}{{action_hero_subtitle}}{{else}}Disse mulighetene venter ikke. Strike while the iron is hot.{{/if}}</p>
+            </div>
+
+            <!-- UMIDDELBARE HANDLINGER - STORE BOKSER -->
+            <div class="urgent-actions">
+                <div class="urgent-card critical-action">
+                    <div class="urgent-header">
+                        <span class="urgent-label">KRITISK - 48 TIMER</span>
+                        <span class="urgent-count">{{#if critical_count}}{{critical_count}}{{else}}{{immediate_opportunities_count}}{{/if}} LEADS</span>
+                    </div>
+                    <div class="urgent-content">
+                        <strong>Ring nå:</strong> {{#if critical_action_text}}{{critical_action_text}}{{else}}Kontakt hot leads før konkurrentene. Disse bedriftene har akutt teknologibehov.{{/if}}
+                    </div>
+                </div>
+
+                <div class="urgent-card warm-action">
+                    <div class="urgent-header">
+                        <span class="urgent-label">DENNE UKEN</span>
+                        <span class="urgent-count">{{#if qualified_count}}{{qualified_count}}{{else}}{{high_priority_leads}}{{/if}} PROSPEKTER</span>
+                    </div>
+                    <div class="urgent-content">
+                        <strong>Planlegg møter:</strong> {{#if qualified_action_text}}{{qualified_action_text}}{{else}}Book discovery-calls med kvalifiserte prospekter. Perfect timing for approach.{{/if}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOPPMULIGHETENE -->
+            <div class="top-opportunities">
+                <h2 class="opportunity-title">{{#if top_opportunities_title}}{{top_opportunities_title}}{{else}}TOPP 3 MULIGHETER DENNE UKEN{{/if}}</h2>
+                <div class="opportunity-list">
+                    {{#each top_opportunities}}
+                    <div class="opportunity-item priority-{{priority_level}}">
+                        <div class="opp-number">{{number}}</div>
+                        <div class="opp-content">
+                            <h3 class="opp-company">{{company_name}}</h3>
+                            <p class="opp-potential">{{potential_value}}</p>
+                            <p class="opp-action">{{recommended_action}}</p>
+                        </div>
+                        <div class="opp-urgency">{{urgency_indicator}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+
+
+
+
+            <!-- NESTE RAPPORT INFO -->
+            <div class="next-report">
+                <div class="next-info">
+                    <h3>{{#if next_report_title}}{{next_report_title}}{{else}}NESTE RAPPORT{{/if}}</h3>
+                    <p>Ny Market Watch leveres hver fredag kl. 08:00.</p>
+                </div>
+            </div>
+        </div>
+        
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span class="powered-by-aiki">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+</body>
+</html>
