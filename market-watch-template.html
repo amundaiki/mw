@@ -3,22 +3,25 @@
 RAPPORT KONFIGURASJONER:
 
 📊 BEDRIFTSARTIKLER:
-- MINIMUM: 8 artikler totalt
-- MINIMUM: 4 kritiske bedrifter 
+- MINIMUM: 12 artikler totalt (økt fra 8)
+- MINIMUM: 6 n_tier1 bedrifter (økt fra 4)
 - MAKSIMUM: 16 artikler totalt
-- ALLE kan være kritiske om det finnes så mange
-- Resten fylles med kvalifiserte bedrifter
+- Tier-system: n_tier1 (9-10), n_tier2 (7-8), n_tier3 (5-6)
+- Resten fylles med n_tier2 og n_tier3 bedrifter
 
 💼 LINKEDIN INNLEGG:
-- MAKSIMUM: 12 innlegg totalt (3 sider à 4 innlegg)
+- MINIMUM: 8 innlegg totalt, optimalt 12 (3 sider à 4 innlegg)
+- Tier-system: L_tier1 (9-10), L_tier2 (7-8)
 
 NÅVÆRENDE TEMPLATE STØTTER:
-- critical_companies.[0] til [3] (4 kritiske)
-- qualified_companies (variabel mengde)
-- linkedin_posts (3 sider)
+- critical_companies.[0] til [15] (n_tier1 bedrifter)
+- qualified_companies (n_tier2 og n_tier3 bedrifter)
+- linkedin_posts_pages (flat array)
+- linkedin_pages (3 sider struktur)
 
-FOR Å UTVIDE TIL 16 BEDRIFTER:
-Legg til critical_companies.[4] til [15] ved behov
+TIER-SYSTEM OPPDATERING:
+- critical_companies = n_tier1 leads
+- qualified_companies = n_tier2 + n_tier3 leads
 -->
 <html lang="no">
 <head>
@@ -26,6 +29,13 @@ Legg til critical_companies.[4] til [15] ved behov
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market Watch: Bedrifter i bevegelse</title>
     <style>
+        /* 
+        TIER SYSTEM SUPPORT:
+        - New: .tier1, .tier2, .tier3 classes for N_TIER/L_TIER system
+        - Legacy: .priority-critical, .priority-high, .priority-medium (backward compatibility)
+        - CSS Variables: --tier1, --tier2, --tier3 with legacy aliases
+        */
+        
         /* ADVANCED A4 PAPER SPECIFICATIONS */
         @page {
             size: A4;
@@ -50,16 +60,27 @@ Legg til critical_companies.[4] til [15] ved behov
             --accent: #FAFAFA; /* Nesten hvit accent */
             --accent-dark: #F5F5F5; /* Lys grå accent */
             
-            /* Status Colors - dempet og profesjonell */
-            --critical: #B91C1C; /* Mindre skrikkende rød */
-            --critical-bg: #FEF2F2; /* Mykere bakgrunn */
-            --critical-border: #FECACA; /* Mykere border */
-            --high: #D97706; /* Mindre intens orange */
-            --high-bg: #FEF3E2; /* Mykere bakgrunn */
-            --high-border: #FED7AA; /* Mykere border */
-            --medium: #0369A1; /* Mykere blå */
-            --medium-bg: #F0F9FF; /* Mykere bakgrunn */
-            --medium-border: #BAE6FD; /* Mykere border */
+            /* Tier Colors - profesjonell tier-system */
+            --tier1: #B91C1C; /* N_TIER1/L_TIER1 - Kritiske leads (9-10) */
+            --tier1-bg: #FEF2F2; /* Mykere bakgrunn */
+            --tier1-border: #FECACA; /* Mykere border */
+            --tier2: #D97706; /* N_TIER2/L_TIER2 - Høy prioritet (7-8) */
+            --tier2-bg: #FEF3E2; /* Mykere bakgrunn */
+            --tier2-border: #FED7AA; /* Mykere border */
+            --tier3: #0369A1; /* N_TIER3 - Kvalifiserte leads (5-6) */
+            --tier3-bg: #F0F9FF; /* Mykere bakgrunn */
+            --tier3-border: #BAE6FD; /* Mykere border */
+            
+            /* Legacy aliases for backward compatibility */
+            --critical: var(--tier1);
+            --critical-bg: var(--tier1-bg);
+            --critical-border: var(--tier1-border);
+            --high: var(--tier2);
+            --high-bg: var(--tier2-bg);
+            --high-border: var(--tier2-border);
+            --medium: var(--tier3);
+            --medium-bg: var(--tier3-bg);
+            --medium-border: var(--tier3-border);
             --success: #059669; /* Mykere grønn */
             --success-bg: #F0FDF4; /* Mykere bakgrunn */
             --success-border: #BBF7D0; /* Mykere border */
@@ -676,19 +697,41 @@ Legg til critical_companies.[4] til [15] ved behov
             align-items: center;
         }
         
+                /* New Tier System Classes */
+        .tier1 .company-section-header,
+        .priority-tier1 .company-section-header {
+            background: linear-gradient(135deg, var(--tier1) 0%, #B91C1C 100%);
+        }
+
+        .tier2 .company-section-header,
+        .priority-tier2 .company-section-header {
+            background: linear-gradient(135deg, var(--tier2) 0%, #C2410C 100%);
+        }
+
+        .tier3 .company-section-header,
+        .priority-tier3 .company-section-header {
+            background: linear-gradient(135deg, var(--tier3) 0%, #0E7490 100%);
+        }
+
+        /* Legacy Classes for backward compatibility */
         .priority-critical .company-section-header {
             background: linear-gradient(135deg, var(--critical) 0%, #B91C1C 100%);
         }
-        
+
         .priority-high .company-section-header {
             background: linear-gradient(135deg, var(--high) 0%, #C2410C 100%);
         }
-        
+
         .priority-medium .company-section-header {
             background: linear-gradient(135deg, var(--medium) 0%, #0E7490 100%);
         }
-        
+
 .priority-badge{padding:1mm 3mm;border-radius:10mm;font-size:8pt;font-weight:700}
+/* New Tier Badge Classes */
+.tier1 .priority-badge, .priority-tier1 .priority-badge{background:rgba(185,28,28,0.95);color:#fff}
+.tier2 .priority-badge, .priority-tier2 .priority-badge{background:rgba(194,65,12,0.95);color:#fff}
+.tier3 .priority-badge, .priority-tier3 .priority-badge{background:rgba(14,116,144,0.95);color:#fff}
+/* Legacy Badge Classes */
 .priority-critical .priority-badge{background:rgba(185,28,28,0.95);color:#fff}
 .priority-high .priority-badge{background:rgba(194,65,12,0.95);color:#fff}
 .priority-medium .priority-badge{background:rgba(14,116,144,0.95);color:#fff}
@@ -981,6 +1024,23 @@ Legg til critical_companies.[4] til [15] ved behov
             transform: translateY(-1mm);
         }
         
+        /* New Tier Insight Classes */
+        .insight-tier1 {
+            border-left-color: var(--tier1);
+            background: linear-gradient(135deg, var(--tier1-bg) 0%, white 100%);
+        }
+        
+        .insight-tier2 {
+            border-left-color: var(--tier2);
+            background: linear-gradient(135deg, var(--tier2-bg) 0%, white 100%);
+        }
+        
+        .insight-tier3 {
+            border-left-color: var(--tier3);
+            background: linear-gradient(135deg, var(--tier3-bg) 0%, white 100%);
+        }
+
+        /* Legacy Insight Classes */
         .insight-critical {
             border-left-color: var(--critical);
             background: linear-gradient(135deg, var(--critical-bg) 0%, white 100%);
@@ -1007,6 +1067,20 @@ Legg til critical_companies.[4] til [15] ved behov
             flex-shrink: 0;
         }
         
+        /* New Tier Insight Number Classes */
+        .insight-tier1 .insight-number {
+            color: var(--tier1);
+        }
+        
+        .insight-tier2 .insight-number {
+            color: var(--tier2);
+        }
+        
+        .insight-tier3 .insight-number {
+            color: var(--tier3);
+        }
+
+        /* Legacy Insight Number Classes */
         .insight-critical .insight-number {
             color: var(--critical);
         }
@@ -3080,7 +3154,7 @@ Legg til critical_companies.[4] til [15] ved behov
       <div class="page-content">
         <div class="linkedin-pipeline">
           <div class="pipeline-header">
-            <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE{{#if @index}} - Side {{add @index 1}}{{/if}}</div>
+            <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE</div>
             <div class="pipeline-subtitle">Sosiale signaler som avslører forretningsmuligheter</div>
           </div>
           
