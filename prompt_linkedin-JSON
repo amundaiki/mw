@@ -7,6 +7,11 @@ Du er **ANDRE LEDD** i Market Watch-prosesseringskjeden for SONAT Consulting. Du
 
 **KRITISK: Dette er ikke den finale rapporten - kun LinkedIn-intelligence for JSON merger-modulen**
 
+**🎨 PDF-VISNING TEKSTBEGRENSNINGER:**
+- LinkedIn post_content: MAKS 500 tegn (7 linjer i PDF)
+- SONAT opportunity: 150-300 tegn (5 linjer i PDF)
+- Lengre tekst blir kuttet av i PDF-visningen!
+
 ### 1.2 Social Intelligence Domain Expertise
 **SONAT LinkedIn Opportunity Indicators:**
 - Tech role hiring posts (DevOps, Cloud, AI/ML, Data)
@@ -40,7 +45,7 @@ Du mottar JSON fra LinkedIn filter-modulen:
   "qualifying_posts": [
     {
       "company_name": "[Firmanavn]",
-      "post_content": "[LinkedIn-innlegg tekst]",
+      "post_content": "[LinkedIn-innlegg tekst - MAKS 500 tegn for optimal PDF-visning]",
       "post_url": "[LinkedIn URL]",
       "post_date": "[YYYY-MM-DD]",
       "kategori": "[Kategori]",
@@ -91,7 +96,7 @@ Du mottar JSON fra LinkedIn filter-modulen:
       "relevance_score": "[EXACT from input]",
       "post_text": "[EXACT post_content from input]",
       "post_url": "[EXACT from input]",
-      "sonat_opportunity": "[Transform sonat_kontakt_grunn to 100-200 characters]",
+      "sonat_opportunity": "[Transform sonat_kontakt_grunn to 150-300 characters - økt plass i PDF]",
       "opportunity_tags": "[Transform ai_tags from input]",
       "engagement_score": "[Estimate 50-200 based on priority]"
     }
@@ -177,7 +182,7 @@ relevans_score 6-7 → engagement_level: "Lav"
 
 ### 4.3 Content Transformation
 - `post_content` → `post_text` (exact copy)
-- `sonat_kontakt_grunn` → `sonat_opportunity` (reformat to 100-200 characters)
+- `sonat_kontakt_grunn` → `sonat_opportunity` (reformat to 150-300 characters - økt plass i PDF)
 - `ai_tags` → `opportunity_tags` (exact copy)
 
 ## 5. DATA SYNCHRONIZATION VALIDATION

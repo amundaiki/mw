@@ -13,6 +13,11 @@ Du er **SISTE LEDD** i Market Watch-prosesseringskjeden for SONAT Consulting. Du
 - MAKSIMUM 12 LinkedIn poster - KUTT OVERFLØDIG DATA!
 - INGEN duplikater - strict case-insensitive sjekk
 
+**🎨 PDF-VISNING TEKSTBEGRENSNINGER:**
+- LinkedIn post_text: MAKS 500 tegn (7 linjer i PDF)
+- SONAT opportunity: 150-300 tegn (5 linjer i PDF)
+- Lengre tekst blir kuttet av - hold deg innenfor grensene!
+
 Din oppgave er å produsere den **KOMPLETTE Market Watch JSON-rapporten** som sendes direkte til HTML-template for PDF-generering.
 
 ### 1.2 Integration Responsibility
@@ -748,6 +753,19 @@ def trim_linkedin_data(linkedin_input):
     trimmed_posts = posts[:12]
     
     # Generer nye strukturer basert på trimmed data
+    # KRITISK: Standardiser feltnavn - alltid bruk post_text
+    for post in trimmed_posts:
+        if 'post_content' in post and 'post_text' not in post:
+            post['post_text'] = post['post_content']
+        elif 'post_text' not in post and 'post_content' not in post:
+            post['post_text'] = post.get('post_content', '')
+        
+        # 🎨 TEKSTLENGDE VALIDERING FOR PDF
+        if len(post.get('post_text', '')) > 500:
+            post['post_text'] = post['post_text'][:497] + "..."
+        if len(post.get('sonat_opportunity', '')) > 300:
+            post['sonat_opportunity'] = post['sonat_opportunity'][:297] + "..."
+    
     linkedin_pages = [
         {"page_number": 1, "posts": trimmed_posts[0:4]},
         {"page_number": 2, "posts": trimmed_posts[4:8]},

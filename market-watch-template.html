@@ -16,8 +16,8 @@ RAPPORT KONFIGURASJONER:
 NÅVÆRENDE TEMPLATE STØTTER:
 - critical_companies.[0] til [15] (n_tier1 bedrifter)
 - qualified_companies (n_tier2 og n_tier3 bedrifter)
-- linkedin_posts_pages (flat array)
-- linkedin_pages (3 sider struktur)
+- linkedin_posts_pages (flat array - ikke brukt i template)
+- linkedin_pages (3 sider struktur - BRUKES AV TEMPLATE)
 
 TIER-SYSTEM OPPDATERING:
 - critical_companies = n_tier1 leads
@@ -1371,19 +1371,20 @@ TIER-SYSTEM OPPDATERING:
             gap: 1mm;
         }
         .signal-text {
-            font-size: 7pt;
+            font-size: 8pt;  /* Økt fra 7pt */
             color: var(--text-primary);
-            line-height: 1.3;
+            line-height: 1.4;  /* Økt fra 1.3 */
             font-style: italic;
             border-left: 1.5mm solid var(--primary-light);
             padding-left: 2mm;
-            margin-bottom: 2mm;
+            margin-bottom: 3mm;  /* Økt fra 2mm */
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
-            line-clamp: 4;
+            -webkit-line-clamp: 7;  /* Økt fra 4 til 7 linjer */
+            line-clamp: 7;  /* Økt fra 4 til 7 linjer */
             -webkit-box-orient: vertical;
             flex: 1;
+            max-height: 25mm;  /* Ny: Eksplisitt høyde */
         }
         
         /* OPPORTUNITY HIGHLIGHT */
@@ -1406,14 +1407,15 @@ TIER-SYSTEM OPPDATERING:
             margin-bottom: 0.5mm;
         }
         .opportunity-text {
-            font-size: 7pt;
+            font-size: 8pt;  /* Økt fra 7pt */
             color: var(--text-primary);
-            line-height: 1.2;
+            line-height: 1.3;  /* Økt fra 1.2 */
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
+            -webkit-line-clamp: 5;  /* Økt fra 2 til 5 linjer */
+            line-clamp: 5;  /* Økt fra 2 til 5 linjer */
             -webkit-box-orient: vertical;
+            max-height: 20mm;  /* Ny: Eksplisitt høyde */
         }
         
         /* ACTION ZONE */
@@ -3149,7 +3151,7 @@ TIER-SYSTEM OPPDATERING:
 <!-- LINKEDIN FEED: MODERNE SOCIAL MEDIA LAYOUT REMOVED (erstattet av kompakt visning) -->
     
     <!-- LINKEDIN SALES PIPELINE: paginert visning med maksimalt 4 innlegg per side -->
-    {{#each linkedin_posts_pages}}
+    {{#each linkedin_pages}}
     <div class="page">
       <div class="page-content">
         <div class="linkedin-pipeline">
@@ -3159,7 +3161,7 @@ TIER-SYSTEM OPPDATERING:
           </div>
           
           <div class="sales-cards-container">
-            {{#each this}}
+            {{#each posts}}
               <div class="sales-card {{#if priority_class}}{{priority_class}}{{else}}warm{{/if}}">
                 <!-- Priority stripe øverst -->
                 <div class="priority-stripe"></div>
@@ -3229,7 +3231,7 @@ TIER-SYSTEM OPPDATERING:
     </div>
     {{/each}}
     
-    {{#unless linkedin_posts_pages}}
+    {{#unless linkedin_pages}}
     <!-- Fallback hvis ingen LinkedIn-data -->
     <div class="page">
       <div class="page-content">
