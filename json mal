@@ -1,0 +1,206 @@
+{
+  "_DOKUMENTASJON": "Komplett JSON-mal for SONAT Market Watch med alle HTML-template variabler. AIKI genererer disse rapportene for SONAT Consulting.",
+  "_OVERSIKT": "JSON-struktur som inneholder alle nødvendige felt for å generere Market Watch PDF via HTML-template",
+  
+  "report_generated": "TEKST: Timestamp når rapporten ble generert. Format: 'DD. måned YYYY, HH:MM'",
+  "total_pages": "TALL: Totalt antall sider i den genererte PDF-rapporten",
+  "total_companies": "TALL: Totalt antall bedrifter som er analysert i denne rapporten",
+  "leads": "TALL: Antall bedrifter som anses som et lead for SONAT",
+  "high_priority_leads": "TALL: Antall bedrifter som krever umiddelbar oppfølging (kritiske leads)",
+
+  "banner_text": "TEKST: 200-400 tegn beskrivelse av ukens aktivitet og rapport-sammendrag",
+  "critical_section_title": "TEKST: Overskrift for kritiske leads-seksjonen (f.eks. 'Kritiske leads - Umiddelbar kontakt')",
+  "critical_section_badge": "TEKST: Badge-tekst for kritiske bedrifter (f.eks. 'Høy prioritet')",
+
+  "key_findings": [
+    {
+      "_FORKLARING": "Array med 2-3 nummererte hovedfunn fra markedsanalysen",
+      "number": "TALL: Sekvensiell nummerering (1, 2, 3...)",
+      "priority_class": "TEKST: CSS-klasse - 'critical' | 'high' | 'medium'",
+      "text": "TEKST: 150-300 tegn beskrivelse av funnet med konkret forretningsverdi for SONAT"
+    }
+  ],
+
+  "critical_companies": [
+    {
+      "_FORKLARING": "Array med 4-8 bedrifter som representerer umiddelbare salgsmuligheter. Hver bedrift må ha ALLE feltene nedenfor:",
+      "name": "TEKST: Offisielt firmanavn",
+      "website_url": "TEKST: Full URL med https://",
+      "sector": "TEKST: Bransjekategori (OLJE & GASS, LUFTFART, MEDIA & TEKNOLOGI, etc.)",
+      "employee_count": "TALL: Antall ansatte (indikator på bedriftsstørrelse)",
+      "location": "TEKST: Hovedkontorets geografiske lokasjon (by/region)",
+      "priority_score": "TALL: 8-10 prioritetsscore for kritiske bedrifter",
+      "event_type": "TEKST: 'FUNDING' | 'EKSPANSJON' | 'PRODUKTLANSERING' | 'VEKST'",
+      "event_description": "TEKST: 200-400 tegn detaljert beskrivelse av hendelsen som utløser salgsmuligheten",
+      "ceo_name": "TEKST: Navn på administrerende direktør eller hovedkontakt",
+      "email": "TEKST: Hovedkontakt e-postadresse",
+      "phone": "TEKST: Hovedtelefonnummer med landkode",
+      "funding_amount_nok": "TEKST: Finansieringsbeløp med 'M NOK' eller 'N/A'",
+      "funding_round": "TEKST: Type finansieringsrunde (Series A, IPO, Utbytte, etc.)",
+      "technical_needs": "TEKST: 150-300 tegn sammendrag av identifiserte tekniske behov",
+      "technical_needs_list": [
+        "ARRAY av TEKST: 3-5 konkrete tekniske behov som SONAT kan løse"
+      ],
+      "growth_indicators_list": [
+        "ARRAY av TEKST: 3-5 konkrete vekstsignaler og indikatorer"
+      ],
+      "source_name": "TEKST: Kilde til informasjonen (E24, DN, LinkedIn, etc.)",
+      "source_url": "TEKST: URL til originalkilden",
+      "sonat_relevance": "TEKST: 150-250 tegn forklaring av hvorfor denne bedriften er relevant for SONAT",
+      "relevance_tags": [
+        "ARRAY av TEKST: 3-5 tags som beskriver teknisk match ('Cloud Migration', 'AI/ML', 'DevOps', etc.)"
+      ]
+    }
+  ],
+
+  "qualified_companies": [
+    {
+      "_FORKLARING": "Array med 8-12 kvalifiserte prospekter (mindre kritiske enn critical_companies)",
+      "name": "TEKST: Firmanavn",
+      "website_url": "TEKST: Full URL", 
+      "sector": "TEKST: Bransjekategori",
+      "employee_count": "TALL: Antall ansatte",
+      "location": "TEKST: Geografisk lokasjon",
+      "event_type": "TEKST: Type hendelse som utløser muligheten",
+      "event_description": "TEKST: Kort beskrivelse av hendelsen",
+      "technical_needs": "TEKST: Sammendrag av tekniske behov",
+      "sonat_opportunity": "TEKST: 100-200 tegn konkret forslag til hvordan SONAT kan hjelpe"
+    }
+  ],
+
+  "monitored_accounts_count": "TEKST: Antall LinkedIn-kontoer som overvåkes (f.eks. '12')",
+  "high_engagement_count": "TEKST: Antall poster med høy salgsmulighet (f.eks. '8')",
+  "hiring_signals_count": "TEKST: Antall bedrifter som ansetter tech-personer (f.eks. '5')",
+  "networking_events_count": "TEKST: Antall relevante nettverksarrangementer (f.eks. '3')",
+
+  "linkedin_posts_pages": [
+    {
+      "_FORKLARING": "Array med alle LinkedIn-poster flatt strukturert",
+      "company_name": "TEKST: Firmanavn som postet",
+      "post_date": "TEKST: Format YYYY-MM-DD",
+      "engagement_level": "TEKST: 'Høy' | 'Middels' | 'Lav'",
+      "priority_class": "TEKST: CSS-klasse - 'hot' | 'warm' | 'cold'",
+      "relevance_score": "TALL: 1-10 relevans for SONAT",
+      "post_text": "TEKST: Innhold fra LinkedIn-posten (ordrett)",
+      "post_url": "TEKST: URL til LinkedIn-posten",
+      "sonat_opportunity": "TEKST: 100-200 tegn forklaring av salgsmuligheten",
+      "opportunity_tags": [
+        "ARRAY av TEKST: 2-4 tags som beskriver muligheten"
+      ],
+      "engagement_score": "TALL: Engasjementsscore (likes, kommentarer, delinger)"
+    }
+  ],
+
+  "total_posts": "TALL: Totalt antall LinkedIn-poster analysert",
+
+  "linkedin_pages": [
+    [
+      {
+        "_FORKLARING": "Første LinkedIn-struktur - gruppert per bedrift (nested arrays)",
+        "company_name": "TEKST: Firmanavn",
+        "post_count": "TALL: Antall poster fra denne bedriften",
+        "posts": [
+          {
+            "post_date": "TEKST: Format YYYY-MM-DD",
+            "engagement_level": "TEKST: 'Høy' | 'Middels' | 'Lav'",
+            "priority_class": "TEKST: 'hot' | 'warm' | 'cold'",
+            "relevance_score": "TALL: 1-10 relevans for SONAT",
+            "post_text": "TEKST: Innhold fra LinkedIn-posten",
+            "post_url": "TEKST: URL til posten",
+            "sonat_opportunity": "TEKST: Salgsmulighet forklaring",
+            "opportunity_tags": [
+              "ARRAY av TEKST: Relevans-tags"
+            ]
+          }
+        ]
+      }
+    ]
+  ],
+
+  "linkedin_accounts": [
+    {
+      "_FORKLARING": "Tredje LinkedIn-struktur - per bedrift på toppnivå (IDENTISK DATA som linkedin_pages)",
+      "company_name": "TEKST: Firmanavn",
+      "post_count": "TALL: Antall poster",
+      "posts": [
+        {
+          "post_date": "TEKST: YYYY-MM-DD",
+          "engagement_level": "TEKST: Engasjementsnivå",
+          "priority_class": "TEKST: CSS-klasse",
+          "relevance_score": "TALL: 1-10",
+          "post_text": "TEKST: Post-innhold",
+          "post_url": "TEKST: URL",
+          "sonat_opportunity": "TEKST: Mulighet",
+          "opportunity_tags": ["ARRAY: Tags"]
+        }
+      ]
+    }
+  ],
+
+  "top_opportunities_title": "TEKST: Overskrift for topp muligheter-seksjon (f.eks. 'TOPP 3 MULIGHETER DENNE UKEN')",
+  "top_opportunities": [
+    {
+      "_FORKLARING": "Array med topp 3 forretningsmuligheter denne uken",
+      "number": "TALL: Rangering 1-3",
+      "company_name": "TEKST: Firmanavn",
+      "potential_value": "TEKST: Estimert prosjektverdi og type arbeid (f.eks. 'Enterprise DevOps transformasjon - 5-15M NOK potensial')",
+      "recommended_action": "TEKST: Konkret handlingsanbefaling med kontaktperson",
+      "priority_level": "TEKST: 'critical' | 'high'",
+      "urgency_indicator": "TEKST: 'RING NÅ' | '48 TIMER' | 'DENNE UKE'"
+    }
+  ],
+
+  "strategic_recommendations": [
+    {
+      "_FORKLARING": "Array med 3-5 strategiske anbefalinger basert på markedsanalysen",
+      "title": "TEKST: 30-60 tegn overskrift på anbefalingen", 
+      "content": "TEKST: 150-300 tegn detaljert beskrivelse av hva SONAT bør gjøre"
+    }
+  ],
+
+  "action_items": [
+    {
+      "_FORKLARING": "Array med 5-7 konkrete handlingsoppgaver prioritert etter viktighet",
+      "number": "TALL: Sekvensiell nummerering",
+      "priority": "TEKST: 'critical' | 'high' | 'medium'",
+      "timeline": "TEKST: 'Denne uken' | 'Neste uke' | 'Denne måneden'",
+      "action": "TEKST: 100-200 tegn konkret handlingsoppgave med kontaktinfo"
+    }
+  ],
+
+  "weekly_actions": [
+    {
+      "_FORKLARING": "Array som definerer handlinger for de neste 7 dagene. Rapporten blir laget på fredag. Tenk på det når du setter opp handlingene. Første burde være enten i helgen eller mandag.",
+      "day_number": "TALL: Dag i uken (1-7)",
+      "day_label": "TEKST: 'MANDAG' | 'TIRSDAG' | 'ONSDAG' | 'TORSDAG' | 'FREDAG' | 'LØRDAG' | 'SØNDAG'",
+      "action_description": "TEKST: Kort beskrivelse av dagen's aktiviteter",
+      "target_companies": "TEKST: Antall og type bedrifter å kontakte (f.eks. '2 kritiske leads')"
+    }
+  ],
+
+  "_EKSTRA_LABELS_SOM_KAN_TRENGS": {
+    "_FORKLARING": "Andre potensielle labels fra HTML-template",
+    "strategic_match_title": "TEKST: Overskrift for strategisk match",
+    "linkedin_section_title": "TEKST: Overskrift for LinkedIn-analyse",
+    "linkedin_section_subtitle": "TEKST: Undertekst for LinkedIn-seksjon",
+    "action_hero_title": "TEKST: Call-to-action hovedoverskrift",
+    "action_hero_subtitle": "TEKST: Call-to-action undertekst",
+    "next_steps_title": "TEKST: Overskrift for neste steg",
+    "next_report_title": "TEKST: Info om neste rapport",
+    "next_report_text": "TEKST: Beskrivelse av når neste rapport kommer",
+    "section_strategic_title": "TEKST: Overskrift for strategiske anbefalinger",
+    "section_action_items_title": "TEKST: Overskrift for handlingsoppgaver"
+  },
+
+  "_KRITISKE_TEKNISKE_KRAV": {
+    "_FORKLARING": "Tekniske spesifikasjoner for JSON-generering",
+    "linkedin_triple_structure": "KRITISK: linkedin_pages, linkedin_posts_pages og linkedin_accounts må inneholde IDENTISKE data",
+    "alle_critical_companies_felt": "ALLE felt i critical_companies må være utfylt - ingen kan være tomme",
+    "relevance_score_minimum": "Kun bedrifter/poster med score > 6 inkluderes i rapporten",
+    "sonat_services_focus": "Alle muligheter må kobles til SONATs tjenester: digitalisering, AI/ML, VR/AR, teknologirådgivning, systemutvikling", 
+    "norwegian_language": "All tekst på norsk unntatt tekniske tags som 'Cloud Migration', 'DevOps' etc.",
+    "no_explanatory_text": "Kun ren JSON i output - ingen forklaringer eller kommentarer når JSON genereres",
+    "make_com_compatibility": "JSON må kunne parseres direkte av Make.com automatiseringssystem",
+    "contact_info_required": "Alle critical_companies må ha email, phone og ceo_name utfylt"
+  }
+}

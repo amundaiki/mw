@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<!--
+RAPPORT KONFIGURASJONER:
+
+📊 BEDRIFTSARTIKLER:
+- MINIMUM: 8 artikler totalt
+- MINIMUM: 4 kritiske bedrifter 
+- MAKSIMUM: 16 artikler totalt
+- ALLE kan være kritiske om det finnes så mange
+- Resten fylles med kvalifiserte bedrifter
+
+💼 LINKEDIN INNLEGG:
+- MAKSIMUM: 12 innlegg totalt (3 sider à 4 innlegg)
+
+NÅVÆRENDE TEMPLATE STØTTER:
+- critical_companies.[0] til [3] (4 kritiske)
+- qualified_companies (variabel mengde)
+- linkedin_posts (3 sider)
+
+FOR Å UTVIDE TIL 16 BEDRIFTER:
+Legg til critical_companies.[4] til [15] ved behov
+-->
 <html lang="no">
 <head>
     <meta charset="UTF-8">
@@ -536,28 +557,28 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 10pt;
+            font-size: 12pt;
             font-weight: 700;
         }
         
         .card-title {
             font-weight: 600;
             color: var(--primary-color);
-            font-size: 9pt;
+            font-size: 11pt;
             text-transform: uppercase;
             letter-spacing: 0.3pt;
             text-decoration: none;
         }
         
         .card-content {
-            font-size: 9pt;
+            font-size: 10pt;
             line-height: 1.4;
             color: var(--text-secondary);
             padding-left: 4mm;
         }
         
         .card-metric {
-            font-size: 20pt;
+            font-size: 24pt;
             font-weight: 800; /* Litt mindre bold */
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
@@ -949,7 +970,7 @@
             border-left: 4mm solid;
             background: white;
             box-shadow: var(--shadow-lg);
-            font-size: 10pt;
+            font-size: 12pt;
             line-height: 1.5;
             transition: all 0.2s ease;
             position: relative;
@@ -981,7 +1002,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20pt;
+            font-size: 22pt;
             font-weight: 900;
             flex-shrink: 0;
         }
@@ -2398,15 +2419,15 @@
 <!-- UTVIDET UKESOPPSUMMERING MED MER INFO -->
 <div class="summary-banner">
   <div class="banner-left">
-    <div class="banner-title">{{#if banner_title}}{{banner_title}}{{else}}Ukesrapport - Bedrifter i bevegelse{{/if}}</div>
+    <div class="banner-title">Ukesrapport - Bedrifter i bevegelse</div>
     <div class="banner-text">
-      {{#if banner_text}}{{banner_text}}{{else}}Denne uken identifiserte vi {{total_companies}} aktive bedrifter i det norske markedet, hvorav {{high_priority_leads}} representerer umiddelbare salgsmuligheter. Sterk aktivitet innen teknologi, finans og energi. Aktive bedrifter er selskaper med offentlige hendelser som finansiering, ansettelser eller ekspansjon som indikerer teknologi-investeringsbehov.{{/if}}
+      {{#if banner_text}}{{banner_text}}{{else}}Denne uken analyserte vi {{total_companies}} aktive bedrifter i det norske markedet, hvorav {{high_priority_leads}} representerer umiddelbare salgsmuligheter. Sterk aktivitet innen teknologi, finans og energi. Aktive bedrifter er selskaper med offentlige hendelser som finansiering, ansettelser eller ekspansjon som indikerer teknologi-investeringsbehov.{{/if}}
     </div>
   </div>
   <div class="banner-metrics">
     <div class="metric-chip">
       <span class="chip-label">Kritiske leads</span>
-      <span class="chip-value">{{immediate_opportunities_count}}</span>
+      <span class="chip-value">{{high_priority_leads}}</span>
     </div>
     <div class="metric-chip">
       <span class="chip-label">Totalt analysert</span>
@@ -2882,8 +2903,8 @@
   <div class="page-content">
     <div class="company-section priority-high">
       <div class="company-section-header">
-        <span>{{#if ../qualified_section_title}}{{../qualified_section_title}}{{else}}Kvalifiserte prospekter{{/if}}</span>
-        <span class="priority-badge">{{#if ../qualified_section_badge}}{{../qualified_section_badge}}{{else}}Varm oppfølging{{/if}}</span>
+        <span>Kvalifiserte prospekter</span>
+        <span class="priority-badge">Varm oppfølging</span>
       </div>
 
       <div class="qualified-leads-grid">
@@ -2993,7 +3014,7 @@
           <div class="card-title">Aktive bedrifter</div>
         </div>
         <div class="card-metric">{{monitored_accounts_count}}</div>
-        <div class="card-content">Selskaper med strategisk relevans for SONAT</div>
+        <div class="card-content">Antall innlegg som har blitt analysert</div>
       </div>
 
       <div class="summary-card">
@@ -3002,7 +3023,7 @@
           <div class="card-title">Hot signaler</div>
         </div>
         <div class="card-metric">{{high_engagement_count}}</div>
-        <div class="card-content">LinkedIn-poster med høy salgsmulighet</div>
+        <div class="card-content">Antall poster med høy salgsmulighet</div>
       </div>
 
       <div class="summary-card">
@@ -3011,7 +3032,7 @@
           <div class="card-title">Ansettelser</div>
         </div>
         <div class="card-metric">{{hiring_signals_count}}</div>
-        <div class="card-content">Tech-roller som indikerer vekst og behov</div>
+        <div class="card-content">Antall bedrifter som ansetter tech-personer</div>
       </div>
 
       <div class="summary-card">
@@ -3020,7 +3041,7 @@
           <div class="card-title">Vekstmuligheter</div>
         </div>
         <div class="card-metric">{{networking_events_count}}</div>
-        <div class="card-content">Events og signaler som viser ekspansjon</div>
+        <div class="card-content">Antall relevante nettverksarrangementer</div>
       </div>
     </div>
 
@@ -3221,7 +3242,7 @@
             <!-- NESTE RAPPORT INFO -->
             <div class="next-report">
                 <div class="next-info">
-                    <h3>{{#if next_report_title}}{{next_report_title}}{{else}}NESTE RAPPORT{{/if}}</h3>
+                    <h3>NESTE RAPPORT</h3>
                     <p>Ny Market Watch leveres hver fredag kl. 08:00.</p>
                 </div>
             </div>
