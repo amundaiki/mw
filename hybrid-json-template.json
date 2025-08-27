@@ -1,0 +1,73 @@
+{
+  "_STRATEGI": "Ny tilnærming: De 12 beste og mest relevante bedriftene for Sonat",
+  "_HARDKODET_FRA_SHEETS": "Disse feltene populeres direkte fra Google Sheets-celler",
+  
+  "report_generated": "{{CELL_A1}}", 
+  "total_pages": "{{CELL_B1}}",
+  "total_companies": "{{CELL_C1}}",
+  "leads": 12,
+  "high_priority_leads": 12,
+  
+  "critical_companies": [
+    {
+      "_KILDE": "Google Sheets rad 2 - BEDRIFT 1",
+      "name": "{{CELL_A2}}",
+      "website_url": "{{CELL_B2}}",
+      "sector": "{{CELL_C2}}",
+      "employee_count": "{{CELL_D2}}",
+      "location": "{{CELL_E2}}",
+      "ceo_name": "{{CELL_F2}}",
+      "email": "{{CELL_G2}}",
+      "phone": "{{CELL_H2}}",
+      "funding_amount_nok": "{{CELL_I2}}",
+      "funding_round": "{{CELL_J2}}",
+      "source_name": "{{CELL_K2}}",
+      "source_url": "{{CELL_L2}}",
+      "priority_score": "{{CELL_M2}}",
+      "event_type": "{{CELL_N2}}",
+      
+      "_LLM_GENERERT": "Disse feltene krever tekstanalyse og genereres av LLM",
+      "event_description": "LLM_GENERATE_EVENT_DESC",
+      "technical_needs": "LLM_GENERATE_TECH_NEEDS",
+      "technical_needs_list": "LLM_GENERATE_TECH_LIST",
+      "growth_indicators_list": "LLM_GENERATE_GROWTH_LIST",
+      "sonat_relevance": "LLM_GENERATE_RELEVANCE",
+      "relevance_tags": "LLM_GENERATE_TAGS"
+    },
+    {
+      "_KILDE": "Google Sheets rad 3 - BEDRIFT 2",
+      "name": "{{CELL_A3}}",
+      "website_url": "{{CELL_B3}}",
+      "sector": "{{CELL_C3}}",
+      "employee_count": "{{CELL_D3}}",
+      "location": "{{CELL_E3}}",
+      "ceo_name": "{{CELL_F3}}",
+      "email": "{{CELL_G3}}",
+      "phone": "{{CELL_H3}}",
+      "funding_amount_nok": "{{CELL_I3}}",
+      "funding_round": "{{CELL_J3}}",
+      "source_name": "{{CELL_K3}}",
+      "source_url": "{{CELL_L3}}",
+      "priority_score": "{{CELL_M3}}",
+      "event_type": "{{CELL_N3}}",
+      "event_description": "LLM_GENERATE_EVENT_DESC",
+      "technical_needs": "LLM_GENERATE_TECH_NEEDS",
+      "technical_needs_list": "LLM_GENERATE_TECH_LIST",
+      "growth_indicators_list": "LLM_GENERATE_GROWTH_LIST",
+      "sonat_relevance": "LLM_GENERATE_RELEVANCE",
+      "relevance_tags": "LLM_GENERATE_TAGS"
+    }
+  ],
+  
+  "_LLM_ONLY_SECTIONS": "Disse seksjonene genereres helt av LLM basert på nyhetsinput",
+  "key_findings": "LLM_GENERATE_FINDINGS",
+  "linkedin_posts_pages": "LLM_GENERATE_LINKEDIN_ANALYSIS", 
+  "strategic_recommendations": "LLM_GENERATE_STRATEGY",
+  "action_items": "LLM_GENERATE_ACTIONS",
+  "weekly_actions": "LLM_GENERATE_WEEKLY_PLAN",
+  
+  "_STATISKE_LABELS": "Oppdaterte labels for ny tilnærming",
+  "banner_text": "Denne uken analyserte vi {{total_companies}} aktive bedrifter i det norske markedet og valgte ut de 12 mest relevante og lovende bedriftene for Sonat. Fokus på bedrifter med konkrete teknologibehov og vekstpotensial. Alle bedrifter er pre-kvalifisert for relevans og salgsmuligheter.",
+  "critical_section_title": "De 12 beste bedriftene - Prioritert for kontakt",
+  "critical_section_badge": "Beste muligheter"
+}

@@ -2,26 +2,20 @@
 <!--
 RAPPORT KONFIGURASJONER:
 
-📊 BEDRIFTSARTIKLER:
-- MINIMUM: 12 artikler totalt (økt fra 8)
-- MINIMUM: 6 n_tier1 bedrifter (økt fra 4)
-- MAKSIMUM: 16 artikler totalt
-- Tier-system: n_tier1 (9-10), n_tier2 (7-8), n_tier3 (5-6)
-- Resten fylles med n_tier2 og n_tier3 bedrifter
+📊 DE 12 BESTE NYHETENE:
+- Viser de 12 mest relevante og viktige nyhetene fra siste uke
+- Alle nyheter er høy kvalitet og relevante for Sonat
+- Fokus på hvilke bedrifter som bør prioriteres for kontakt
 
 💼 LINKEDIN INNLEGG:
-- MINIMUM: 8 innlegg totalt, optimalt 12 (3 sider à 4 innlegg)
-- Tier-system: L_tier1 (9-10), L_tier2 (7-8)
+- Viser de beste LinkedIn-innleggene (optimalt 12 innlegg, 3 sider à 4 innlegg)
+- Alle innlegg er pre-filtrert for relevans og salgsmuligheter
+- Inkluderer prioriteringsveiledning for oppfølging
 
-NÅVÆRENDE TEMPLATE STØTTER:
-- critical_companies.[0] til [15] (n_tier1 bedrifter)
-- qualified_companies (n_tier2 og n_tier3 bedrifter)
-- linkedin_posts_pages (flat array - ikke brukt i template)
-- linkedin_pages (3 sider struktur - BRUKES AV TEMPLATE)
-
-TIER-SYSTEM OPPDATERING:
-- critical_companies = n_tier1 leads
-- qualified_companies = n_tier2 + n_tier3 leads
+TEMPLATE STØTTER:
+- critical_companies.[0] til [11] (de 12 beste bedriftene)
+- linkedin_pages (3 sider struktur for LinkedIn-innlegg)
+- Fokus på actionable insights og kontaktprioriteringer
 -->
 <html lang="no">
 <head>
@@ -1264,10 +1258,11 @@ TIER-SYSTEM OPPDATERING:
         .linkedin-pipeline .sales-cards-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 4mm;
+            gap: 2mm; /* Ytterligere redusert gap for mer plass til kortene */
             max-width: 100%;
-            align-items: stretch;
-            justify-items: center;
+            align-items: start; /* Start alignment i stedet for stretch */
+            justify-items: stretch;
+            height: 100%; /* Utnytt full høyde av siden */
         }
         
         /* ALLE LINKEDIN INNLEGG: 2x2 grid (4 innlegg per side med lik størrelse) */
@@ -1275,6 +1270,9 @@ TIER-SYSTEM OPPDATERING:
             grid-column: span 1;
             max-width: 100%;
             width: 100%;
+            min-height: 110mm; /* Økt fra 95mm for enda mer tekstplass */
+            max-height: 130mm; /* Økt fra 110mm for enda mer tekstplass */
+            overflow: hidden;
         }
         
         /* GRUNNLEGGENDE KORT-STYLING */
@@ -1282,7 +1280,7 @@ TIER-SYSTEM OPPDATERING:
             background: white;
             border-radius: 3mm;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md); /* Økt fra shadow-sm til shadow-md for bedre synlighet */
             position: relative;
             border: 0.5pt solid var(--border);
             width: 100%;
@@ -1290,6 +1288,12 @@ TIER-SYSTEM OPPDATERING:
             display: flex;
             flex-direction: column;
             height: 100%;
+        }
+        
+        /* FORBEDRET SKYGGE FOR LINKEDIN KORT SPESIFIKT */
+        .linkedin-pipeline .sales-card {
+            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.06); /* Enda mer synlig skygge */
+            border: 1pt solid var(--border); /* Litt tykkere border */
         }
         
         /* PRIORITY STRIPE ØVERST */
@@ -1380,11 +1384,11 @@ TIER-SYSTEM OPPDATERING:
             margin-bottom: 3mm;  /* Økt fra 2mm */
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 7;  /* Økt fra 4 til 7 linjer */
-            line-clamp: 7;  /* Økt fra 4 til 7 linjer */
+            -webkit-line-clamp: 14;  /* Økt fra 10 til 14 linjer for enda mer tekst */
+            line-clamp: 14;  /* Økt fra 10 til 14 linjer for enda mer tekst */
             -webkit-box-orient: vertical;
             flex: 1;
-            max-height: 25mm;  /* Ny: Eksplisitt høyde */
+            max-height: 50mm;  /* Økt fra 35mm til 50mm for enda mer plass */
         }
         
         /* OPPORTUNITY HIGHLIGHT */
@@ -1392,8 +1396,9 @@ TIER-SYSTEM OPPDATERING:
             background: var(--accent);
             border: 0.5pt solid var(--primary-light);
             border-radius: 2mm;
-            padding: 2mm;
-            margin-bottom: 2mm;
+            padding: 3mm; /* Økt fra 2mm for mer plass */
+            margin-bottom: 3mm; /* Økt fra 2mm */
+            min-height: 25mm; /* Sikrer minimum høyde for mer tekst */
         }
         .opportunity-icon {
             font-size: 8pt;
@@ -1412,10 +1417,10 @@ TIER-SYSTEM OPPDATERING:
             line-height: 1.3;  /* Økt fra 1.2 */
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 5;  /* Økt fra 2 til 5 linjer */
-            line-clamp: 5;  /* Økt fra 2 til 5 linjer */
+            -webkit-line-clamp: 8;  /* Økt fra 5 til 8 linjer for mer tekst */
+            line-clamp: 8;  /* Økt fra 5 til 8 linjer for mer tekst */
             -webkit-box-orient: vertical;
-            max-height: 20mm;  /* Ny: Eksplisitt høyde */
+            max-height: 30mm;  /* Økt fra 20mm til 30mm for mer plass */
         }
         
         /* ACTION ZONE */
@@ -2916,17 +2921,17 @@ TIER-SYSTEM OPPDATERING:
   <div class="banner-left">
     <div class="banner-title">Ukesrapport - Bedrifter i bevegelse</div>
     <div class="banner-text">
-      {{#if banner_text}}{{banner_text}}{{else}}Denne uken analyserte vi {{total_companies}} aktive bedrifter i det norske markedet, hvorav {{high_priority_leads}} representerer umiddelbare salgsmuligheter. Sterk aktivitet innen teknologi, finans og energi. Aktive bedrifter er selskaper med offentlige hendelser som finansiering, ansettelser eller ekspansjon som indikerer teknologi-investeringsbehov.{{/if}}
+      {{#if banner_text}}{{banner_text}}{{else}}Denne uken analyserte vi {{total_companies}} aktive bedrifter i det norske markedet og valgte ut de {{high_priority_leads}} mest relevante og lovende bedriftene for Sonat. Fokus på bedrifter med konkrete teknologibehov og vekstpotensial. Alle bedrifter er pre-kvalifisert for relevans og salgsmuligheter.{{/if}}
     </div>
   </div>
   <div class="banner-metrics">
     <div class="metric-chip">
-      <span class="chip-label">Kritiske leads</span>
-      <span class="chip-value">{{high_priority_leads}}</span>
+      <span class="chip-label">📰</span>
+      <span class="chip-value">{{total_companies}}</span>
     </div>
     <div class="metric-chip">
-      <span class="chip-label">Totalt analysert</span>
-      <span class="chip-value">{{total_companies}}</span>
+      <span class="chip-label"><img src="https://www.citypng.com/public/uploads/preview/hd-linkedin-square-black-icon-transparent-background-7017516949739946gsykkwdmd.png" style="width: 14px; height: 14px; vertical-align: middle;"></span>
+      <span class="chip-value">{{total_linkedin_posts}}</span>
     </div>
   </div>
 </div>
@@ -2940,6 +2945,8 @@ TIER-SYSTEM OPPDATERING:
       </div>
       {{/each}}
     </div>
+    
+
   </div>
 
 <!-- FOOTER PÅ SIDE 1 -->
@@ -2954,13 +2961,13 @@ TIER-SYSTEM OPPDATERING:
 </div>
 </div>
 
-<!-- CRITICAL COMPANIES: PAGE 1 (FIRST 2) -->
+<!-- TOP 12 COMPANIES: PAGE 1 (FIRST 2) -->
 <div class="page">
     <div class="page-content">
         <div class="company-section priority-critical">
             <div class="company-section-header">
-                <span>{{#if critical_section_title}}{{critical_section_title}}{{else}}Kritiske leads - Umiddelbar kontakt{{/if}}</span>
-                <span class="priority-badge">{{#if critical_section_badge}}{{critical_section_badge}}{{else}}Høy prioritet{{/if}}</span>
+                <span>{{#if critical_section_title}}{{critical_section_title}}{{else}}De 12 beste bedriftene - Prioritert for kontakt{{/if}}</span>
+                <span class="priority-badge">{{#if critical_section_badge}}{{critical_section_badge}}{{else}}Beste muligheter{{/if}}</span>
             </div>
             
             <div class="compact-leads-grid">
@@ -2976,7 +2983,18 @@ TIER-SYSTEM OPPDATERING:
                                 {{#if critical_companies.[0].location}}<span class="meta-pill">{{critical_companies.[0].location}}</span>{{/if}}
                             </div>
                         </div>
-                        <div class="lead-status"></div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[0].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[0].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
                     </div>
 
                     {{#if critical_companies.[0].event_description}}
@@ -3178,13 +3196,13 @@ TIER-SYSTEM OPPDATERING:
     </div>
 </div>
 
-<!-- CRITICAL COMPANIES: PAGE 2 (LAST 2) -->
+<!-- TOP 12 COMPANIES: PAGE 2 (NEXT 2) -->
 <div class="page">
     <div class="page-content">
         <div class="company-section priority-critical">
             <div class="company-section-header">
-                <span>{{#if critical_section_title}}{{critical_section_title}}{{else}}Kritiske leads - Umiddelbar kontakt{{/if}} (fortsettelse)</span>
-                <span class="priority-badge">{{#if critical_section_badge}}{{critical_section_badge}}{{else}}Høy prioritet{{/if}}</span>
+                <span>{{#if critical_section_title}}{{critical_section_title}}{{else}}Prioriterte bedrifter{{/if}}</span>
+                <span class="priority-badge">{{#if critical_section_badge}}{{critical_section_badge}}{{else}}Beste muligheter{{/if}}</span>
             </div>
             
             <div class="compact-leads-grid">
@@ -3201,7 +3219,18 @@ TIER-SYSTEM OPPDATERING:
                                 {{#if critical_companies.[2].location}}<span class="meta-pill">{{critical_companies.[2].location}}</span>{{/if}}
                             </div>
                         </div>
-                        <div class="lead-status"></div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[2].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[2].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
                     </div>
 
                     {{#if critical_companies.[2].event_description}}
@@ -3297,7 +3326,18 @@ TIER-SYSTEM OPPDATERING:
                                 {{#if critical_companies.[3].location}}<span class="meta-pill">{{critical_companies.[3].location}}</span>{{/if}}
                             </div>
                         </div>
-                        <div class="lead-status"></div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[3].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[3].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
                     </div>
 
                     {{#if critical_companies.[3].event_description}}
@@ -3378,6 +3418,8 @@ TIER-SYSTEM OPPDATERING:
                         </div>
                         {{/if}}
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -3392,107 +3434,961 @@ TIER-SYSTEM OPPDATERING:
     </div>
 </div>
     
-<!-- QUALIFIED PROSPECTS: 4 PER PAGE -->
-{{#each qualified_chunks}}
+<!-- TOP 12 COMPANIES: PAGE 3 (BEDRIFT 5-6) -->
 <div class="page">
-  <div class="page-content">
-    <div class="company-section priority-high">
-      <div class="company-section-header">
-        <span>Kvalifiserte prospekter</span>
-        <span class="priority-badge">Varm oppfølging</span>
-      </div>
-
-      <div class="qualified-leads-grid">
-        {{#each this}}
-        <div class="qualified-lead-card">
-          <div class="qualified-header">
-            <div class="qualified-main">
-              <h4 class="qualified-company">
-                {{#if website_url}}<a href="{{website_url}}" target="_blank">{{name}}</a>{{else}}{{name}}{{/if}}
-              </h4>
-              <div class="qualified-meta">
-                <span class="meta-pill">{{sector}}</span>
-                <span class="meta-pill">{{employee_count}} ansatte</span>
-                {{#if location}}<span class="meta-pill">{{location}}</span>{{/if}}
-              </div>
+    <div class="page-content">
+        <div class="company-section priority-critical">
+            <div class="company-section-header">
+                <span>Prioriterte bedrifter</span>
+                <span class="priority-badge">Beste muligheter</span>
             </div>
-            <div class="qualified-status">
-              {{#if priority_score}}
-              <div class="priority-indicator">
-                <span class="priority-value">{{priority_score}}/10</span>
-              </div>
-              {{/if}}
-            </div>
-          </div>
-
-          {{#if event_description}}
-          <div class="qualified-event">
-            <div class="event-header-small">
-              <span class="event-type-badge">{{event_type}}</span>
-              {{#if event_date}}<span class="event-date-small">{{event_date}}</span>{{/if}}
-            </div>
-            <div class="event-description-qualified">{{event_description}}</div>
-            {{#if source_name}}
-            <div class="event-source-small">
-              <strong>Kilde:</strong> 
-              {{#if source_url}}<a href="{{source_url}}" target="_blank">{{source_name}}</a>{{else}}{{source_name}}{{/if}}
-            </div>
-            {{/if}}
-          </div>
-          {{/if}}
-
-          <div class="qualified-details">
-            {{#if opportunity_description}}
-            <div class="detail-line">
-              <span class="detail-icon">📈</span>
-              <span class="detail-text"><strong>Mulighet:</strong> {{opportunity_description}}</span>
-            </div>
-            {{/if}}
             
-            {{#unless event_description}}
-              {{#if event_type}}
-              <div class="detail-line">
-                <span class="detail-icon">📊</span>
-                <span class="detail-text"><strong>Event:</strong> {{event_type}}{{#if event_description}} - {{event_description}}{{/if}}</span>
-              </div>
-              {{/if}}
-            {{/unless}}
+            <div class="compact-leads-grid">
+                <!-- FIFTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[4].website_url}}<a href="{{critical_companies.[4].website_url}}" target="_blank">{{critical_companies.[4].name}}</a>{{else}}{{critical_companies.[4].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[4].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[4].employee_count}} ansatte</span>
+                                {{#if critical_companies.[4].location}}<span class="meta-pill">{{critical_companies.[4].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[4].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[4].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
 
-            {{#unless event_description}}
-              {{#if source_name}}
-              <div class="detail-line">
-                <span class="detail-icon">🔗</span>
-                <span class="detail-text">
-                  <strong>Kilde:</strong> 
-                  {{#if source_url}}<a href="{{source_url}}" target="_blank">{{source_name}}</a>{{else}}{{source_name}}{{/if}}
-                </span>
-              </div>
-              {{/if}}
-            {{/unless}}
-          </div>
+                    {{#if critical_companies.[4].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[4].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[4].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
 
-          <div class="qualified-opportunity">
-            <div class="opportunity-header">
-              <span class="opportunity-icon">🎯</span>
-              <span class="opportunity-label">SONAT Mulighet</span>
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[4].ceo_name}}{{critical_companies.[4].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[4].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[4].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[4].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[4].funding_amount_nok}}{{#if critical_companies.[4].funding_round}} • {{critical_companies.[4].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[4].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[4].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[4].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[4].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[4].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[4].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[4].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[4].source_url}}" target="_blank">{{critical_companies.[4].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[4].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[4].sonat_relevance}}</div>
+                        {{#if critical_companies.[4].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[4].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+
+
+                </div>
+
+                <!-- SIXTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[5].website_url}}<a href="{{critical_companies.[5].website_url}}" target="_blank">{{critical_companies.[5].name}}</a>{{else}}{{critical_companies.[5].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[5].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[5].employee_count}} ansatte</span>
+                                {{#if critical_companies.[5].location}}<span class="meta-pill">{{critical_companies.[5].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[5].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[5].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[5].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[5].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[5].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[5].ceo_name}}{{critical_companies.[5].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[5].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[5].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[5].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[5].funding_amount_nok}}{{#if critical_companies.[5].funding_round}} • {{critical_companies.[5].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[5].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[5].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[5].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[5].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[5].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[5].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[5].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[5].source_url}}" target="_blank">{{critical_companies.[5].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[5].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[5].sonat_relevance}}</div>
+                        {{#if critical_companies.[5].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[5].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
             </div>
-            <div class="opportunity-content">{{sonat_opportunity}}</div>
-          </div>
         </div>
-        {{/each}}
-      </div>
     </div>
-  </div>
-  
-  <div class="page-footer">
-    <span class="page-logo">
-      <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
-    </span>
-    <span class="powered-by-aiki">Powered by AIKI</span>
-    <span class="page-number" data-total="{{total_pages}}"></span>
-  </div>
+
+    <!-- FOOTER PÅ SIDE 3 -->
+    <div class="page-footer">
+        <span class="page-logo">
+            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI AS</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+    </div>
 </div>
-{{/each}}
+
+<!-- TOP 12 COMPANIES: PAGE 4 (BEDRIFT 7-8) -->
+<div class="page">
+    <div class="page-content">
+        <div class="company-section priority-critical">
+            <div class="company-section-header">
+                <span>Prioriterte bedrifter</span>
+                <span class="priority-badge">Beste muligheter</span>
+            </div>
+            
+            <div class="compact-leads-grid">
+                <!-- SEVENTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[6].website_url}}<a href="{{critical_companies.[6].website_url}}" target="_blank">{{critical_companies.[6].name}}</a>{{else}}{{critical_companies.[6].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[6].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[6].employee_count}} ansatte</span>
+                                {{#if critical_companies.[6].location}}<span class="meta-pill">{{critical_companies.[6].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[6].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[6].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[6].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[6].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[6].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[6].ceo_name}}{{critical_companies.[6].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[6].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[6].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[6].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[6].funding_amount_nok}}{{#if critical_companies.[6].funding_round}} • {{critical_companies.[6].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[6].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[6].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[6].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[6].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[6].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[6].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[6].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[6].source_url}}" target="_blank">{{critical_companies.[6].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[6].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[6].sonat_relevance}}</div>
+                        {{#if critical_companies.[6].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[6].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+
+
+                </div>
+
+                <!-- EIGHTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[7].website_url}}<a href="{{critical_companies.[7].website_url}}" target="_blank">{{critical_companies.[7].name}}</a>{{else}}{{critical_companies.[7].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[7].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[7].employee_count}} ansatte</span>
+                                {{#if critical_companies.[7].location}}<span class="meta-pill">{{critical_companies.[7].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[7].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[7].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[7].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[7].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[7].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[7].ceo_name}}{{critical_companies.[7].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[7].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[7].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[7].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[7].funding_amount_nok}}{{#if critical_companies.[7].funding_round}} • {{critical_companies.[7].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[7].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[7].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[7].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[7].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[7].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[7].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[7].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[7].source_url}}" target="_blank">{{critical_companies.[7].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[7].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[7].sonat_relevance}}</div>
+                        {{#if critical_companies.[7].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[7].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER PÅ SIDE 4 -->
+    <div class="page-footer">
+        <span class="page-logo">
+            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI AS</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+    </div>
+</div>
+
+<!-- TOP 12 COMPANIES: PAGE 5 (BEDRIFT 9-10) -->
+<div class="page">
+    <div class="page-content">
+        <div class="company-section priority-critical">
+            <div class="company-section-header">
+                <span>Prioriterte bedrifter</span>
+                <span class="priority-badge">Beste muligheter</span>
+            </div>
+            
+            <div class="compact-leads-grid">
+                <!-- NINTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[8].website_url}}<a href="{{critical_companies.[8].website_url}}" target="_blank">{{critical_companies.[8].name}}</a>{{else}}{{critical_companies.[8].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[8].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[8].employee_count}} ansatte</span>
+                                {{#if critical_companies.[8].location}}<span class="meta-pill">{{critical_companies.[8].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[8].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[8].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[8].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[8].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[8].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[8].ceo_name}}{{critical_companies.[8].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[8].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[8].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[8].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[8].funding_amount_nok}}{{#if critical_companies.[8].funding_round}} • {{critical_companies.[8].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[8].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[8].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[8].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[8].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[8].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[8].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[8].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[8].source_url}}" target="_blank">{{critical_companies.[8].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[8].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[8].sonat_relevance}}</div>
+                        {{#if critical_companies.[8].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[8].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+
+
+                </div>
+
+                <!-- TENTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[9].website_url}}<a href="{{critical_companies.[9].website_url}}" target="_blank">{{critical_companies.[9].name}}</a>{{else}}{{critical_companies.[9].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[9].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[9].employee_count}} ansatte</span>
+                                {{#if critical_companies.[9].location}}<span class="meta-pill">{{critical_companies.[9].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[9].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[9].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[9].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[9].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[9].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[9].ceo_name}}{{critical_companies.[9].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[9].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[9].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[9].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[9].funding_amount_nok}}{{#if critical_companies.[9].funding_round}} • {{critical_companies.[9].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[9].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[9].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[9].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[9].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[9].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[9].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[9].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[9].source_url}}" target="_blank">{{critical_companies.[9].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[9].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[9].sonat_relevance}}</div>
+                        {{#if critical_companies.[9].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[9].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER PÅ SIDE 5 -->
+    <div class="page-footer">
+        <span class="page-logo">
+            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI AS</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+    </div>
+</div>
+
+<!-- TOP 12 COMPANIES: PAGE 6 (BEDRIFT 11-12) -->
+<div class="page">
+    <div class="page-content">
+        <div class="company-section priority-critical">
+            <div class="company-section-header">
+                <span>Prioriterte bedrifter</span>
+                <span class="priority-badge">Beste muligheter</span>
+            </div>
+            
+            <div class="compact-leads-grid">
+                <!-- ELEVENTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[10].website_url}}<a href="{{critical_companies.[10].website_url}}" target="_blank">{{critical_companies.[10].name}}</a>{{else}}{{critical_companies.[10].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[10].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[10].employee_count}} ansatte</span>
+                                {{#if critical_companies.[10].location}}<span class="meta-pill">{{critical_companies.[10].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[10].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[10].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[10].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[10].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[10].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[10].ceo_name}}{{critical_companies.[10].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[10].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[10].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[10].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[10].funding_amount_nok}}{{#if critical_companies.[10].funding_round}} • {{critical_companies.[10].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[10].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[10].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[10].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[10].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[10].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[10].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[10].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[10].source_url}}" target="_blank">{{critical_companies.[10].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[10].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[10].sonat_relevance}}</div>
+                        {{#if critical_companies.[10].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[10].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+
+
+                </div>
+
+                <!-- TWELFTH CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="lead-main">
+                            <h3 class="lead-company">
+                                {{#if critical_companies.[11].website_url}}<a href="{{critical_companies.[11].website_url}}" target="_blank">{{critical_companies.[11].name}}</a>{{else}}{{critical_companies.[11].name}}{{/if}}
+                            </h3>
+                            <div class="lead-meta">
+                                <span class="meta-pill">{{critical_companies.[11].sector}}</span>
+                                <span class="meta-pill">{{critical_companies.[11].employee_count}} ansatte</span>
+                                {{#if critical_companies.[11].location}}<span class="meta-pill">{{critical_companies.[11].location}}</span>{{/if}}
+                            </div>
+                        </div>
+                        <div class="lead-status">
+                            {{#if critical_companies.[11].priority_score}}
+                            <div class="confidence-meter">
+                                <div class="confidence-dots">
+                                    <div class="confidence-dot high active"></div>
+                                    <div class="confidence-dot active"></div>
+                                    <div class="confidence-dot active"></div>
+                                </div>
+                                <span>{{critical_companies.[11].priority_score}}/10</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[11].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[11].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[11].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="lead-details-compact">
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kontakt:</span>
+                            <span class="detail-value-small">{{#if critical_companies.[11].ceo_name}}{{critical_companies.[11].ceo_name}}{{else}}TBD{{/if}}</span>
+                        </div>
+                        {{#if critical_companies.[11].email}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">E-post:</span>
+                            <span class="detail-value-small">{{critical_companies.[11].email}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if critical_companies.[11].funding_amount_nok}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Finansiering:</span>
+                            <span class="detail-value-small">{{critical_companies.[11].funding_amount_nok}}{{#if critical_companies.[11].funding_round}} • {{critical_companies.[11].funding_round}}{{/if}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tekniske behov:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[11].technical_needs_list}}
+                                <ul class="detail-list">
+                                {{#each critical_companies.[11].technical_needs_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                                {{else}}
+                                {{critical_companies.[11].technical_needs}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{#if critical_companies.[11].growth_indicators_list}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Vekst:</span>
+                            <span class="detail-value-small">
+                                <ul class="detail-list">
+                                {{#each critical_companies.[11].growth_indicators_list}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                                </ul>
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[11].source_name}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Kilde:</span>
+                            <span class="detail-value-small">
+                                {{#if critical_companies.[11].source_url}}
+                                  <a class="detail-link" href="{{critical_companies.[11].source_url}}" target="_blank">{{critical_companies.[11].source_name}}</a>
+                                {{else}}
+                                  {{critical_companies.[11].source_name}}
+                                {{/if}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="lead-opportunity">
+                        <div class="opportunity-text">{{critical_companies.[11].sonat_relevance}}</div>
+                        {{#if critical_companies.[11].relevance_tags}}
+                        <div class="opportunity-tags">
+                            {{#each critical_companies.[11].relevance_tags}}
+                            <span class="relevance-tag-small">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER PÅ SIDE 6 -->
+    <div class="page-footer">
+        <span class="page-logo">
+            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI AS</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+    </div>
+</div>
     
 <!-- LINKEDIN INTELLIGENCE OVERVIEW PAGE - HELT NY -->
 <div class="page">
@@ -3569,8 +4465,9 @@ TIER-SYSTEM OPPDATERING:
 
 <!-- LINKEDIN FEED: MODERNE SOCIAL MEDIA LAYOUT REMOVED (erstattet av kompakt visning) -->
     
-    <!-- LINKEDIN SALES PIPELINE: paginert visning med maksimalt 4 innlegg per side -->
-    {{#each linkedin_pages}}
+    <!-- LINKEDIN SALES PIPELINE: 3 separate hardkodede sider med 4 innlegg hver -->
+    
+    <!-- LINKEDIN SIDE 1: Innlegg 1-4 -->
     <div class="page">
       <div class="page-content">
         <div class="linkedin-pipeline">
@@ -3580,62 +4477,197 @@ TIER-SYSTEM OPPDATERING:
           </div>
           
           <div class="sales-cards-container">
-            {{#each posts}}
-              <div class="sales-card {{#if priority_class}}{{priority_class}}{{else}}warm{{/if}}">
-                <!-- Priority stripe øverst -->
-                <div class="priority-stripe"></div>
-                
-                <!-- Company header -->
-                <div class="card-header">
-                  <div class="company-name-big">{{company_name}}</div>
-                  <div class="company-meta">
-                    <div class="post-date">{{post_date}}</div>
-                    {{#if relevance_score}}
-                    <div class="relevance-circle">{{relevance_score}}</div>
-                    {{/if}}
-                  </div>
-                </div>
-                
-                <!-- Signal section -->
-                <div class="signal-section">
-                  <div class="signal-label">
-                    <span>💬</span>
-                    <span>LINKEDIN INNLEGG</span>
-                  </div>
-                  <div class="signal-text">{{post_text}}</div>
-                  
-                  {{#if sonat_opportunity}}
-                  <!-- Opportunity highlight -->
-                  <div class="opportunity-highlight">
-                    <div class="opportunity-icon">💰</div>
-                    <div class="opportunity-label">SONAT MULIGHET</div>
-                    <div class="opportunity-text">{{sonat_opportunity}}</div>
-                  </div>
-                  {{/if}}
-                </div>
-                
-                <!-- Action zone -->
-                <div class="action-zone">
-                  {{#if post_url}}
-                  <a href="{{post_url}}" target="_blank" class="linkedin-action">
-                    <span>🔗</span>
-                    <span>Se på LinkedIn</span>
-                  </a>
-                  {{else}}
-                  <div class="linkedin-action">
-                    <span>📄</span>
-                    <span>LinkedIn Post</span>
+            <!-- LINKEDIN INNLEGG 1 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[0].posts.[0].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[0].posts.[0].post_date}}</div>
+                  {{#if linkedin_pages.[0].posts.[0].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[0].posts.[0].relevance_score}}/10</span>
                   </div>
                   {{/if}}
                 </div>
               </div>
-            {{/each}}
-            
-            {{#unless this}}
-            <div class="no-leads">
-              <div>Ingen LinkedIn-signaler funnet denne perioden</div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[0].posts.[0].post_text}}</div>
+                {{#if linkedin_pages.[0].posts.[0].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[0].posts.[0].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[0].posts.[0].post_url}}
+                <a href="{{linkedin_pages.[0].posts.[0].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
             </div>
-            {{/unless}}
+
+            <!-- LINKEDIN INNLEGG 2 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[0].posts.[1].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[0].posts.[1].post_date}}</div>
+                  {{#if linkedin_pages.[0].posts.[1].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[0].posts.[1].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[0].posts.[1].post_text}}</div>
+                {{#if linkedin_pages.[0].posts.[1].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[0].posts.[1].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[0].posts.[1].post_url}}
+                <a href="{{linkedin_pages.[0].posts.[1].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 3 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[0].posts.[2].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[0].posts.[2].post_date}}</div>
+                  {{#if linkedin_pages.[0].posts.[2].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[0].posts.[2].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[0].posts.[2].post_text}}</div>
+                {{#if linkedin_pages.[0].posts.[2].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[0].posts.[2].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[0].posts.[2].post_url}}
+                <a href="{{linkedin_pages.[0].posts.[2].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 4 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[0].posts.[3].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[0].posts.[3].post_date}}</div>
+                  {{#if linkedin_pages.[0].posts.[3].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[0].posts.[3].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[0].posts.[3].post_text}}</div>
+                {{#if linkedin_pages.[0].posts.[3].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[0].posts.[3].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[0].posts.[3].post_url}}
+                <a href="{{linkedin_pages.[0].posts.[3].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3648,10 +4680,8 @@ TIER-SYSTEM OPPDATERING:
         <span class="page-number" data-total="{{total_pages}}"></span>
       </div>
     </div>
-    {{/each}}
-    
-    {{#unless linkedin_pages}}
-    <!-- Fallback hvis ingen LinkedIn-data -->
+
+    <!-- LINKEDIN SIDE 2: Innlegg 5-8 -->
     <div class="page">
       <div class="page-content">
         <div class="linkedin-pipeline">
@@ -3661,8 +4691,196 @@ TIER-SYSTEM OPPDATERING:
           </div>
           
           <div class="sales-cards-container">
-            <div class="no-leads">
-              <div>Ingen LinkedIn-signaler funnet denne perioden</div>
+            <!-- LINKEDIN INNLEGG 5 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[1].posts.[0].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[1].posts.[0].post_date}}</div>
+                  {{#if linkedin_pages.[1].posts.[0].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[1].posts.[0].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[1].posts.[0].post_text}}</div>
+                {{#if linkedin_pages.[1].posts.[0].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[1].posts.[0].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[1].posts.[0].post_url}}
+                <a href="{{linkedin_pages.[1].posts.[0].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 6 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[1].posts.[1].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[1].posts.[1].post_date}}</div>
+                  {{#if linkedin_pages.[1].posts.[1].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[1].posts.[1].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[1].posts.[1].post_text}}</div>
+                {{#if linkedin_pages.[1].posts.[1].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[1].posts.[1].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[1].posts.[1].post_url}}
+                <a href="{{linkedin_pages.[1].posts.[1].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 7 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[1].posts.[2].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[1].posts.[2].post_date}}</div>
+                  {{#if linkedin_pages.[1].posts.[2].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[1].posts.[2].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[1].posts.[2].post_text}}</div>
+                {{#if linkedin_pages.[1].posts.[2].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[1].posts.[2].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[1].posts.[2].post_url}}
+                <a href="{{linkedin_pages.[1].posts.[2].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 8 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[1].posts.[3].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[1].posts.[3].post_date}}</div>
+                  {{#if linkedin_pages.[1].posts.[3].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[1].posts.[3].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[1].posts.[3].post_text}}</div>
+                {{#if linkedin_pages.[1].posts.[3].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[1].posts.[3].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[1].posts.[3].post_url}}
+                <a href="{{linkedin_pages.[1].posts.[3].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
             </div>
           </div>
         </div>
@@ -3676,8 +4894,221 @@ TIER-SYSTEM OPPDATERING:
         <span class="page-number" data-total="{{total_pages}}"></span>
       </div>
     </div>
-    {{/unless}}
-    
+
+    <!-- LINKEDIN SIDE 3: Innlegg 9-12 -->
+    <div class="page">
+      <div class="page-content">
+        <div class="linkedin-pipeline">
+          <div class="pipeline-header">
+            <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE</div>
+            <div class="pipeline-subtitle">Sosiale signaler som avslører forretningsmuligheter</div>
+          </div>
+          
+          <div class="sales-cards-container">
+            <!-- LINKEDIN INNLEGG 9 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[2].posts.[0].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[2].posts.[0].post_date}}</div>
+                  {{#if linkedin_pages.[2].posts.[0].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[2].posts.[0].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[2].posts.[0].post_text}}</div>
+                {{#if linkedin_pages.[2].posts.[0].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[2].posts.[0].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[2].posts.[0].post_url}}
+                <a href="{{linkedin_pages.[2].posts.[0].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 10 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[2].posts.[1].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[2].posts.[1].post_date}}</div>
+                  {{#if linkedin_pages.[2].posts.[1].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[2].posts.[1].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[2].posts.[1].post_text}}</div>
+                {{#if linkedin_pages.[2].posts.[1].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[2].posts.[1].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[2].posts.[1].post_url}}
+                <a href="{{linkedin_pages.[2].posts.[1].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 11 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[2].posts.[2].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[2].posts.[2].post_date}}</div>
+                  {{#if linkedin_pages.[2].posts.[2].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[2].posts.[2].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[2].posts.[2].post_text}}</div>
+                {{#if linkedin_pages.[2].posts.[2].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[2].posts.[2].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[2].posts.[2].post_url}}
+                <a href="{{linkedin_pages.[2].posts.[2].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- LINKEDIN INNLEGG 12 -->
+            <div class="sales-card">
+              <div class="priority-stripe"></div>
+              <div class="card-header">
+                <div class="company-name-big">{{linkedin_pages.[2].posts.[3].company_name}}</div>
+                <div class="company-meta">
+                  <div class="post-date">{{linkedin_pages.[2].posts.[3].post_date}}</div>
+                  {{#if linkedin_pages.[2].posts.[3].relevance_score}}
+                  <div class="confidence-meter">
+                    <div class="confidence-dots">
+                      <div class="confidence-dot high active"></div>
+                      <div class="confidence-dot active"></div>
+                      <div class="confidence-dot active"></div>
+                    </div>
+                    <span>{{linkedin_pages.[2].posts.[3].relevance_score}}/10</span>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="signal-section">
+                <div class="signal-label">
+                  <span>💬</span>
+                  <span>LINKEDIN INNLEGG</span>
+                </div>
+                <div class="signal-text">{{linkedin_pages.[2].posts.[3].post_text}}</div>
+                {{#if linkedin_pages.[2].posts.[3].sonat_opportunity}}
+                <div class="opportunity-highlight">
+                  <div class="opportunity-icon">💰</div>
+                  <div class="opportunity-label">SONAT MULIGHET</div>
+                  <div class="opportunity-text">{{linkedin_pages.[2].posts.[3].sonat_opportunity}}</div>
+                </div>
+                {{/if}}
+              </div>
+              <div class="action-zone">
+                {{#if linkedin_pages.[2].posts.[3].post_url}}
+                <a href="{{linkedin_pages.[2].posts.[3].post_url}}" target="_blank" class="linkedin-action">
+                  <span>🔗</span>
+                  <span>Se på LinkedIn</span>
+                </a>
+                {{else}}
+                <div class="linkedin-action">
+                  <span>📄</span>
+                  <span>LinkedIn Post</span>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="page-footer">
+        <span class="page-logo">
+          <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+      </div>
+    </div>
+
     <!-- OLD INDIVIDUAL LINKEDIN ACCOUNT PAGES REMOVED -->
     
     <!-- FINAL PAGE: CALL TO ACTION -->
@@ -3685,29 +5116,29 @@ TIER-SYSTEM OPPDATERING:
         <div class="page-content">
             <!-- HOVEDTITTEL MED IMPACT -->
             <div class="action-hero">
-                <h1 class="action-title">{{#if action_hero_title}}{{action_hero_title}}{{else}}TID FOR HANDLING{{/if}}</h1>
-                <p class="action-subtitle">{{#if action_hero_subtitle}}{{action_hero_subtitle}}{{else}}Disse mulighetene venter ikke. Strike while the iron is hot.{{/if}}</p>
+                <h1 class="action-title">{{#if action_hero_title}}{{action_hero_title}}{{else}}UKESOPPSUMMERING{{/if}}</h1>
+                <p class="action-subtitle">{{#if action_hero_subtitle}}{{action_hero_subtitle}}{{else}}De 12 beste mulighetene for Sonat denne uken - rangert og klar for handling.{{/if}}</p>
             </div>
 
             <!-- UMIDDELBARE HANDLINGER - STORE BOKSER -->
             <div class="urgent-actions">
                 <div class="urgent-card critical-action">
                     <div class="urgent-header">
-                        <span class="urgent-label">KRITISK - 48 TIMER</span>
+                        <span class="urgent-label">BESTE MULIGHETER</span>
                         <span class="urgent-count">{{#if critical_count}}{{critical_count}}{{else}}{{immediate_opportunities_count}}{{/if}} LEADS</span>
                     </div>
                     <div class="urgent-content">
-                        <strong>Ring nå:</strong> {{#if critical_action_text}}{{critical_action_text}}{{else}}Kontakt hot leads før konkurrentene. Disse bedriftene har akutt teknologibehov.{{/if}}
+                        <strong>Start med topp 4:</strong> {{#if critical_action_text}}{{critical_action_text}}{{else}}Kontakt de første 4 bedriftene i rapporten. De har høyest sannsynlighet for rask konvertering.{{/if}}
                     </div>
                 </div>
 
                 <div class="urgent-card warm-action">
                     <div class="urgent-header">
-                        <span class="urgent-label">DENNE UKEN</span>
-                        <span class="urgent-count">{{#if qualified_count}}{{qualified_count}}{{else}}{{high_priority_leads}}{{/if}} PROSPEKTER</span>
+                        <span class="urgent-label">ALLE 12 BEDRIFTER</span>
+                        <span class="urgent-count">{{#if qualified_count}}{{qualified_count}}{{else}}{{high_priority_leads}}{{/if}} MULIGHETER</span>
                     </div>
                     <div class="urgent-content">
-                        <strong>Planlegg møter:</strong> {{#if qualified_action_text}}{{qualified_action_text}}{{else}}Book discovery-calls med kvalifiserte prospekter. Perfect timing for approach.{{/if}}
+                        <strong>Følg opp resten:</strong> {{#if qualified_action_text}}{{qualified_action_text}}{{else}}Alle 12 bedrifter er pre-kvalifisert og rangert. Bruk 5-dagers handlingsplanen for systematisk oppfølging.{{/if}}
                     </div>
                 </div>
             </div>
