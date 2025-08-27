@@ -1,0 +1,93 @@
+{
+    "name": "3 market watch: Scrape linkedin",
+    "flow": [
+        {
+            "id": 141,
+            "module": "apify:runTask",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 5449938
+            },
+            "mapper": {
+                "input": "{\r\n    \"deepScrape\": false,\r\n    \"limitPerSource\": 4,\r\n    \"rawData\": false,\r\n    \"scrapeUntil\": \"{{formatDate(addDays(now; -7); \"YYYY-MM-DD\")}}\",\r\n    \"urls\": [\r\n        \"https://www.linkedin.com/company/north-sea-electronics-as/\",\r\n        \"https://www.linkedin.com/company/plugport/\",\r\n        \"https://www.linkedin.com/company/grieg-seafood-asa-gsf-/\",\r\n        \"https://www.linkedin.com/company/tv-2_2/\",\r\n        \"https://www.linkedin.com/company/kravia/\",\r\n        \"https://www.linkedin.com/company/mintra-as/\",\r\n        \"https://www.linkedin.com/company/hordeapp/\",\r\n        \"https://www.linkedin.com/school/hogskulen-pa-vestlandet/\",\r\n        \"https://www.linkedin.com/company/danelec-marine-a-s/\",\r\n        \"https://www.linkedin.com/company/norwegian-electric-systems-as/\",\r\n        \"https://www.linkedin.com/company/eviny/\",\r\n        \"https://www.linkedin.com/company/siemenssoftware/\",\r\n        \"https://www.linkedin.com/company/mowiglobal/\",\r\n        \"https://www.linkedin.com/company/wspinorge/\",\r\n        \"https://www.linkedin.com/company/aritmacom/\",\r\n        \"https://www.linkedin.com/company/fairsight/\",\r\n        \"https://www.linkedin.com/company/bkk/\",\r\n        \"https://www.linkedin.com/company/peak-csl-group-as/\",\r\n        \"https://www.linkedin.com/company/fjord-maritime/\",\r\n        \"https://www.linkedin.com/company/framopumps/\",\r\n        \"https://www.linkedin.com/company/nordea/\",\r\n        \"https://www.linkedin.com/company/sharecat/\",\r\n        \"https://www.linkedin.com/company/ticketco/\",\r\n        \"https://www.linkedin.com/company/gc-rieber-as/\",\r\n        \"https://www.linkedin.com/company/broker-by-visma/posts/?feedView=all\",\r\n        \"https://www.linkedin.com/company/connector-subsea-solutions/\",\r\n        \"https://www.linkedin.com/company/bilberry-tech/\",\r\n        \"https://www.linkedin.com/company/frydenbo/\",\r\n        \"https://www.linkedin.com/company/bergen-synergy/posts/?feedView=all\",\r\n        \"https://www.linkedin.com/company/aibel/\",\r\n        \"https://www.linkedin.com/company/onesubsea/\",\r\n        \"https://www.linkedin.com/company/eviny/\",\r\n        \"https://www.linkedin.com/company/gexcon-as/\",\r\n        \"https://www.linkedin.com/company/clampon/\",\r\n        \"https://www.linkedin.com/company/peak-csl-group-as/\",\r\n        \"https://www.linkedin.com/company/kongsberg-maritime/\",\r\n        \"https://www.linkedin.com/company/eviny/\",\r\n        \"https://www.linkedin.com/company/seatrans-as/\",\r\n        \"https://www.linkedin.com/company/framopumps/\",\r\n        \"https://www.linkedin.com/company/seaborn-as/\",\r\n        \"https://www.linkedin.com/company/tidalx-ai/\",\r\n        \"https://www.linkedin.com/company/elmera-group/\",\r\n        \"https://www.linkedin.com/company/eide-fjordbruk-as/\",\r\n        \"https://www.linkedin.com/company/birdsview-as/\",\r\n        \"https://www.linkedin.com/company/tiotech/\",\r\n        \"https://www.linkedin.com/company/adaptic-as/\",\r\n        \"https://www.linkedin.com/company/bospower/\",\r\n        \"https://www.linkedin.com/company/quorum-software/\",\r\n        \"https://www.linkedin.com/company/skyttelas/\",\r\n        \"https://www.linkedin.com/company/allente-nordic/\",\r\n        \"https://www.linkedin.com/company/glitni/\",\r\n        \"https://www.linkedin.com/company/highsoft/\",\r\n        \"https://www.linkedin.com/company/fotmob/\",\r\n        \"https://www.linkedin.com/company/fonngroup/\",\r\n        \"https://www.linkedin.com/company/bjornafjordennaringsrad/?trk=public_profile_volunteering_position\",\r\n        \"https://www.linkedin.com/company/norges-sildesalgslag/?originalSubdomain=no\",\r\n        \"https://www.linkedin.com/company/odfjell-technology/\",\r\n        \"https://www.linkedin.com/company/cuttingroomcloud/\",\r\n        \"https://www.linkedin.com/in/richard-fyhn-9802041a/\",\r\n        \"https://www.linkedin.com/in/kjersem/\",\r\n        \"https://www.linkedin.com/in/trond-kathenes-5968633/\",\r\n        \"https://www.linkedin.com/in/kennethgangstoe/\",\r\n        \"https://www.linkedin.com/in/kevin-caballero-a0793544/\",\r\n        \"https://www.linkedin.com/in/kjetilflood/\",\r\n        \"https://www.linkedin.com/in/alf-gunnar-andersen-1b511527/\",\r\n        \"https://www.linkedin.com/in/erik-hagestuen-1540571bb/\",\r\n        \"https://www.linkedin.com/in/torbj%C3%B8rn-haugland-1912b6a6/\",\r\n        \"https://www.linkedin.com/in/trond-knudsen-37a9b84/\",\r\n        \"https://www.linkedin.com/in/martijn-tol-1586182/\",\r\n        \"https://www.linkedin.com/in/arnt-mj%C3%B8en-054b995/\",\r\n        \"https://www.linkedin.com/in/j%C3%B8rn-i-berg-656260/\",\r\n        \"https://www.linkedin.com/in/sindre-m%C3%A6land-34574a2/\",\r\n        \"https://www.linkedin.com/in/kjetil-moklev-tollevsen-490b2633/\",\r\n        \"https://www.linkedin.com/in/lassehonsen/\",\r\n        \"https://www.linkedin.com/in/cecilie-bertelsen-18747227b/\",\r\n        \"https://www.linkedin.com/in/leifarnestrommen/\",\r\n        \"https://www.linkedin.com/in/oyvind-bakke/\",\r\n        \"https://www.linkedin.com/in/johan-lunde-sagen-31b24746/\",\r\n        \"https://www.linkedin.com/in/thomas-toppe-olsen-1188428/\",\r\n        \"https://www.linkedin.com/in/arne-helgesen-127262166/\",\r\n        \"https://www.linkedin.com/in/kjetilsortun/\",\r\n        \"https://www.linkedin.com/in/harloff/\",\r\n        \"https://www.linkedin.com/in/kroedseth/\",\r\n        \"https://www.linkedin.com/in/p%C3%A5l-magne-hisdal-3b7791b4/\",\r\n        \"https://www.linkedin.com/in/terjehs/?originalSubdomain=no\",\r\n        \"https://www.linkedin.com/in/aasmundheen/\",\r\n        \"https://www.linkedin.com/in/erik-v%C3%A5ge-7613761/\",\r\n        \"https://www.linkedin.com/in/mads-andersen-73a35465/\",\r\n        \"https://www.linkedin.com/in/bard-kristiansen-a20b5142/\",\r\n        \"https://www.linkedin.com/in/kjetilbenson/\",\r\n        \"https://www.linkedin.com/in/ingvar-steffensen/\",\r\n        \"https://www.linkedin.com/in/madstoppe/\",\r\n        \"https://www.linkedin.com/in/martin-salbu-84902621b/?originalSubdomain=no\",\r\n        \"https://www.linkedin.com/in/harald-daltveit-0babb127/\",\r\n        \"https://www.linkedin.com/in/kristina-lysen-0a873725/\",\r\n        \"https://www.linkedin.com/in/brunborg/\",\r\n        \"https://www.linkedin.com/in/martijn-bergink-a083982/\",\r\n        \"https://www.linkedin.com/in/dag-aksnes-4a67661b/\",\r\n        \"https://www.linkedin.com/in/anders-foss%C3%B8y-70a41736/\",\r\n        \"https://www.linkedin.com/in/mykkeltvedt-geir-61ab3571/\",\r\n        \"https://www.linkedin.com/in/erik-s%C3%B8rheim-18816123b/\",\r\n        \"https://www.linkedin.com/in/olavskogen/\",\r\n        \"https://www.linkedin.com/in/andersteigland/\",\r\n        \"https://www.linkedin.com/in/julie-osland-887551140/\",\r\n        \"https://www.linkedin.com/in/ove-johan-solem-221bba66/\",\r\n        \"https://www.linkedin.com/in/henning-gjellesvik-70172215/\",\r\n        \"https://www.linkedin.com/in/trygve-oma/\",\r\n        \"https://www.linkedin.com/in/jonespen/\",\r\n        \"https://www.linkedin.com/in/magnebakkeli/\",\r\n        \"https://www.linkedin.com/in/atle-sivertsen/\",\r\n        \"https://www.linkedin.com/in/cnordvik/\",\r\n        \"https://www.linkedin.com/in/haavardm/\",\r\n        \"https://www.linkedin.com/in/kristianbruaroy/\",\r\n        \"https://www.linkedin.com/in/jonny-berfjord-6b50604b/\",\r\n        \"https://www.linkedin.com/in/simen-lieungh-266479299/\",\r\n        \"https://www.linkedin.com/in/helgehoi/\"\r\n    ]\r\n}",
+                "taskId": "NllwWQ6LfIANXegdY",
+                "runSync": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "taskId": {
+                            "mode": "chose",
+                            "label": "linkedin-post-scraper-sonat-mw (supreme_coder/linkedin-post)"
+                        },
+                        "runSync": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "apify"
+                            },
+                            "label": "Amund@aiki.as (amund@aiki.as)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:apify2,apify",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "taskId",
+                        "type": "select",
+                        "label": "Task",
+                        "required": true
+                    },
+                    {
+                        "name": "runSync",
+                        "type": "boolean",
+                        "label": "Run synchronously",
+                        "required": true
+                    },
+                    {
+                        "name": "input",
+                        "type": "text",
+                        "label": "Input JSON overrides"
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": true,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
