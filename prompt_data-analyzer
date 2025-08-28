@@ -303,16 +303,16 @@ def analyze_locations(companies):
     ]
   },
   
-  "tid_for_handling_dashboard": {
-    "critical_48h_leads": 4,             // KRITISK - 48 TIMER
-    "critical_48h_message": "Ring nå: Kontakt hot leads før konkurrentene. Disse bedriftene har akutt teknologibehov.",
-    "denne_uke_prospekter": 6,           // DENNE UKEN PROSPEKTER  
-    "denne_uke_message": "Planlegg møter: Book discovery-calls med kvalifiserte prospekter. Perfect timing for approach.",
-    "urgency_breakdown": {
-      "ring_na": 2,                      // Umiddelbart
-      "48_timer": 4,                     // Innen 48t
-      "denne_uke": 6,                    // Denne uken
-      "neste_uke": 2                     // Neste uke
+  "strategisk_handlingsplan": {
+    "research_phase_leads": 4,           // RESEARCH & NETTVERK-MAPPING (1-2 uker)
+    "research_message": "Research og nettverk-mapping: Identifiser warm intro muligheter. Kvalitet over hastværk.",
+    "content_strategy_prospects": 6,     // CONTENT-STRATEGI (2-4 uker)  
+    "content_message": "LinkedIn content-strategi: Bidra til diskusjoner og etabler credibility. Ingen cold DM.",
+    "timeline_breakdown": {
+      "1_2_uker": 4,                     // Research og nettverk-mapping
+      "2_4_uker": 6,                     // Content-strategi og warm outreach
+      "1_3_måneder": 2,                  // Langsiktig relationship building
+      "konferanse_events": 2             // Event-basert networking
     }
   },
   
@@ -321,10 +321,10 @@ def analyze_locations(companies):
       {
         "rank": 1,
         "company_name": "Bedrift AS",
-        "estimated_value": "5-15M NOK potensial",
-        "urgency_reason": "Finansieringsrunden krever rask teknisk skalering",
-        "recommended_action": "Ring CEO innen 48 timer",
-        "urgency_category": "48_timer"      // ring_na | 48_timer | denne_uke
+        "estimated_value": "5-12M NOK potensial",
+        "strategic_reasoning": "50-300 ansatte, lav intern teknologikapasitet, ingen etablerte partnere",
+        "recommended_action": "Research nettverk for warm intro til CTO",
+        "timeline_category": "1_2_uker"     // 1_2_uker | 2_4_uker | 1_3_måneder
       }
     ],
     "sector_recommendations": [

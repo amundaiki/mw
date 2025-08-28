@@ -27,16 +27,21 @@
       "name": "TEKST: Offisielt firmanavn",
       "website_url": "TEKST: Full URL med https://",
       "sector": "TEKST: Bransjekategori (OLJE & GASS, LUFTFART, MEDIA & TEKNOLOGI, etc.)",
-      "employee_count": "TALL: Antall ansatte (indikator på bedriftsstørrelse)",
+      "employee_count": "TALL: 50-500 ansatte (SONAT target range)",
       "location": "TEKST: Hovedkontorets geografiske lokasjon (by/region)",
       "priority_score": "TALL: 8-10 prioritetsscore for kritiske bedrifter",
+      "existing_tech_partner": "TEKST: 'Kjent' | 'Ukjent' | 'Ingen' - Status på eksisterende teknologipartnere",
+      "internal_tech_capacity": "TEKST: 'Lav' | 'Medium' | 'Høy' - Intern teknologikapasitet",
+      "decision_structure": "TEKST: 'CTO' | 'IT-direktør' | 'Innkjøp' | 'CEO' - Beslutningsstruktur",
+      "previous_consultant_use": "TEKST: 'Ja' | 'Nei' | 'Ukjent' - Tidligere konsulentbruk",
       "event_type": "TEKST: 'FUNDING' | 'EKSPANSJON' | 'PRODUKTLANSERING' | 'VEKST'",
       "event_description": "TEKST: 200-400 tegn detaljert beskrivelse av hendelsen som utløser salgsmuligheten",
       "ceo_name": "TEKST: Navn på administrerende direktør eller hovedkontakt",
       "email": "TEKST: Hovedkontakt e-postadresse",
       "phone": "TEKST: Hovedtelefonnummer med landkode",
-      "funding_amount_nok": "TEKST: Finansieringsbeløp med 'M NOK' eller 'N/A'",
+      "funding_amount_nok": "TEKST: Finansieringsbeløp 2-15M NOK eller 'N/A'",
       "funding_round": "TEKST: Type finansieringsrunde (Series A, IPO, Utbytte, etc.)",
+      "estimated_contract_value": "TEKST: 2-15M NOK estimert kontraktverdi basert på tekniske behov",
       "technical_needs": "TEKST: 150-300 tegn sammendrag av identifiserte tekniske behov",
       "technical_needs_list": [
         "ARRAY av TEKST: 3-5 konkrete tekniske behov som SONAT kan løse"
@@ -49,7 +54,15 @@
       "sonat_relevance": "TEKST: 150-250 tegn forklaring av hvorfor denne bedriften er relevant for SONAT",
       "relevance_tags": [
         "ARRAY av TEKST: 3-5 tags som beskriver teknisk match ('Cloud Migration', 'AI/ML', 'DevOps', etc.)"
-      ]
+      ],
+      "sonat_advantage": "TEKST: Unik SONAT kapasitet som matcher behovet",
+      "competitive_position": "TEKST: 'Sterk' | 'Medium' | 'Svak' + kort begrunnelse",
+      "reference_relevance": "TEKST: Hvilke tidligere SONAT prosjekter som matcher",
+      "recommended_approach": "TEKST: Warm intro via [navn/firma] eller annen strategisk tilnærming",
+      "linkedin_strategy": "TEKST: Bidra til diskusjoner eller content-strategi, ikke cold DM",
+      "conference_events": "TEKST: Relevant møtested/konferanse eller 'N/A'",
+      "reference_case": "TEKST: Lignende prosjekt hos annen bedrift som referanse",
+      "action_timeline": "TEKST: '1-2 uker' | '2-4 uker' | '1-3 måneder' - Realistisk tidsramme"
     }
   ],
 
@@ -75,19 +88,22 @@
 
   "linkedin_posts_pages": [
     {
-      "_FORKLARING": "Array med alle LinkedIn-poster flatt strukturert",
+      "_FORKLARING": "Array med alle LinkedIn-poster flatt strukturert - fokus på rekruttering, teknologiutfordringer, omorganiseringer og prosjektannonser",
       "company_name": "TEKST: Firmanavn som postet",
       "post_date": "TEKST: Format YYYY-MM-DD",
       "engagement_level": "TEKST: 'Høy' | 'Middels' | 'Lav'",
       "priority_class": "TEKST: CSS-klasse - 'hot' | 'warm' | 'cold'",
       "relevance_score": "TALL: 1-10 relevans for SONAT",
+      "post_type": "TEKST: 'REKRUTTERING' | 'TEKNOLOGI_UTFORDRING' | 'OMORGANISERING' | 'PROSJEKT_ANNONSERING' | 'ANNET'",
       "post_text": "TEKST: Innhold fra LinkedIn-posten (ordrett)",
       "post_url": "TEKST: URL til LinkedIn-posten",
       "sonat_opportunity": "TEKST: 100-200 tegn forklaring av salgsmuligheten",
       "opportunity_tags": [
         "ARRAY av TEKST: 2-4 tags som beskriver muligheten"
       ],
-      "engagement_score": "TALL: Engasjementsscore (likes, kommentarer, delinger)"
+      "engagement_score": "TALL: Engasjementsscore (likes, kommentarer, delinger)",
+      "signal_strength": "TEKST: 'Sterk' | 'Medium' | 'Svak' - Hvor sterkt signal om teknologibehov",
+      "decision_maker_involved": "TEKST: 'Ja' | 'Nei' | 'Ukjent' - Om beslutningstakere er involvert"
     }
   ],
 
@@ -105,12 +121,15 @@
             "engagement_level": "TEKST: 'Høy' | 'Middels' | 'Lav'",
             "priority_class": "TEKST: 'hot' | 'warm' | 'cold'",
             "relevance_score": "TALL: 1-10 relevans for SONAT",
+            "post_type": "TEKST: 'REKRUTTERING' | 'TEKNOLOGI_UTFORDRING' | 'OMORGANISERING' | 'PROSJEKT_ANNONSERING' | 'ANNET'",
             "post_text": "TEKST: Innhold fra LinkedIn-posten",
             "post_url": "TEKST: URL til posten",
             "sonat_opportunity": "TEKST: Salgsmulighet forklaring",
             "opportunity_tags": [
               "ARRAY av TEKST: Relevans-tags"
-            ]
+            ],
+            "signal_strength": "TEKST: 'Sterk' | 'Medium' | 'Svak' - Hvor sterkt signal om teknologibehov",
+            "decision_maker_involved": "TEKST: 'Ja' | 'Nei' | 'Ukjent' - Om beslutningstakere er involvert"
           }
         ]
       }
@@ -128,10 +147,13 @@
           "engagement_level": "TEKST: Engasjementsnivå",
           "priority_class": "TEKST: CSS-klasse",
           "relevance_score": "TALL: 1-10",
+          "post_type": "TEKST: 'REKRUTTERING' | 'TEKNOLOGI_UTFORDRING' | 'OMORGANISERING' | 'PROSJEKT_ANNONSERING' | 'ANNET'",
           "post_text": "TEKST: Post-innhold",
           "post_url": "TEKST: URL",
           "sonat_opportunity": "TEKST: Mulighet",
-          "opportunity_tags": ["ARRAY: Tags"]
+          "opportunity_tags": ["ARRAY: Tags"],
+          "signal_strength": "TEKST: 'Sterk' | 'Medium' | 'Svak' - Hvor sterkt signal om teknologibehov",
+          "decision_maker_involved": "TEKST: 'Ja' | 'Nei' | 'Ukjent' - Om beslutningstakere er involvert"
         }
       ]
     }
@@ -144,9 +166,9 @@
       "number": "TALL: Rangering 1-3",
       "company_name": "TEKST: Firmanavn",
       "potential_value": "TEKST: Estimert prosjektverdi og type arbeid (f.eks. 'Enterprise DevOps transformasjon - 5-15M NOK potensial')",
-      "recommended_action": "TEKST: Konkret handlingsanbefaling med kontaktperson",
-      "priority_level": "TEKST: 'critical' | 'high'",
-      "urgency_indicator": "TEKST: 'RING NÅ' | '48 TIMER' | 'DENNE UKE'"
+      "recommended_action": "TEKST: Strategisk tilnærming - warm intro, LinkedIn-strategi eller konferanse",
+      "priority_level": "TEKST: 'critical' | 'high'", 
+      "urgency_indicator": "TEKST: '1-2 uker' | '2-4 uker' | '1-3 måneder' - Realistisk tidsramme"
     }
   ],
 
@@ -163,8 +185,8 @@
       "_FORKLARING": "Array med 5-7 konkrete handlingsoppgaver prioritert etter viktighet",
       "number": "TALL: Sekvensiell nummerering",
       "priority": "TEKST: 'critical' | 'high' | 'medium'",
-      "timeline": "TEKST: 'Denne uken' | 'Neste uke' | 'Denne måneden'",
-      "action": "TEKST: 100-200 tegn konkret handlingsoppgave med kontaktinfo"
+      "timeline": "TEKST: '1-2 uker' | '2-4 uker' | '1-3 måneder' - Realistisk tidsramme",
+      "action": "TEKST: 100-200 tegn strategisk tilnærming (ikke kald oppringning)"
     }
   ],
 
@@ -197,7 +219,10 @@
     "linkedin_triple_structure": "KRITISK: linkedin_pages, linkedin_posts_pages og linkedin_accounts må inneholde IDENTISKE data",
     "alle_critical_companies_felt": "ALLE felt i critical_companies må være utfylt - ingen kan være tomme",
     "relevance_score_minimum": "Kun bedrifter/poster med score > 6 inkluderes i rapporten",
-    "sonat_services_focus": "Alle muligheter må kobles til SONATs tjenester: digitalisering, AI/ML, VR/AR, teknologirådgivning, systemutvikling", 
+    "sonat_services_focus": "Alle muligheter må kobles til SONATs tjenester: digitalisering, AI/ML, VR/AR, teknologirådgivning, systemutvikling. Fokus på 50-500 ansatte bedrifter med 2-15M NOK kontraktpotensial",
+    "realistic_filtering": "Fjern bedrifter over 1000 ansatte uten spesifikk inngang. Prioriter bedrifter uten etablerte teknologipartnere",
+    "strategic_approaches": "Erstatt 'RING NÅ/48 TIMER' med strategiske tilnærminger: warm intro, LinkedIn-strategi, konferanser, referansekasus",
+    "improved_linkedin_analysis": "Fokuser på rekrutteringsannonser, teknologiutfordringer, omorganiseringer og prosjektannonser. Ikke generiske webinar-poster.", 
     "norwegian_language": "All tekst på norsk unntatt tekniske tags som 'Cloud Migration', 'DevOps' etc.",
     "no_explanatory_text": "Kun ren JSON i output - ingen forklaringer eller kommentarer når JSON genereres",
     "make_com_compatibility": "JSON må kunne parseres direkte av Make.com automatiseringssystem",

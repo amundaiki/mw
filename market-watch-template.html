@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <!--
-RAPPORT KONFIGURASJONER:
+RAPPORT KONFIGURASJONER - FORBEDRET FOR SONAT AS:
 
-📊 DE 12 BESTE NYHETENE:
-- Viser de 12 mest relevante og viktige nyhetene fra siste uke
-- Alle nyheter er høy kvalitet og relevante for Sonat
-- Fokus på hvilke bedrifter som bør prioriteres for kontakt
+📊 REALISTISK KVALIFISERTE BEDRIFTER:
+- Fokus på 50-500 ansatte bedrifter med 2-15M NOK kontraktpotensial
+- Dypere kvalifisering: teknologipartner status, intern kapasitet, beslutningsstruktur
+- SONAT differensiering: fordel, konkurranseposisjon, referanserelevans
+- Strategiske tilnærminger: warm intro, LinkedIn-strategi, ikke kalde oppringninger
 
-💼 LINKEDIN INNLEGG:
-- Viser de beste LinkedIn-innleggene (optimalt 12 innlegg, 3 sider à 4 innlegg)
-- Alle innlegg er pre-filtrert for relevans og salgsmuligheter
-- Inkluderer prioriteringsveiledning for oppfølging
+💼 FORBEDRET LINKEDIN ANALYSE:
+- Fokus på rekruttering, teknologiutfordringer, omorganiseringer, prosjektannonser
+- Signal styrke evaluering og beslutningstaker involvering
+- Post-type kategorisering for bedre targeting
+- Realistiske tidsrammer (1-2 uker, 2-4 uker, 1-3 måneder)
 
 TEMPLATE STØTTER:
-- critical_companies.[0] til [11] (de 12 beste bedriftene)
-- linkedin_pages (3 sider struktur for LinkedIn-innlegg)
-- Fokus på actionable insights og kontaktprioriteringer
+- critical_companies.[0] til [11] med utvidede kvalifiseringsfelt
+- linkedin_pages med forbedret post-analyse
+- Strategisk handlingsplan basert på SONAT-profil og kapasiteter
 -->
 <html lang="no">
 <head>
@@ -1992,6 +1994,67 @@ TEMPLATE STØTTER:
             padding: var(--space-1);
             border-radius: var(--radius-sm);
         }
+        
+        /* SONAT DIFFERENSIERING STYLES */
+        .sonat-advantage {
+            background: var(--tier1-bg);
+            border-left: 3px solid var(--tier1);
+            padding: var(--space-1);
+            margin: var(--space-1) 0;
+            border-radius: var(--radius-sm);
+        }
+        
+        .strategic-approach {
+            background: var(--tier2-bg);
+            border-left: 3px solid var(--tier2);
+            padding: var(--space-1);
+            margin: var(--space-1) 0;
+            border-radius: var(--radius-sm);
+        }
+        
+        .timeline-value {
+            font-weight: 600;
+            color: var(--tier3);
+        }
+        
+        /* SIGNAL STRENGTH STYLES */
+        .signal-strength {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: var(--space-1) 0;
+            padding: var(--space-1);
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+        }
+        
+        .signal-label-small {
+            font-size: 7pt;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .signal-value {
+            font-size: 7pt;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .signal-value.strong {
+            background: var(--tier1-bg);
+            color: var(--tier1);
+        }
+        
+        .signal-value.medium {
+            background: var(--tier2-bg);
+            color: var(--tier2);
+        }
+        
+        .signal-value.weak {
+            background: var(--tier3-bg);
+            color: var(--tier3);
+        }
 
         /* MODERN LINKEDIN FEED LAYOUT */
         .linkedin-feed-section {
@@ -3055,6 +3118,38 @@ TEMPLATE STØTTER:
                             </span>
                         </div>
                         {{/if}}
+                        
+                        <!-- SONAT KVALIFISERINGSFELT -->
+                        {{#if critical_companies.[0].existing_tech_partner}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Teknologipartner:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].existing_tech_partner}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].internal_tech_capacity}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Intern kapasitet:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].internal_tech_capacity}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].decision_structure}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Beslutningsstruktur:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].decision_structure}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].previous_consultant_use}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tidligere konsulenter:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].previous_consultant_use}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].estimated_contract_value}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Estimert kontraktverdi:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].estimated_contract_value}}</span>
+                        </div>
+                        {{/if}}
                     </div>
 
                     <div class="lead-opportunity">
@@ -3064,6 +3159,50 @@ TEMPLATE STØTTER:
                             {{#each critical_companies.[0].relevance_tags}}
                             <span class="relevance-tag-small">{{this}}</span>
                             {{/each}}
+                        </div>
+                        {{/if}}
+                        
+                        <!-- SONAT DIFFERENSIERING -->
+                        {{#if critical_companies.[0].sonat_advantage}}
+                        <div class="sonat-advantage">
+                            <div class="detail-row">
+                                <span class="detail-label-small">SONAT fordel:</span>
+                                <span class="detail-value-small">{{critical_companies.[0].sonat_advantage}}</span>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].competitive_position}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Konkurranseposisjon:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].competitive_position}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].reference_relevance}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Referanserelevans:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].reference_relevance}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <!-- STRATEGISK TILNÆRMING -->
+                        {{#if critical_companies.[0].recommended_approach}}
+                        <div class="strategic-approach">
+                            <div class="detail-row">
+                                <span class="detail-label-small">Anbefalt tilnærming:</span>
+                                <span class="detail-value-small">{{critical_companies.[0].recommended_approach}}</span>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].linkedin_strategy}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">LinkedIn-strategi:</span>
+                            <span class="detail-value-small">{{critical_companies.[0].linkedin_strategy}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[0].action_timeline}}
+                        <div class="detail-row timeline-row">
+                            <span class="detail-label-small">Tidsramme:</span>
+                            <span class="detail-value-small timeline-value">{{critical_companies.[0].action_timeline}}</span>
                         </div>
                         {{/if}}
                     </div>
@@ -3162,6 +3301,38 @@ TEMPLATE STØTTER:
                             </span>
                         </div>
                         {{/if}}
+                        
+                        <!-- SONAT KVALIFISERINGSFELT -->
+                        {{#if critical_companies.[1].existing_tech_partner}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Teknologipartner:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].existing_tech_partner}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].internal_tech_capacity}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Intern kapasitet:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].internal_tech_capacity}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].decision_structure}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Beslutningsstruktur:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].decision_structure}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].previous_consultant_use}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Tidligere konsulenter:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].previous_consultant_use}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].estimated_contract_value}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Estimert kontraktverdi:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].estimated_contract_value}}</span>
+                        </div>
+                        {{/if}}
                     </div>
 
                     <div class="lead-opportunity">
@@ -3171,6 +3342,50 @@ TEMPLATE STØTTER:
                             {{#each critical_companies.[1].relevance_tags}}
                             <span class="relevance-tag-small">{{this}}</span>
                             {{/each}}
+                        </div>
+                        {{/if}}
+                        
+                        <!-- SONAT DIFFERENSIERING -->
+                        {{#if critical_companies.[1].sonat_advantage}}
+                        <div class="sonat-advantage">
+                            <div class="detail-row">
+                                <span class="detail-label-small">SONAT fordel:</span>
+                                <span class="detail-value-small">{{critical_companies.[1].sonat_advantage}}</span>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].competitive_position}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Konkurranseposisjon:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].competitive_position}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].reference_relevance}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">Referanserelevans:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].reference_relevance}}</span>
+                        </div>
+                        {{/if}}
+                        
+                        <!-- STRATEGISK TILNÆRMING -->
+                        {{#if critical_companies.[1].recommended_approach}}
+                        <div class="strategic-approach">
+                            <div class="detail-row">
+                                <span class="detail-label-small">Anbefalt tilnærming:</span>
+                                <span class="detail-value-small">{{critical_companies.[1].recommended_approach}}</span>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].linkedin_strategy}}
+                        <div class="detail-row">
+                            <span class="detail-label-small">LinkedIn-strategi:</span>
+                            <span class="detail-value-small">{{critical_companies.[1].linkedin_strategy}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if critical_companies.[1].action_timeline}}
+                        <div class="detail-row timeline-row">
+                            <span class="detail-label-small">Tidsramme:</span>
+                            <span class="detail-value-small timeline-value">{{critical_companies.[1].action_timeline}}</span>
                         </div>
                         {{/if}}
                     </div>
@@ -4490,10 +4705,21 @@ TEMPLATE STØTTER:
               </div>
               <div class="signal-section">
                 <div class="signal-label">
+                  {{#if linkedin_pages.[0].posts.[0].post_type}}
+                  <span>{{#if (eq linkedin_pages.[0].posts.[0].post_type 'REKRUTTERING')}}👥{{else if (eq linkedin_pages.[0].posts.[0].post_type 'TEKNOLOGI_UTFORDRING')}}⚡{{else if (eq linkedin_pages.[0].posts.[0].post_type 'OMORGANISERING')}}🔄{{else if (eq linkedin_pages.[0].posts.[0].post_type 'PROSJEKT_ANNONSERING')}}🚀{{else}}💬{{/if}}</span>
+                  <span>{{linkedin_pages.[0].posts.[0].post_type}}</span>
+                  {{else}}
                   <span>💬</span>
                   <span>LINKEDIN INNLEGG</span>
+                  {{/if}}
                 </div>
                 <div class="signal-text">{{linkedin_pages.[0].posts.[0].post_text}}</div>
+                {{#if linkedin_pages.[0].posts.[0].signal_strength}}
+                <div class="signal-strength">
+                  <span class="signal-label-small">Signal styrke:</span>
+                  <span class="signal-value {{#if (eq linkedin_pages.[0].posts.[0].signal_strength 'Sterk')}}strong{{else if (eq linkedin_pages.[0].posts.[0].signal_strength 'Medium')}}medium{{else}}weak{{/if}}">{{linkedin_pages.[0].posts.[0].signal_strength}}</span>
+                </div>
+                {{/if}}
                 {{#if linkedin_pages.[0].posts.[0].sonat_opportunity}}
                 <div class="opportunity-highlight">
                   <div class="opportunity-icon">💰</div>
