@@ -1,0 +1,150 @@
+{
+  "report_generated": "21. desember 2024",
+  "total_companies": "47",
+  "high_priority_leads": "12",
+  "total_linkedin_posts": "28",
+  "total_pages": "5",
+  
+  "banner_text": "Denne uken analyserte vi 47 aktive bedrifter i det norske markedet og valgte ut de 12 mest relevante og lovende bedriftene for Sonat. Fokus på bedrifter med konkrete teknologibehov og vekstpotensial. Alle bedrifter er pre-kvalifisert for relevans og salgsmuligheter.",
+  
+  "key_findings": [
+    {
+      "number": "1",
+      "text": "Økt aktivitet innen AI og maskinlæring - 8 av 12 bedrifter søker teknologipartnere for digitalisering",
+      "priority_class": "critical"
+    },
+    {
+      "number": "2", 
+      "text": "Finansieringsbølge i norsk tech - 5 bedrifter har sikret ny kapital og planlegger ekspansjon",
+      "priority_class": "high"
+    },
+    {
+      "number": "3",
+      "text": "LinkedIn-signaler viser økt fokus på cybersikkerhet og compliance - nye markedsmuligheter for SONAT",
+      "priority_class": "medium"
+    }
+  ],
+  
+  "critical_companies": [
+    {
+      "name": "TechNova AS",
+      "source_url": "https://example.com/technova",
+      "phone": "+47 22 12 34 56",
+      "website_url": "https://technova.no",
+      "priority_score": "9",
+      "sector": "HealthTech",
+      "employee_count": "125",
+      "location": "Oslo",
+      "event_type": "Finansiering",
+      "event_description": "Sikret 45 MNOK i Serie A-runde for å utvikle AI-drevet diagnostikkplattform for norske sykehus",
+      "funding_amount_nok": "45 MNOK",
+      "funding_round": "Serie A",
+      "technical_needs": "AI/ML-utvikling, cloud-arkitektur, systemintegrasjon med eksisterende EPJ-systemer",
+      "growth_indicators_list": ["Ny finansiering", "Ansetter 15 utviklere", "Pilotprosjekt med OUS"],
+      "sonat_relevance": "SONAT har omfattende erfaring med helseteknologi og AI-implementering i offentlig sektor. Vår track record med EPJ-integrasjoner gjør oss til naturlig partner for deres ekspansjon."
+    },
+    {
+      "name": "GreenLogistics Norge",
+      "source_url": "https://example.com/greenlogistics",
+      "phone": "+47 55 87 65 43",
+      "website_url": "https://greenlogistics.no", 
+      "priority_score": "8",
+      "sector": "Logistikk",
+      "employee_count": "89",
+      "location": "Bergen",
+      "event_type": "Ekspansjon",
+      "event_description": "Lanserer ny bærekraftig leveringsplattform og søker teknologipartner for skalering",
+      "funding_amount_nok": "28 MNOK",
+      "funding_round": "Seed+",
+      "technical_needs": "Cloud-native arkitektur, IoT-integrasjon, real-time optimalisering",
+      "growth_indicators_list": ["Ekspanderer til 3 nye byer", "Samarbeid med Posten", "B2B-satsing"],
+      "sonat_relevance": "Vår IoT-ekspertise og erfaring med skalerbare plattformer matcher deres behov perfekt. SONAT kan levere ende-til-ende løsning fra prototype til produksjon."
+    }
+  ],
+  
+  "linkedin_pages": [
+    {
+      "posts": [
+        {
+          "company_name": "InnovateTech AS",
+          "post_date": "18. des 2024",
+          "relevance_score": "8",
+          "post_type": "Rekruttering",
+          "post_text": "Vi søker senior systemarkitekt til vårt team! Skal lede digitaliseringen av norsk industri med cutting-edge IoT-løsninger. Erfaring med cloud-arkitektur og AI ønskelig. 🚀 #jobbledig #systemarkitekt #IoT",
+          "post_url": "https://linkedin.com/posts/innovatetech-123",
+          "sonat_opportunity": "Rekrutteringsbehov indikerer vekst og teknisk satsing. SONAT kan tilby konsulentbistand mens de bygger internt team."
+        },
+        {
+          "company_name": "DataDriven Solutions",
+          "post_date": "17. des 2024", 
+          "relevance_score": "9",
+          "post_type": "Utfordring",
+          "post_text": "Står overfor kompleks integrasjon mellom legacy-systemer og ny cloud-plattform. Noen som har erfaring med hybrid-arkitektur i finanssektoren? Tips mottas med takk! 💡 #systemintegrasjon #fintech",
+          "post_url": "https://linkedin.com/posts/datadriven-456",
+          "sonat_relevance": "Direkte match med SONAT sin kompetanse",
+          "sonat_opportunity": "Konkret teknisk utfordring som SONAT kan løse. Perfekt inngangsport for større samarbeid."
+        },
+        {
+          "company_name": "SmartCity Bergen",
+          "post_date": "16. des 2024",
+          "relevance_score": "7", 
+          "post_type": "Prosjektannonsering",
+          "post_text": "Lanserer smart by-initiativ med fokus på bærekraftig transport og energioptimalisering. Ser etter teknologipartnere som kan levere skalerbare IoT-løsninger 🌱 #smartcity #bærekraft #IoT",
+          "post_url": "https://linkedin.com/posts/smartcity-789",
+          "sonat_opportunity": "Stort offentlig prosjekt med lang tidshorisont. SONAT sin track record med offentlig sektor er konkurransefortrinn."
+        },
+        {
+          "company_name": "FinanceForward AS",
+          "post_date": "15. des 2024",
+          "relevance_score": "8",
+          "post_type": "Teknisk utfordring", 
+          "post_text": "Implementerer ny compliance-plattform og trenger ekspertise på real-time risikoanalyse. Kompleks arkitektur med høye krav til sikkerhet og ytelse 🔒 #fintech #compliance #risikoanalyse",
+          "post_url": "https://linkedin.com/posts/financeforward-012",
+          "sonat_opportunity": "SONAT sin fintech-erfaring og sikkerhetskompetanse gjør oss til ideell partner for deres compliance-utfordringer."
+        }
+      ]
+    }
+  ],
+  
+  "high_engagement_count": "8",
+  "hiring_signals_count": "12", 
+  "networking_events_count": "6",
+  
+  "action_hero_title": "UKESOPPSUMMERING",
+  "action_hero_subtitle": "De 12 beste mulighetene for Sonat denne uken - rangert og klar for handling.",
+  
+  "critical_count": "4",
+  "qualified_count": "12",
+  "immediate_opportunities_count": "4",
+  
+  "critical_action_text": "Kontakt de første 4 bedriftene i rapporten. De har høyest sannsynlighet for rask konvertering og konkrete tekniske behov som matcher SONAT sin kompetanse.",
+  "qualified_action_text": "Alle 12 bedrifter er pre-kvalifisert og rangert. Bruk LinkedIn Intelligence for å time oppfølgingen optimalt basert på deres aktivitetsmønstre.",
+  
+  "top_opportunities_title": "TOPP 3 MULIGHETER DENNE UKEN",
+  "top_opportunities": [
+    {
+      "number": "1",
+      "company_name": "TechNova AS",
+      "potential_value": "2-4 MNOK kontrakt • AI/ML-utvikling • 6-12 måneders engasjement",
+      "recommended_action": "Direkte kontakt via LinkedIn - de søker aktivt etter AI-partnere",
+      "priority_level": "critical",
+      "urgency_indicator": "DENNE UKEN"
+    },
+    {
+      "number": "2", 
+      "company_name": "DataDriven Solutions",
+      "potential_value": "1-3 MNOK • Systemintegrasjon • Akutt behov",
+      "recommended_action": "Responder på LinkedIn-post med konkret løsningsforslag",
+      "priority_level": "high",
+      "urgency_indicator": "2-3 DAGER"
+    },
+    {
+      "number": "3",
+      "company_name": "GreenLogistics Norge", 
+      "potential_value": "3-6 MNOK • Plattformutvikling • Langsiktig partnerskap",
+      "recommended_action": "Warm intro via felles kontakt i Bergen tech-miljøet",
+      "priority_level": "high",
+      "urgency_indicator": "INNEN NYTTÅR"
+    }
+  ]
+}

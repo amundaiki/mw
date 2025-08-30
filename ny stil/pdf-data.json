@@ -1,0 +1,98 @@
+{
+  "COMPANY_NAME": "Sonat Consulting",
+  "REPORT_TITLE": "Market Intelligence Report",
+  "REPORT_SUBTITLE": "Markedsintelligens Rapport",
+  "REPORT_DATE": "21. desember 2024",
+  "REPORT_DESCRIPTION": "Denne rapporten gir en omfattende oversikt over markedstrender, konkurrentanalyse og strategiske anbefalinger basert på de siste dataene og analysene.",
+  
+  "TOC_ITEM_1": "Introduksjon",
+  "PAGE_1": "04",
+  "TOC_ITEM_2": "Bakgrunn og Oversikt", 
+  "PAGE_2": "05",
+  "TOC_ITEM_3": "Metodologi",
+  "PAGE_3": "07",
+  "TOC_ITEM_4": "Markedsanalyse",
+  "PAGE_4": "11",
+  "TOC_ITEM_5": "Anbefalinger",
+  "PAGE_5": "15",
+  "TOC_ITEM_6": "Konklusjon",
+  "PAGE_6": "21",
+  
+  "MAIN_METRIC_TITLE": "Totale hendelser",
+  "MAIN_METRIC_VALUE": "125",
+  "MAIN_METRIC_DESCRIPTION": "Antall markedshendelser analysert (nov 2023 til okt 2024)",
+  
+  "SECONDARY_METRIC_TITLE": "Hovedtrender",
+  "METRIC_ITEM_1": "Digitalisering",
+  "METRIC_ITEM_2": "Bærekraft", 
+  "METRIC_ITEM_3": "Automatisering",
+  
+  "STATS_COLUMN_1_TITLE": "Trendaktører",
+  "STATS_1_LABEL": "Etablerte",
+  "STATS_1_VALUE": "79%",
+  "STATS_1_PERCENTAGE": "79",
+  "STATS_2_LABEL": "Nye aktører", 
+  "STATS_2_VALUE": "21%",
+  "STATS_2_PERCENTAGE": "21",
+  
+  "STATS_COLUMN_2_TITLE": "Motivasjon",
+  "STATS_3_LABEL": "Økonomisk",
+  "STATS_3_VALUE": "85%", 
+  "STATS_3_PERCENTAGE": "85",
+  "STATS_4_LABEL": "Innovasjon",
+  "STATS_4_VALUE": "15%",
+  "STATS_4_PERCENTAGE": "15",
+  
+  "STATS_COLUMN_3_TITLE": "Påvirkning",
+  "STATS_5_LABEL": "Høy",
+  "STATS_5_VALUE": "68%",
+  "STATS_5_PERCENTAGE": "68", 
+  "STATS_6_LABEL": "Moderat",
+  "STATS_6_VALUE": "32%",
+  "STATS_6_PERCENTAGE": "32",
+  
+  "CONSIDERATIONS_TITLE": "Bransjespesifikk Markedsanalyse",
+  "CONSIDERATION_1_TITLE": "Teknologisk transformasjon akselererer",
+  "CONSIDERATION_1_TEXT": "Siden 2022 har det vært en kraftig økning i teknologiinvesteringer. Selskaper som ikke tilpasser seg risikerer å bli hengende etter konkurrentene som implementerer nye løsninger raskere.",
+  
+  "CONSIDERATION_2_TITLE": "Variert spekter av innovasjoner", 
+  "CONSIDERATION_2_TEXT": "Aktører bruker fortsatt tradisjonelle metoder for å hente sensitiv informasjon fra systemer, som kundebetalingsmetoder og e-postadresser. Men teknologien kan også målrette organisasjonens servere.",
+  
+  "CONSIDERATION_3_TITLE": "Beskytt alle typer data",
+  "CONSIDERATION_3_TEXT": "Bedrifter har tilgang til betalingsdata for millioner, men det er ikke den eneste typen data som målrettes. Andre sensitive data kan kompromittere selskapets omdømme, så sikkerhetsprogrammet må være balansert og sterkt.",
+  
+  "PATTERNS_TITLE": "Mest vanlige mønstre",
+  "PATTERN_1_LABEL": "Digitalisering",
+  "PATTERN_1_VALUE": "22%",
+  "PATTERN_1_PERCENTAGE": "22",
+  "PATTERN_2_LABEL": "Automatisering",
+  "PATTERN_2_VALUE": "18%", 
+  "PATTERN_2_PERCENTAGE": "18",
+  "PATTERN_3_LABEL": "Bærekraft",
+  "PATTERN_3_VALUE": "17%",
+  "PATTERN_3_PERCENTAGE": "17",
+  "PATTERN_4_LABEL": "Øvrige",
+  "PATTERN_4_VALUE": "43%",
+  "PATTERN_4_PERCENTAGE": "43",
+  
+  "RECOMMENDATION_1_TITLE": "Strategi 1 - Digitalisering av Forretningsprosesser",
+  "RECOMMENDATION_1_SUBTITLE": "1.2 - Implementer automatiserte arbeidsflyter",
+  "RECOMMENDATION_1_DESCRIPTION": "Bruk automatiseringsverktøy for å identifisere og optimalisere repetitive oppgaver i organisasjonen for å øke effektiviteten. Dette inkluderer implementering av RPA og AI-drevne beslutningssystemer.",
+  "RECOMMENDATION_1_PROGRESS": "30",
+  
+  "RECOMMENDATION_2_TITLE": "Strategi 2 - Bærekraftig Vekst",
+  "RECOMMENDATION_2_SUBTITLE": "2.1 - Sikre at alle initiativer støttes av bærekraftsmål", 
+  "RECOMMENDATION_2_DESCRIPTION": "Sørg for at kun prosjekter som bidrar til bærekraftsmålene blir prioritert i organisasjonens strategiske portefølje. Dette inkluderer ESG-rapportering og grønne investeringer.",
+  
+  "CONCLUSION_INTRO": "Anbefalingene i denne rapporten er utformet for å forbedre måten organisasjonen din tilnærmer seg markedsutvikling og strategisk posisjonering.",
+  "HIGHLIGHT_1": "En detaljert oversikt over markedstrender og deres påvirkning på bransjen",
+  "HIGHLIGHT_2": "Bransjespesifikke utfordringer, mønstre og hensyn", 
+  "HIGHLIGHT_3": "Praktiske anbefalinger som organisasjonen kan ta i bruk for å forbedre sin markedsposisjon",
+  "HIGHLIGHT_4": "Anbefalte teknologier og metoder for å møte de grunnleggende kriteriene etablert av markedsanalysene",
+  
+  "CTA_TITLE": "Er du klar til å forbedre din markedsposisjon?",
+  "CTA_MESSAGE": "Vi er glade for å hjelpe deg med alle dine markedsutfordringer.",
+  
+  "CONTACT_EMAIL": "kontakt@sonatconsulting.no",
+  "CURRENT_YEAR": "2024"
+}

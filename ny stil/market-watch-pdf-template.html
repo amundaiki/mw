@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<!--
+MARKET WATCH PDF TEMPLATE - BASERT PÅ SONAT DESIGN
+PDF-optimalisert versjon av market-watch-template.html
+Kompatibel med pdf.co for A4 PDF-generering
+-->
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Watch: Bedrifter i bevegelse - PDF</title>
+    <style>
+        /* PDF-OPTIMALISERT CSS FOR A4 FORMAT */
+        @page {
+            size: A4;
+            margin: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* SONAT Brand Colors - samme som original */
+        :root {
+            --primary-color: #5A1F26;
+            --primary-dark: #471A20;
+            --primary: #5A1F26;
+            --primary-light: #6E242B;
+            --primary-lighter: #822930;
+            --accent: #F5F5F5;
+            --accent-dark: #EEEEEE;
+            
+            /* Tier Colors */
+            --tier1: #B91C1C;
+            --tier1-bg: #FEF2F2;
+            --tier1-border: #FECACA;
+            --tier2: #D97706;
+            --tier2-bg: #FEF3E2;
+            --tier2-border: #FED7AA;
+            --tier3: #0369A1;
+            --tier3-bg: #F0F9FF;
+            --tier3-border: #BAE6FD;
+            
+            /* Legacy aliases */
+            --critical: var(--tier1);
+            --critical-bg: var(--tier1-bg);
+            --critical-border: var(--tier1-border);
+            --high: var(--tier2);
+            --high-bg: var(--tier2-bg);
+            --high-border: var(--tier2-border);
+            --medium: var(--tier3);
+            --medium-bg: var(--tier3-bg);
+            --medium-border: var(--tier3-border);
+            --success: #059669;
+            --success-bg: #F0FDF4;
+            --success-border: #BBF7D0;
+            
+            /* Neutrals */
+            --text-primary: #0F172A;
+            --text-secondary: #1E293B;
+            --text-tertiary: #334155;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
+            --border-light: #F1F5F9;
+            --bg-light: #F8FAFC;
+            --bg-lighter: #FFFFFF;
+            --bg-surface: #FEFEFE;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            
+            /* Spacing */
+            --space-1: 2mm;
+            --space-2: 4mm;
+            --space-3: 6mm;
+            --space-4: 8mm;
+            --space-5: 10mm;
+            --space-6: 12mm;
+            
+            /* Typography */
+            --font-primary: -apple-system, 'SF Pro Display', 'Segoe UI', 'Arial', sans-serif;
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+            
+            /* Border radius */
+            --radius-sm: 2mm;
+            --radius-md: 3mm;
+            --radius-lg: 4mm;
+            --radius-xl: 6mm;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: 10pt;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* PAGE STRUCTURE */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            box-sizing: border-box;
+            max-width: 210mm;
+            background: white;
+        }
+        
+        .page:last-child {
+            page-break-after: avoid;
+        }
+        
+        .page-content {
+            padding: 20mm 15mm 35mm 15mm;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .page-content.company-page {
+            padding: 12mm 8mm 35mm 8mm;
+        }
+
+        .company-page .compact-leads-grid {
+            padding-top: 2mm;
+        }
+        
+        /* SONAT LOGO I TOPP VENSTRE HJØRNE */
+        .top-left-logo {
+            position: absolute;
+            top: 10mm;
+            left: 15mm;
+            z-index: 20;
+        }
+
+        .top-left-logo .logo-icon {
+            width: 20mm;
+            height: 20mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-left-logo .logo-icon img {
+            width: 20mm;
+            height: 20mm;
+            object-fit: contain;
+            border-radius: 2mm;
+        }
+
+        /* DATE STAMP I TOPP HØYRE HJØRNE */
+        .date-stamp {
+            position: absolute;
+            top: 10mm;
+            right: 15mm;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2mm 4mm;
+            border-radius: 2mm;
+            z-index: 20;
+            font-size: 8pt;
+            color: var(--text-tertiary);
+            border: 0.5pt solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .date-stamp .label {
+            font-size: 7pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            color: var(--text-secondary);
+        }
+        
+        .date-stamp .value {
+            font-weight: 600;
+            color: #1E293B;
+        }
+        
+        /* FOOTER STYLING */
+        .page-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 15mm;
+            right: 15mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3mm;
+            border-top: 0.5pt solid var(--border);
+            font-size: 8pt;
+            color: var(--text-tertiary);
+        }
+
+        .page-footer > * {
+            flex: 1;
+        }
+
+        .page-logo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .powered-by-aiki {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 7pt;
+            color: var(--text-tertiary);
+        }
+
+        .page-number {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .page-logo img {
+            width: 8mm;
+            height: 8mm;
+            object-fit: contain;
+            border-radius: 1.5mm;
+        }
+        
+        /* HERO HEADER */
+        .hero-header {
+            margin: 30px -15mm 0 -15mm;
+            padding: 25mm 15mm 15mm 15mm;
+            background: white;
+            color: var(--text-primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .hero-content {
+            text-align: center;
+            width: 100%;
+            max-width: none;
+        }
+        
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -50mm;
+            right: -50mm;
+            width: calc(100% + 100mm);
+            height: 1pt;
+            background: var(--primary-color);
+            opacity: 1;
+        }
+        
+        .hero-title {
+            font-size: 24pt;
+            font-weight: 300;
+            letter-spacing: -0.5pt;
+            margin: 0 auto 3mm auto;
+            position: relative;
+            z-index: 2;
+            color: var(--text-primary);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .hero-title strong {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .hero-subtitle {
+            font-size: 11pt;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            color: var(--text-secondary);
+        }
+        
+        /* SECTION HEADERS */
+        .section-header {
+            margin: 8mm 0 5mm 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: -0.3pt;
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+        }
+        
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 0.5pt;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-color) 100%);
+            opacity: 0.6;
+        }
+        
+        .section-subtitle {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            margin-top: 2mm;
+        }
+        
+        /* UKESOPPSUMMERING BANNER */
+        .summary-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 12mm;
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            border: 0.5pt solid var(--border-light);
+            border-radius: 6mm;
+            padding: 6mm 8mm;
+            margin-bottom: 5mm;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .banner-left {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .banner-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1mm;
+        }
+
+        .banner-text {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            line-height: 1.35;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .banner-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            align-items: flex-start;
+        }
+        
+        .metric-chip {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: linear-gradient(135deg, white 0%, var(--bg-surface) 100%);
+            border: 0.5pt solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2) var(--space-3);
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            width: 50mm;
+            justify-content: space-between;
+        }
+        
+        .metric-chip::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3mm;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+        }
+
+        .chip-label {
+            font-size: 14pt;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            color: var(--text-tertiary);
+        }
+
+        .chip-value {
+            font-size: 14pt;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+        
+        /* KEY INSIGHTS */
+        .insights-container {
+            margin: 3mm 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3mm;
+        }
+        
+        .insight-item {
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+            padding: 5mm;
+            border-radius: 4mm;
+            border-left: 4mm solid;
+            background: white;
+            box-shadow: var(--shadow-lg);
+            line-height: 1.5;
+        }
+        
+        .insight-tier1 {
+            border-left-color: var(--tier1);
+            background: linear-gradient(135deg, var(--tier1-bg) 0%, white 100%);
+        }
+        
+        .insight-tier2 {
+            border-left-color: var(--tier2);
+            background: linear-gradient(135deg, var(--tier2-bg) 0%, white 100%);
+        }
+        
+        .insight-tier3 {
+            border-left-color: var(--tier3);
+            background: linear-gradient(135deg, var(--tier3-bg) 0%, white 100%);
+        }
+
+        .insight-critical {
+            border-left-color: var(--critical);
+            background: linear-gradient(135deg, var(--critical-bg) 0%, white 100%);
+        }
+        
+        .insight-high {
+            border-left-color: var(--high);
+            background: linear-gradient(135deg, var(--high-bg) 0%, white 100%);
+        }
+        
+        .insight-medium {
+            border-left-color: var(--medium);
+            background: linear-gradient(135deg, var(--medium-bg) 0%, white 100%);
+        }
+        
+        .insight-number {
+            width: 12mm;
+            height: 12mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22pt;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        
+        .insight-tier1 .insight-number {
+            color: var(--tier1);
+        }
+        
+        .insight-tier2 .insight-number {
+            color: var(--tier2);
+        }
+        
+        .insight-tier3 .insight-number {
+            color: var(--tier3);
+        }
+
+        .insight-critical .insight-number {
+            color: var(--critical);
+        }
+        
+        .insight-high .insight-number {
+            color: var(--high);
+        }
+        
+        .insight-medium .insight-number {
+            color: var(--medium);
+        }
+        
+        .insight-content {
+            flex: 1;
+            font-weight: 500;
+            font-size: 13pt;
+        }
+        
+        /* COMPACT LEADS LAYOUT */
+        .compact-leads-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3mm;
+            margin-top: 0;
+            flex: 1;
+            min-height: 260mm;
+            height: 100%;
+            padding-top: 8mm;
+        }
+        
+        .compact-lead-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 5mm;
+            border: 0.5pt solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: visible;
+            height: auto;
+            max-height: 125mm;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .compact-lead-card.critical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2mm;
+            background: linear-gradient(90deg, var(--critical) 0%, var(--critical-border) 100%);
+        }
+        
+        .lead-header {
+            margin-bottom: 2mm;
+            padding-bottom: 1mm;
+            border-bottom: 0.5pt solid var(--border-light);
+        }
+
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1mm;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 6mm;
+            flex: 1;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-contact-inline {
+            display: flex;
+            gap: 3mm;
+            font-size: 7pt;
+            color: var(--text-secondary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1mm;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .contact-icon {
+            font-size: 6pt;
+            color: var(--text-secondary);
+        }
+        
+        .lead-company {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1mm;
+            line-height: 1.2;
+        }
+        
+        .lead-company a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .lead-meta {
+            display: flex;
+            gap: var(--space-1);
+            flex-wrap: wrap;
+        }
+        
+        .meta-pill {
+            background: var(--bg-light);
+            color: var(--text-primary);
+            padding: 1mm 2mm;
+            border-radius: var(--radius-xl);
+            font-size: 7pt;
+            font-weight: 500;
+            border: 0.5pt solid var(--border-light);
+        }
+        
+        .lead-event {
+            margin: 2mm 0;
+            padding: 2mm;
+            background: var(--accent);
+            border-radius: var(--radius-md);
+            border-left: 2mm solid var(--primary-light);
+        }
+        
+        .event-compact {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+        
+        .event-type-small {
+            font-size: 7pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        
+        .event-desc-short {
+            font-size: 9pt;
+            color: var(--text-primary);
+            line-height: var(--line-height-normal);
+        }
+        
+        .lead-details-compact {
+            margin: 1mm 0;
+            flex: 1;
+            overflow: visible;
+            padding: 1mm 0;
+        }
+
+        /* 2-kolonne layout inne i hvert kort */
+        .card-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4mm;
+            margin-top: 2mm;
+        }
+
+        .card-left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1mm;
+        }
+
+        .basic-info-summary {
+            background: var(--accent);
+            border-radius: 2mm;
+            padding: 3mm;
+        }
+
+        .info-block {
+            font-size: 8pt;
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+
+        .info-block strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .card-right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1mm;
+        }
+
+        .strategic-summary {
+            background: var(--accent);
+            border-radius: 2mm;
+            padding: 3mm;
+        }
+
+        .strategy-block {
+            font-size: 8pt;
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+
+        .strategy-block strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .lead-opportunity {
+            margin: 3mm 0;
+            padding: 0;
+        }
+        
+        .opportunity-highlight {
+            background: none;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            margin: 2mm 0;
+            min-height: auto;
+            box-shadow: none;
+        }
+        
+        .opportunity-label {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 1mm;
+            letter-spacing: 0.5pt;
+        }
+        
+        .opportunity-text {
+            font-size: 7.5pt;
+            color: var(--text-primary);
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        /* CONFIDENCE METER */
+        .confidence-meter {
+            display: inline-flex;
+            align-items: center;
+            gap: 1mm;
+            font-size: 7pt;
+            color: var(--text-tertiary);
+        }
+        
+        .confidence-dots {
+            display: flex;
+            gap: 0.5mm;
+        }
+        
+        .confidence-dot {
+            width: 1.5mm;
+            height: 1.5mm;
+            border-radius: 50%;
+            background: var(--border);
+        }
+        
+        .confidence-dot.active {
+            background: var(--primary);
+        }
+        
+        .confidence-dot.high {
+            background: var(--success);
+        }
+        
+        .confidence-dot.medium {
+            background: var(--high);
+        }
+        
+        .confidence-dot.low {
+            background: var(--critical);
+        }
+
+        /* COMPANY SECTIONS */
+        .company-section {
+            margin-bottom: 6mm;
+            border-radius: 4mm;
+            overflow: visible;
+            border: 0.5pt solid var(--border);
+            background: white;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .company-section-header {
+            padding: 4mm 6mm;
+            font-weight: 600;
+            font-size: 10pt;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tier1 .company-section-header,
+        .priority-tier1 .company-section-header,
+        .priority-critical .company-section-header {
+            background: linear-gradient(135deg, var(--tier1) 0%, #B91C1C 100%);
+        }
+
+        .tier2 .company-section-header,
+        .priority-tier2 .company-section-header,
+        .priority-high .company-section-header {
+            background: linear-gradient(135deg, var(--tier2) 0%, #C2410C 100%);
+        }
+
+        .tier3 .company-section-header,
+        .priority-tier3 .company-section-header,
+        .priority-medium .company-section-header {
+            background: linear-gradient(135deg, var(--tier3) 0%, #0E7490 100%);
+        }
+
+        /* LINKEDIN INTELLIGENCE */
+        .linkedin-pipeline {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4mm;
+            border-radius: 4mm;
+            margin-bottom: 4mm;
+            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .pipeline-header {
+            text-align: center;
+            margin-bottom: 6mm;
+        }
+        
+        .pipeline-title {
+            font-size: 16pt;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 2mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        
+        .pipeline-subtitle {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .sales-cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3mm;
+            max-width: 100%;
+            width: 100%;
+            align-items: start;
+            justify-items: stretch;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .sales-card {
+            grid-column: span 1;
+            width: 100%;
+            min-height: 95mm;
+            height: auto;
+            overflow: hidden;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+            background: white;
+            border-radius: 3mm;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            border: 0.5pt solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .priority-stripe {
+            height: 3mm;
+            background: var(--critical);
+        }
+        
+        .card-header {
+            padding: 3mm;
+            border-bottom: 0.5pt solid var(--border-light);
+            background: var(--bg-lighter);
+        }
+        
+        .company-name-big {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1mm;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+        }
+        
+        .company-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .post-date {
+            font-size: 7pt;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+            padding: 0.5mm 1.5mm;
+            border-radius: 2mm;
+        }
+        
+        .signal-section {
+            padding: 3mm;
+            background: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .signal-label {
+            font-size: 7pt;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            margin-bottom: 1mm;
+            display: flex;
+            align-items: center;
+            gap: 1mm;
+        }
+        
+        .signal-text {
+            font-size: 7.5pt;
+            color: var(--text-primary);
+            line-height: 1.3;
+            font-style: italic;
+            border-left: 1.5mm solid var(--primary-light);
+            padding-left: 2mm;
+            margin-bottom: 2mm;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .action-zone {
+            background: var(--primary-color);
+            padding: 2mm;
+            text-align: center;
+        }
+        
+        .linkedin-action {
+            color: white;
+            font-size: 9pt;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1mm;
+        }
+
+        /* DASHBOARD CARDS */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4mm;
+            margin-bottom: 6mm;
+        }
+        
+        .summary-card {
+            background: var(--bg-surface);
+            border: 0.5pt solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3mm;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+        
+        .summary-card-header {
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+            margin-bottom: 3mm;
+            padding-left: 4mm;
+        }
+        
+        .card-icon {
+            width: 8mm;
+            height: 8mm;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12pt;
+            font-weight: 700;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3pt;
+            text-decoration: none;
+        }
+        
+        .card-content {
+            font-size: 12pt;
+            line-height: 1.4;
+            color: var(--text-primary);
+            padding-left: 4mm;
+        }
+        
+        .card-metric {
+            font-size: 24pt;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: var(--space-2) 0;
+            padding-left: 4mm;
+            position: relative;
+        }
+        
+        .card-metric::after {
+            content: '';
+            position: absolute;
+            bottom: -2mm;
+            left: 4mm;
+            width: 15mm;
+            height: 1mm;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 50%, transparent 100%);
+            border-radius: 0.5mm;
+        }
+
+        /* CALL TO ACTION PAGE */
+        .action-hero {
+            text-align: center;
+            margin-bottom: var(--space-4);
+            padding: var(--space-4) var(--space-3);
+            background: linear-gradient(135deg, #FDFDFD 0%, #F8F9FA 100%);
+            color: var(--text-primary);
+            border-radius: var(--radius-lg);
+            border: 1pt solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1pt;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .action-title {
+            font-size: 24pt;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            color: var(--primary-color);
+        }
+        
+        .action-subtitle {
+            font-size: 12pt;
+            font-weight: 400;
+            line-height: var(--line-height-relaxed);
+            color: var(--text-secondary);
+        }
+
+        .urgent-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+        
+        .urgent-card {
+            border-radius: var(--radius-lg);
+            padding: var(--space-3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: white;
+            color: var(--text-primary);
+            border: 1pt solid var(--border-light);
+        }
+        
+        .urgent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3mm;
+        }
+        
+        .urgent-label {
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        
+        .urgent-count {
+            font-size: 14pt;
+            font-weight: 900;
+        }
+        
+        .urgent-content {
+            font-size: 10pt;
+            line-height: 1.4;
+            margin-bottom: 4mm;
+        }
+
+        .top-opportunities {
+            margin-bottom: 8mm;
+        }
+        
+        .opportunity-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            margin-bottom: 4mm;
+            text-align: center;
+        }
+        
+        .opportunity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3mm;
+        }
+        
+        .opportunity-item {
+            display: flex;
+            align-items: center;
+            gap: 4mm;
+            padding: 4mm;
+            border-radius: 3mm;
+            border-left: 3mm solid;
+        }
+        
+        .opportunity-item.priority-critical {
+            border-left-color: var(--critical);
+            background: var(--critical-bg);
+        }
+        
+        .opportunity-item.priority-high {
+            border-left-color: var(--high);
+            background: var(--high-bg);
+        }
+        
+        .opportunity-item.priority-medium {
+            border-left-color: var(--medium);
+            background: var(--medium-bg);
+        }
+        
+        .opp-number {
+            width: 8mm;
+            height: 8mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16pt;
+            font-weight: 900;
+            color: var(--critical);
+            flex-shrink: 0;
+        }
+        
+        .opp-content {
+            flex: 1;
+        }
+        
+        .opp-company {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1mm;
+        }
+        
+        .opp-potential {
+            font-size: 9pt;
+            color: var(--text-secondary);
+            margin-bottom: 1mm;
+        }
+        
+        .opp-action {
+            font-size: 9pt;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .opp-urgency {
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--critical);
+            text-transform: uppercase;
+        }
+
+        .next-report {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border: 0.5pt solid var(--primary-light);
+            border-radius: 3mm;
+            padding: 4mm;
+            text-align: center;
+        }
+        
+        .next-info h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 2mm;
+            text-transform: uppercase;
+        }
+        
+        .next-info p {
+            font-size: 9pt;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        /* KOMPAKT RYTME PÅ SIDE 1 */
+        .section-header{ 
+            margin:4mm 0 2mm 0; 
+        }
+        
+        .hero-header{ 
+            padding-bottom:10mm; 
+        }
+
+        /* SPACER */
+        .spacer {
+            height: 8mm;
+        }
+
+        /* PDF PRINT OPTIMIZATIONS */
+        @media print {
+            * {
+                backdrop-filter: none !important;
+                filter: none !important;
+                -webkit-filter: none !important;
+                text-shadow: none !important;
+                box-shadow: none !important;
+                opacity: 1 !important;
+                -webkit-font-smoothing: antialiased !important;
+                -moz-osx-font-smoothing: grayscale !important;
+                text-rendering: optimizeLegibility !important;
+            }
+            
+            .page {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+            }
+        }
+
+        /* PAGE NUMBERING */
+        body { 
+            counter-reset: pdfpage; 
+        }
+        
+        .page { 
+            counter-increment: pdfpage; 
+        }
+        
+        .page-number::after { 
+            content: counter(pdfpage); 
+        }
+
+        /* NO BREAK CLASSES */
+        .no-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+        
+        .compact-lead-card,
+        .summary-card,
+        .sales-card {
+            page-break-inside: avoid;
+            break-inside: avoid-page;
+        }
+    </style>
+</head>
+<body>
+<!-- PAGE 1: EXECUTIVE DASHBOARD -->
+<div class="page">
+  <!-- SONAT LOGO IN TOP LEFT CORNER -->
+  <div class="top-left-logo">
+    <div class="logo-icon">
+      <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT Logo" />
+    </div>
+  </div>
+
+  <!-- DATE STAMP IN TOP RIGHT CORNER -->
+  <div class="date-stamp">
+    <div class="label">Generert</div>
+    <div class="value">{{report_generated}}</div>
+  </div>
+
+  <div class="page-content">
+    <div class="hero-header">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Market Watch: <strong>Bedrifter i bevegelse</strong>
+        </h1>
+        <p class="hero-subtitle">AI-drevet markedsintelligens for strategiske salgsmuligheter</p>
+      </div>
+    </div>
+
+<div class="spacer"></div>
+
+<!-- UTVIDET UKESOPPSUMMERING MED MER INFO -->
+<div class="summary-banner">
+  <div class="banner-left">
+    <div class="banner-title">Ukesrapport - Bedrifter i bevegelse</div>
+    <div class="banner-text">
+      {{#if banner_text}}{{banner_text}}{{else}}Denne uken analyserte vi {{total_companies}} aktive bedrifter i det norske markedet og valgte ut de {{high_priority_leads}} mest relevante og lovende bedriftene for Sonat. Fokus på bedrifter med konkrete teknologibehov og vekstpotensial. Alle bedrifter er pre-kvalifisert for relevans og salgsmuligheter.{{/if}}
+    </div>
+  </div>
+  <div class="banner-metrics">
+    <div class="metric-chip">
+      <span class="chip-label">📰</span>
+      <span class="chip-value">{{total_companies}}</span>
+    </div>
+    <div class="metric-chip">
+      <span class="chip-label"><img src="https://www.citypng.com/public/uploads/preview/hd-linkedin-square-black-icon-transparent-background-7017516949739946gsykkwdmd.png" style="width: 28px; height: 28px; vertical-align: middle;"></span>
+      <span class="chip-value">{{total_linkedin_posts}}</span>
+    </div>
+  </div>
+</div>
+
+    <!-- MAKSIMALT 3 KEY FINDINGS -->
+    <div class="insights-container">
+      {{#each key_findings}}
+      <div class="insight-item insight-{{priority_class}}">
+        <span class="insight-number">{{number}}</span>
+        <div class="insight-content">{{text}}</div>
+      </div>
+      {{/each}}
+    </div>
+    
+  </div>
+
+<!-- FOOTER PÅ SIDE 1 -->
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span style="font-size: 7pt; color: #64748B; text-align: center;">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+
+<!-- TOP 12 COMPANIES: PAGE 2 (FIRST 2) -->
+<div class="page">
+    <div class="page-content company-page">
+        <div class="company-section priority-critical">
+            <div class="compact-leads-grid">
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="header-top-row">
+                            <div class="header-left">
+                                <h3 class="lead-company">
+                                    {{#if critical_companies.[0].source_url}}<a href="{{critical_companies.[0].source_url}}" target="_blank">{{critical_companies.[0].name}}</a>{{else}}{{critical_companies.[0].name}}{{/if}}
+                                </h3>
+                                <div class="header-contact-inline">
+                                    {{#if critical_companies.[0].phone}}
+                                    <div class="contact-item">
+                                        <span class="contact-icon">📞</span>
+                                        <span>{{critical_companies.[0].phone}}</span>
+                                    </div>
+                                    {{/if}}
+                                    {{#if critical_companies.[0].website_url}}
+                                    <div class="contact-item">
+                                        <span class="contact-icon">🌐</span>
+                                        <a href="{{critical_companies.[0].website_url}}" target="_blank">{{critical_companies.[0].website_url}}</a>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                {{#if critical_companies.[0].priority_score}}
+                                <div class="confidence-meter">
+                                    <div class="confidence-dots">
+                                        <div class="confidence-dot high active"></div>
+                                        <div class="confidence-dot active"></div>
+                                        <div class="confidence-dot active"></div>
+                                    </div>
+                                    <span>{{critical_companies.[0].priority_score}}/10</span>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                        
+                        <div class="lead-meta">
+                            <span class="meta-pill">{{critical_companies.[0].sector}}</span>
+                            <span class="meta-pill">{{critical_companies.[0].employee_count}} ansatte</span>
+                            {{#if critical_companies.[0].location}}<span class="meta-pill">{{critical_companies.[0].location}}</span>{{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[0].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[0].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[0].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="card-content-grid">
+                        <!-- VENSTRE KOLONNE -->
+                        <div class="card-left-column">
+                            <div class="basic-info-summary">
+                                <div class="info-block">
+                                    {{#if critical_companies.[0].funding_amount_nok}}<strong>FINANSIERING:</strong> {{critical_companies.[0].funding_amount_nok}}{{#if critical_companies.[0].funding_round}} • {{critical_companies.[0].funding_round}}{{/if}}<br/>{{/if}}
+                                    <strong>TEKNISKE BEHOV:</strong> {{critical_companies.[0].technical_needs}}<br/>
+                                    {{#if critical_companies.[0].growth_indicators_list}}<strong>VEKST:</strong> {{#each critical_companies.[0].growth_indicators_list}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HØYRE KOLONNE -->
+                        <div class="card-right-column">
+                            <div class="strategic-summary">
+                                <div class="strategy-block">
+                                    <strong>SONAT FORDEL:</strong> AI/ML-ekspertise, helse-erfaring, komplett løsning fra PoC til implementering<br/>
+                                    <strong>TILNÆRMING:</strong> {{top_opportunities.[0].recommended_action}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SONAT MULIGHET -->
+                    {{#if critical_companies.[0].sonat_relevance}}
+                    <div class="lead-opportunity">
+                        <div class="opportunity-highlight">
+                            <div class="opportunity-label">SONAT MULIGHET</div>
+                            <div class="opportunity-text">{{critical_companies.[0].sonat_relevance}}</div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                
+                <!-- SECOND CRITICAL COMPANY -->
+                <div class="compact-lead-card critical">
+                    <div class="lead-header">
+                        <div class="header-top-row">
+                            <div class="header-left">
+                                <h3 class="lead-company">
+                                    {{#if critical_companies.[1].source_url}}<a href="{{critical_companies.[1].source_url}}" target="_blank">{{critical_companies.[1].name}}</a>{{else}}{{critical_companies.[1].name}}{{/if}}
+                                </h3>
+                                <div class="header-contact-inline">
+                                    {{#if critical_companies.[1].phone}}
+                                    <div class="contact-item">
+                                        <span class="contact-icon">📞</span>
+                                        <span>{{critical_companies.[1].phone}}</span>
+                                    </div>
+                                    {{/if}}
+                                    {{#if critical_companies.[1].website_url}}
+                                    <div class="contact-item">
+                                        <span class="contact-icon">🌐</span>
+                                        <a href="{{critical_companies.[1].website_url}}" target="_blank">{{critical_companies.[1].website_url}}</a>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                {{#if critical_companies.[1].priority_score}}
+                                <div class="confidence-meter">
+                                    <div class="confidence-dots">
+                                        <div class="confidence-dot high active"></div>
+                                        <div class="confidence-dot active"></div>
+                                        <div class="confidence-dot active"></div>
+                                    </div>
+                                    <span>{{critical_companies.[1].priority_score}}/10</span>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                        
+                        <div class="lead-meta">
+                            <span class="meta-pill">{{critical_companies.[1].sector}}</span>
+                            <span class="meta-pill">{{critical_companies.[1].employee_count}} ansatte</span>
+                            {{#if critical_companies.[1].location}}<span class="meta-pill">{{critical_companies.[1].location}}</span>{{/if}}
+                        </div>
+                    </div>
+
+                    {{#if critical_companies.[1].event_description}}
+                    <div class="lead-event">
+                        <div class="event-compact">
+                            <span class="event-type-small">{{critical_companies.[1].event_type}}</span>
+                            <span class="event-desc-short">{{critical_companies.[1].event_description}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="card-content-grid">
+                        <!-- VENSTRE KOLONNE -->
+                        <div class="card-left-column">
+                            <div class="basic-info-summary">
+                                <div class="info-block">
+                                    {{#if critical_companies.[1].funding_amount_nok}}<strong>FINANSIERING:</strong> {{critical_companies.[1].funding_amount_nok}}{{#if critical_companies.[1].funding_round}} • {{critical_companies.[1].funding_round}}{{/if}}<br/>{{/if}}
+                                    <strong>TEKNISKE BEHOV:</strong> {{critical_companies.[1].technical_needs}}<br/>
+                                    {{#if critical_companies.[1].growth_indicators_list}}<strong>VEKST:</strong> {{#each critical_companies.[1].growth_indicators_list}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HØYRE KOLONNE -->
+                        <div class="card-right-column">
+                            <div class="strategic-summary">
+                                <div class="strategy-block">
+                                    <strong>SONAT FORDEL:</strong> Fintech-erfaring, systemintegrasjon, M&A-transformasjonskompetanse<br/>
+                                    <strong>TILNÆRMING:</strong> {{critical_companies.[1].event_description}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SONAT MULIGHET -->
+                    {{#if critical_companies.[1].sonat_relevance}}
+                    <div class="lead-opportunity">
+                        <div class="opportunity-highlight">
+                            <div class="opportunity-label">SONAT MULIGHET</div>
+                            <div class="opportunity-text">{{critical_companies.[1].sonat_relevance}}</div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">
+        <span class="page-logo">
+            <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+        </span>
+        <span class="powered-by-aiki">Powered by AIKI AS</span>
+        <span class="page-number" data-total="{{total_pages}}"></span>
+    </div>
+</div>
+
+<!-- LINKEDIN INTELLIGENCE OVERVIEW PAGE -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-header">
+      <h2 class="section-title">💼 LinkedIn Intelligence Dashboard</h2>
+      <p class="section-subtitle">Overvåkning av strategiske bedrifter og deres digitale signaler</p>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">📊</div>
+          <div class="card-title">Innlegg analysert</div>
+        </div>
+        <div class="card-metric">{{total_linkedin_posts}}</div>
+        <div class="card-content">Antall innlegg som har blitt analysert</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">🔥</div>
+          <div class="card-title">Hot signaler</div>
+        </div>
+        <div class="card-metric">{{high_engagement_count}}</div>
+        <div class="card-content">Antall poster med høy salgsmulighet</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">💼</div>
+          <div class="card-title">Ansettelser</div>
+        </div>
+        <div class="card-metric">{{hiring_signals_count}}</div>
+        <div class="card-content">Antall bedrifter som ansetter tech-personer</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <div class="card-icon">📈</div>
+          <div class="card-title">Vekstmuligheter</div>
+        </div>
+        <div class="card-metric">{{networking_events_count}}</div>
+        <div class="card-content">Antall relevante nettverksarrangementer</div>
+      </div>
+    </div>
+
+    <div class="insights-container">
+      <div class="insight-item insight-high">
+        <span class="insight-number">1</span>
+        <div class="insight-content">LinkedIn-aktivitet viser økt fokus på AI og digitalisering blant norske bedrifter</div>
+      </div>
+      <div class="insight-item insight-medium">
+        <span class="insight-number">2</span>
+        <div class="insight-content">Ansettelser innen tech-roller øker med 40% - indikerer vekst og investeringsbehov</div>
+      </div>
+      <div class="insight-item insight-medium">
+        <span class="insight-number">3</span>
+        <div class="insight-content">Bedrifter deler mer om tekniske utfordringer - gir SONAT direkte innsikt i markedet</div>
+      </div>
+    </div>
+  </div>
+
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span class="powered-by-aiki">
+    Powered by AIKI
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+
+<!-- LINKEDIN SALES PIPELINE: SIDE 1 (Innlegg 1-4) -->
+<div class="page">
+  <div class="page-content">
+    <div class="linkedin-pipeline">
+      <div class="pipeline-header">
+        <div class="pipeline-title">💼 LINKEDIN INTELLIGENCE</div>
+        <div class="pipeline-subtitle">Sosiale signaler som avslører forretningsmuligheter</div>
+      </div>
+      
+      <div class="sales-cards-container">
+        <!-- LINKEDIN INNLEGG 1 -->
+        <div class="sales-card">
+          <div class="priority-stripe"></div>
+          <div class="card-header">
+            <div class="company-name-big">{{linkedin_pages.[0].posts.[0].company_name}}</div>
+            <div class="company-meta">
+              <div class="post-date">{{linkedin_pages.[0].posts.[0].post_date}}</div>
+              {{#if linkedin_pages.[0].posts.[0].relevance_score}}
+              <div class="confidence-meter">
+                <div class="confidence-dots">
+                  <div class="confidence-dot high active"></div>
+                  <div class="confidence-dot active"></div>
+                  <div class="confidence-dot active"></div>
+                </div>
+                <span>{{linkedin_pages.[0].posts.[0].relevance_score}}/10</span>
+              </div>
+              {{/if}}
+            </div>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">
+              {{#if linkedin_pages.[0].posts.[0].post_type}}
+              <span>💬</span>
+              <span>{{linkedin_pages.[0].posts.[0].post_type}}</span>
+              {{else}}
+              <span>💬</span>
+              <span>LINKEDIN INNLEGG</span>
+              {{/if}}
+            </div>
+            <div class="signal-text">{{linkedin_pages.[0].posts.[0].post_text}}</div>
+            {{#if linkedin_pages.[0].posts.[0].sonat_opportunity}}
+            <div class="opportunity-highlight">
+              <div class="opportunity-label">SONAT MULIGHET</div>
+              <div class="opportunity-text">{{linkedin_pages.[0].posts.[0].sonat_opportunity}}</div>
+            </div>
+            {{/if}}
+          </div>
+          <div class="action-zone">
+            {{#if linkedin_pages.[0].posts.[0].post_url}}
+            <a href="{{linkedin_pages.[0].posts.[0].post_url}}" target="_blank" class="linkedin-action">
+              <span>🔗</span>
+              <span>Se på LinkedIn</span>
+            </a>
+            {{else}}
+            <div class="linkedin-action">
+              <span>📄</span>
+              <span>LinkedIn Post</span>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+
+        <!-- LINKEDIN INNLEGG 2 -->
+        <div class="sales-card">
+          <div class="priority-stripe"></div>
+          <div class="card-header">
+            <div class="company-name-big">{{linkedin_pages.[0].posts.[1].company_name}}</div>
+            <div class="company-meta">
+              <div class="post-date">{{linkedin_pages.[0].posts.[1].post_date}}</div>
+              {{#if linkedin_pages.[0].posts.[1].relevance_score}}
+              <div class="confidence-meter">
+                <div class="confidence-dots">
+                  <div class="confidence-dot high active"></div>
+                  <div class="confidence-dot active"></div>
+                  <div class="confidence-dot active"></div>
+                </div>
+                <span>{{linkedin_pages.[0].posts.[1].relevance_score}}/10</span>
+              </div>
+              {{/if}}
+            </div>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">
+              <span>💬</span>
+              <span>LINKEDIN INNLEGG</span>
+            </div>
+            <div class="signal-text">{{linkedin_pages.[0].posts.[1].post_text}}</div>
+            {{#if linkedin_pages.[0].posts.[1].sonat_opportunity}}
+            <div class="opportunity-highlight">
+              <div class="opportunity-label">SONAT MULIGHET</div>
+              <div class="opportunity-text">{{linkedin_pages.[0].posts.[1].sonat_opportunity}}</div>
+            </div>
+            {{/if}}
+          </div>
+          <div class="action-zone">
+            {{#if linkedin_pages.[0].posts.[1].post_url}}
+            <a href="{{linkedin_pages.[0].posts.[1].post_url}}" target="_blank" class="linkedin-action">
+              <span>🔗</span>
+              <span>Se på LinkedIn</span>
+            </a>
+            {{else}}
+            <div class="linkedin-action">
+              <span>📄</span>
+              <span>LinkedIn Post</span>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+
+        <!-- LINKEDIN INNLEGG 3 -->
+        <div class="sales-card">
+          <div class="priority-stripe"></div>
+          <div class="card-header">
+            <div class="company-name-big">{{linkedin_pages.[0].posts.[2].company_name}}</div>
+            <div class="company-meta">
+              <div class="post-date">{{linkedin_pages.[0].posts.[2].post_date}}</div>
+              {{#if linkedin_pages.[0].posts.[2].relevance_score}}
+              <div class="confidence-meter">
+                <div class="confidence-dots">
+                  <div class="confidence-dot high active"></div>
+                  <div class="confidence-dot active"></div>
+                  <div class="confidence-dot active"></div>
+                </div>
+                <span>{{linkedin_pages.[0].posts.[2].relevance_score}}/10</span>
+              </div>
+              {{/if}}
+            </div>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">
+              <span>💬</span>
+              <span>LINKEDIN INNLEGG</span>
+            </div>
+            <div class="signal-text">{{linkedin_pages.[0].posts.[2].post_text}}</div>
+            {{#if linkedin_pages.[0].posts.[2].sonat_opportunity}}
+            <div class="opportunity-highlight">
+              <div class="opportunity-label">SONAT MULIGHET</div>
+              <div class="opportunity-text">{{linkedin_pages.[0].posts.[2].sonat_opportunity}}</div>
+            </div>
+            {{/if}}
+          </div>
+          <div class="action-zone">
+            {{#if linkedin_pages.[0].posts.[2].post_url}}
+            <a href="{{linkedin_pages.[0].posts.[2].post_url}}" target="_blank" class="linkedin-action">
+              <span>🔗</span>
+              <span>Se på LinkedIn</span>
+            </a>
+            {{else}}
+            <div class="linkedin-action">
+              <span>📄</span>
+              <span>LinkedIn Post</span>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+
+        <!-- LINKEDIN INNLEGG 4 -->
+        <div class="sales-card">
+          <div class="priority-stripe"></div>
+          <div class="card-header">
+            <div class="company-name-big">{{linkedin_pages.[0].posts.[3].company_name}}</div>
+            <div class="company-meta">
+              <div class="post-date">{{linkedin_pages.[0].posts.[3].post_date}}</div>
+              {{#if linkedin_pages.[0].posts.[3].relevance_score}}
+              <div class="confidence-meter">
+                <div class="confidence-dots">
+                  <div class="confidence-dot high active"></div>
+                  <div class="confidence-dot active"></div>
+                  <div class="confidence-dot active"></div>
+                </div>
+                <span>{{linkedin_pages.[0].posts.[3].relevance_score}}/10</span>
+              </div>
+              {{/if}}
+            </div>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">
+              <span>💬</span>
+              <span>LINKEDIN INNLEGG</span>
+            </div>
+            <div class="signal-text">{{linkedin_pages.[0].posts.[3].post_text}}</div>
+            {{#if linkedin_pages.[0].posts.[3].sonat_opportunity}}
+            <div class="opportunity-highlight">
+              <div class="opportunity-label">SONAT MULIGHET</div>
+              <div class="opportunity-text">{{linkedin_pages.[0].posts.[3].sonat_opportunity}}</div>
+            </div>
+            {{/if}}
+          </div>
+          <div class="action-zone">
+            {{#if linkedin_pages.[0].posts.[3].post_url}}
+            <a href="{{linkedin_pages.[0].posts.[3].post_url}}" target="_blank" class="linkedin-action">
+              <span>🔗</span>
+              <span>Se på LinkedIn</span>
+            </a>
+            {{else}}
+            <div class="linkedin-action">
+              <span>📄</span>
+              <span>LinkedIn Post</span>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page-footer">
+    <span class="page-logo">
+      <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+    </span>
+    <span class="powered-by-aiki">Powered by AIKI</span>
+    <span class="page-number" data-total="{{total_pages}}"></span>
+  </div>
+</div>
+
+<!-- FINAL PAGE: CALL TO ACTION -->
+<div class="page">
+    <div class="page-content">
+        <!-- HOVEDTITTEL MED IMPACT -->
+        <div class="action-hero">
+            <h1 class="action-title">{{#if action_hero_title}}{{action_hero_title}}{{else}}UKESOPPSUMMERING{{/if}}</h1>
+            <p class="action-subtitle">{{#if action_hero_subtitle}}{{action_hero_subtitle}}{{else}}De beste mulighetene for Sonat denne uken - rangert og klar for handling.{{/if}}</p>
+        </div>
+
+        <!-- UMIDDELBARE HANDLINGER - STORE BOKSER -->
+        <div class="urgent-actions">
+            <div class="urgent-card critical-action">
+                <div class="urgent-header">
+                    <span class="urgent-label">BESTE MULIGHETER</span>
+                    <span class="urgent-count">{{#if critical_count}}{{critical_count}}{{else}}{{immediate_opportunities_count}}{{/if}}</span>
+                </div>
+                <div class="urgent-content">
+                    <strong>Start med topp bedrifter:</strong> {{#if critical_action_text}}{{critical_action_text}}{{else}}Kontakt de første bedriftene i rapporten. De har høyest sannsynlighet for rask konvertering.{{/if}}
+                </div>
+            </div>
+
+            <div class="urgent-card warm-action">
+                <div class="urgent-header">
+                    <span class="urgent-label">ALLE BEDRIFTER</span>
+                    <span class="urgent-count">{{#if qualified_count}}{{qualified_count}}{{else}}{{high_priority_leads}}{{/if}}</span>
+                </div>
+                <div class="urgent-content">
+                    <strong>Følg opp resten:</strong> {{#if qualified_action_text}}{{qualified_action_text}}{{else}}Alle bedrifter er pre-kvalifisert og rangert. Bruk systematisk oppfølging for best resultat.{{/if}}
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPPMULIGHETENE -->
+        <div class="top-opportunities">
+            <h2 class="opportunity-title">{{#if top_opportunities_title}}{{top_opportunities_title}}{{else}}TOPP 3 MULIGHETER DENNE UKEN{{/if}}</h2>
+            <div class="opportunity-list">
+                {{#each top_opportunities}}
+                <div class="opportunity-item priority-{{priority_level}}">
+                    <div class="opp-number">{{number}}</div>
+                    <div class="opp-content">
+                        <h3 class="opp-company">{{company_name}}</h3>
+                        <p class="opp-potential">{{potential_value}}</p>
+                        <p class="opp-action">{{recommended_action}}</p>
+                    </div>
+                    <div class="opp-urgency">{{urgency_indicator}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- NESTE RAPPORT INFO -->
+        <div class="next-report">
+            <div class="next-info">
+                <h3>NESTE RAPPORT</h3>
+                <p>Ny Market Watch leveres hver fredag kl. 08:00.</p>
+            </div>
+        </div>
+    </div>
+    
+<div class="page-footer">
+  <span class="page-logo">
+    <img src="https://avatars.githubusercontent.com/u/5276674?s=280&v=4" alt="SONAT" />
+  </span>
+  <span class="powered-by-aiki">
+    Powered by AIKI AS
+  </span>
+  <span class="page-number" data-total="{{total_pages}}"></span>
+</div>
+</div>
+</body>
+</html>
